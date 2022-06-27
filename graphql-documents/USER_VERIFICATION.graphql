@@ -1,0 +1,6 @@
+query UserVerification($verificationId: String!) {
+  userVerification(verificationId: $verificationId) {
+    id
+    message
+  }
+}

@@ -1,0 +1,10 @@
+query GetEmployee($name: String!) {
+  getEmployee(name: $name) {
+    employeeCode
+    designation
+    panNumber
+    dob
+    salary
+    message
+  }
+}

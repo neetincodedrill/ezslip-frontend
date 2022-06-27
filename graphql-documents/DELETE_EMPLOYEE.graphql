@@ -1,0 +1,5 @@
+mutation DeleteEmployee($deleteEmployeeId: ID!) {
+  deleteEmployee(id: $deleteEmployeeId) {
+    message
+  }
+}

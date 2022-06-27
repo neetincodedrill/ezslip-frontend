@@ -1,0 +1,5 @@
+mutation EmployeeSlipShared($employeeSlipSharedId: ID!) {
+  employeeSlipShared(id: $employeeSlipSharedId) {
+    message
+  }
+}

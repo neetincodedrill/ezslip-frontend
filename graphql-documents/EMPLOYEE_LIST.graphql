@@ -1,0 +1,12 @@
+query EmployeeList {
+  employeeList {
+    employees {
+      firstName
+      lastName
+      employeeCode
+      designation
+      salary
+    }
+    message
+  }
+}

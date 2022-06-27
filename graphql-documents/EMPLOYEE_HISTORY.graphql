@@ -1,0 +1,12 @@
+query EmployeeHistory {
+  employeeHistory {
+    employees {
+      employeeCode
+      lastName
+      firstName
+      slipShared
+      updatedAt
+    }
+    message
+  }
+}

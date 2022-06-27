@@ -1,0 +1,5 @@
+mutation UpdateEmployee($input: UpdateEmployeeInput!) {
+  updateEmployee(input: $input) {
+    message
+  }
+}

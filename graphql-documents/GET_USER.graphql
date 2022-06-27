@@ -1,0 +1,8 @@
+query GetUser($getUserId: ID!) {
+  getUser(id: $getUserId) {
+    name
+    organizationName
+    email
+    contactNumber
+  }
+}

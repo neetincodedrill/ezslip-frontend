@@ -1,0 +1,8 @@
+query EmployeeNameList {
+  employeeNameList {
+    employees {
+      name
+    }
+    message
+  }
+}
