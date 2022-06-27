@@ -1,0 +1,108 @@
+.mainfooter {
+    padding: 20px 0 50px 0;
+}
+.footer {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+}
+ 
+.footerLogo {
+    font-family: Racing Sans One;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 50px;
+    color: #47A296;
+    display: inline-block;
+    
+}
+
+.middlefooter{
+display: flex;
+width: 56%;
+justify-content: space-between;
+font-size: 17px;
+margin: 0 92px;
+}
+
+.rightfooter {
+    width: 220px;
+    right: 77px;
+    position: absolute;
+  
+}
+
+.rightfooter p {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+
+.footerlink{
+
+  height: 24px;
+  width: 125px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 24px;
+  
+  /* identical to box height, or 141% */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: #4D4D4D;
+}
+
+.right_header {
+    width: 30%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .right_header li {
+    padding-left: 140px;
+    color: #47a296;
+  }
+  
+  .spanbutton button {
+    height: 48px;
+    margin-left: 45.5px;
+    width: 112px;
+    background: #47a296;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .footer2nd{
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+  }
+  
+  .footerbuttondiv {
+    display: flex;
+    align-items: center;
+    margin-left: 31%;
+    list-style-type: none;
+  }
+
+  .rightfooter2
+  {
+    width: 220px;
+    right: 77px;
+    position: absolute;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;  
+  }
+
+  .signinlink{
+    color:#47a296;
+  }

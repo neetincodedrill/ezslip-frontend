@@ -1,0 +1,64 @@
+.historycomponent {
+    margin: 1% 0 0 3%;
+width: 76.5%;
+}
+
+.historycomponent h1{
+
+    font-weight: bold;
+font-size: 35px;
+line-height: 24px;
+color: #75B9B0;
+margin: 50px 0;
+
+}
+
+.tablehead{
+font-weight: 500;
+font-size: 22px;
+line-height: 24px;
+/* identical to box height, or 120% */
+color: #75B9B0;
+}
+
+.hruler{
+    color: #75B9B0;
+margin: 20px 0;
+height: 3px;
+background-color: #75B9B0;
+border: none;
+}
+
+.hrulergrey {
+    color: #00000017
+}
+
+.sno{
+    width: 10%;
+}
+
+.name{
+    width: 25%;   
+}
+
+.code{
+    width: 20%;
+}
+
+.lastedition{
+    width: 20%;
+}
+
+.slipshared{
+    width: 20%;
+}
+
+.hamburger{
+    width: 5%;
+}
+
+.sametd {
+    padding: 15px 0;
+    font-weight: 400;
+    color: #2E2E2E;
+}

@@ -1,0 +1,282 @@
+.header {
+    height: 100px;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    box-shadow: 1px 1px 6px grey;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+  }
+  
+
+  .left_header {
+    display: flex;
+    justify-content: left;
+    font-family: Racing Sans One;
+    padding-right: 135px;
+  }
+  
+  .left_header_h1 {
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 0em;
+    color: #47a296;
+  }
+  
+  .left_header_h1:hover {
+    cursor: pointer;
+  }
+  
+  .main_logo{
+    font-family: 'Racing Sans One', cursive;
+    width: 131px;
+height: 50px;
+  }
+  
+  .middle_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .middleheaderlink {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    color: #525252;
+    margin: 0 22.5px;
+    min-height: 97px;
+    max-height: 97px;
+    align-items: center;
+    display: flex;
+    border-top: 3px solid white;
+    justify-content: center;
+    width: 65px;
+  }
+
+  .middleheaderlink h3 {
+    font-size: 16px;
+  }
+
+  
+  .middleheaderlink:hover .down_arrow {
+    display: block;
+  }  
+
+  .middleheaderlink:hover {
+    border-top: 3px solid #47a296;
+    cursor: pointer;
+  }
+  
+  .down_arrow {
+    color: #47a296;
+    position: absolute;
+    bottom: 0px;
+    display: none;
+  }
+
+  .right_header {
+    display: flex;
+    align-items: inherit;
+    justify-content: space-evenly;
+    margin-left: 99px;
+}
+
+.signinlink {
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+}
+  
+  .right_header li {
+    color: #47a296;
+    width: 74px;
+    text-align: right
+  }
+  
+  .spanbutton button {
+
+    margin-left: 40px;
+    
+    background: #47a296;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    width: 112px;
+height: 48px;
+  }
+
+  .spanbutton :hover{
+    cursor: pointer;
+  }
+  
+  /* model css  */
+
+  .modalopening{
+    display: flex;
+    position: absolute;
+    background-color: white;
+    top: 102px;
+    padding: 50px 93px 30px;
+    justify-content: space-between;
+    animation-name: slideIn;
+    animation-duration: .3s;
+    z-index: 10;
+    position: relative;
+    overflow: hidden;
+    width: 1440px;
+    margin: auto;
+    
+  }
+
+  .modalclosing{
+    display: flex;
+    position: absolute;
+    background-color: white;
+    top: -402px;
+    padding: 50px 93px 30px;
+    justify-content: space-between;
+    animation-name: slideOut;
+    animation-duration: .5s;
+    z-index: 10;
+    position: relative;
+    overflow: hidden;
+    width: 1440px;
+    margin: auto;
+  }
+
+
+  @-webkit-keyframes slideIn {
+    from {top: -402px; opacity: 0} 
+    to {top: 102px; opacity: 1}
+  }
+  
+  @keyframes slideIn {
+    from {top: -402px; opacity: 0;} 
+    to {top: 102px; opacity: 1}
+  }
+
+  @-webkit-keyframes slideOut {
+    from {top: 102px; opacity: 1} 
+    to {top: -402px; opacity: 1}
+  }
+  
+  @keyframes slideOut {
+    from {top: 102px; opacity: 1} 
+    to {top: -402px; opacity: 1} 
+  }
+
+  .Header_modal p{
+    color: #505050;
+  }
+
+
+ 
+
+  
+  
+  .firstmodalchild .name{
+    color: #47A296;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 66px;
+    line-height: 24px;
+  }
+
+  .firstmodalchild p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+    margin: 50px 0 0 10px;
+    color: #505050;
+  }
+
+
+  .samepara{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+    margin: 14px 0 0 0;
+    color: #505050;
+  }
+  .modalchilds {
+    width: 24%;
+  }
+
+
+  .modalwrapperOpening{
+    height: 100vw;
+    width: 100vw;
+    overflow: hidden;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.4);  
+}
+
+.modalwrapperClosing{
+  height: 100vw;
+  width: 100vw;
+  overflow: hidden;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation-name: fade;
+  animation-duration: 0.5s;
+  background-color: rgba(0,0,0,0.4);  
+}
+
+@-webkit-keyframes fade{
+  from { opacity: 1   } 
+  to { opacity: 1  } 
+}
+
+@keyframes fade {
+  from { opacity: 1} 
+  to { opacity: 1} 
+}
+
+  .hruler {
+    color: #47A296;
+    background-color: #47A296;
+    margin: 4px 0;
+    opacity: 0.5;
+  }
+
+  .modalchilds h2{
+    font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+
+  }
+
+  .modalchilds h3{
+    font-weight: 600;
+font-size: 14px;
+line-height: 24px;
+color: #47A296;
+padding: 20px 0 10px;
+  }
+
+  .firstmodalchild {
+    padding: 20px 0;
+  }
+
+
+

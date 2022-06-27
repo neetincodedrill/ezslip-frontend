@@ -1,0 +1,82 @@
+
+.signinparent{
+    display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.signinginloader{
+    
+    width: 565px;
+    height: 347px;
+
+    border: 3px solid #47A296;
+    border-radius: 10px;   
+    display: flex;
+justify-content: center;
+align-items: center;
+
+animation: blink 2s linear infinite;
+}
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.box{
+    width: 326px;
+height: 204px;
+
+background: #47A296;
+border-radius: 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+}
+.content{
+    position: absolute;
+    width: 359px;
+    height: 83px;
+    left: 89px;
+    font-family: 'Racing Sans One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 66px;
+    line-height: 83px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #FFFFFF;
+}
+
+
+
+.in{
+    font-family: 'Racing Sans One';
+font-style: normal;
+font-weight: 400;
+font-size: 66px;
+line-height: 83px;
+display: flex;
+align-items: center;
+text-align: center;
+color:  #47A296;
+margin-left: 20px;
+}
+
+.bigbox{
+    width: 434px;
+    margin: auto;
+}

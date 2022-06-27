@@ -13,4 +13,244 @@ a {
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  /* border: 1px solid red; */
 }
+
+.flex {
+  display:flex;
+}
+
+.justify-center{
+  display:flex;
+  justify-content: center;
+}
+/* css for email template page  */
+
+.email_template{
+  display: flex;
+  justify-content:center; 
+  width: 600px;
+}
+
+.email_header {
+  height: 80px;
+}
+
+.email_body {
+  height: 480px;
+}
+
+.inline_block {
+  display: inline-block;
+}
+
+.margin_auto {
+  margin: auto;
+}
+
+.align_item_center{
+  align-items: center;
+}
+
+.container { 
+  width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  padding: 0 150px;
+  align-items: center;
+  position: relative;
+}
+
+
+.margin-auto { 
+  margin: auto;
+}
+
+.contactbutton {
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  background: #47A296;
+  color: #FFFFFF;
+  height: 48px;
+  width: 112px;
+  border-radius: 5px;
+  border: none; 
+
+
+}
+/* this is for setup div */
+
+/* 
+#main_model {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  pointer-events: null;
+}
+.modalOverlay::after{
+  content: '';
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.558);
+  z-index: -1;
+} */
+
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.logoutbutton{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  background: #47A296;
+  color: #FFFFFF;
+  height: 48px;
+  width: 112px;
+  border-radius: 5px;
+  border: none;
+  margin-left: 140px;
+}
+
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+/* 
+#_checkbox {
+  display: none;
+}
+
+label {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background-color: #47A296;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  box-shadow: 0 7px 10px grey;
+  cursor: pointer;
+  transition: 0.2s ease transform, 0.2s ease background-color,
+    0.2s ease box-shadow;
+  overflow: hidden;
+  z-index: 1;
+}
+
+label:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto;
+  background-color: #fff;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  box-shadow: inset 0 7px 10px grey;
+  transition: 0.2s ease width, 0.2s ease height;
+}
+
+label:hover:before {
+  width: 55px;
+  height: 55px;
+  box-shadow: inset 0 7px 10px grey;
+}
+
+label:active {
+  transform: translateY(-50%) scale(0.9);
+}
+
+#tick_mark {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  margin-left: 14px;
+  transform: rotateZ(-40deg);
+}
+
+#tick_mark:before,
+#tick_mark:after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  border-radius: 2px;
+  opacity: 0;
+  transition: 0.2s ease transform, 0.2s ease opacity;
+}
+
+#tick_mark:before {
+  left: 0;
+  bottom: 0;
+  width: 10px;
+  height: 30px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.23);
+  transform: translateY(-68px);
+}
+
+#tick_mark:after {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 10px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23);
+  transform: translateX(78px);
+}
+
+#_checkbox:checked + label {
+  background-color: #47A296;
+  box-shadow: 0 7px 10px grey;
+}
+
+#_checkbox:checked + label:before {
+  width: 0;
+  height: 0;
+}
+
+#_checkbox:checked + label #tick_mark:before,
+#_checkbox:checked + label #tick_mark:after {
+  transform: translate(0);
+  opacity: 1;
+} */
