@@ -37,9 +37,9 @@ const Features:React.FC = () => {
     <div className={styles.features}>
       <h1 className={styles.features_h1}>Features</h1>
       <div className={styles.features_div}>
-        <FeatureBox src="/assets/images/Frame.png" heading="Instant Slips" para={paras[0]} bgcolor="rgba(0, 255, 87, 0.1);"/>
-        <FeatureBox src="/assets/images/gear 1.png" heading="Customization" para={paras[1]} bgcolor="rgba(237, 199, 0, 0.1);"/>
-        <FeatureBox src="/assets/images/add-friend 1.png" heading="User Friendly" para={paras[2]} bgcolor="rgba(0, 117, 254, 0.1);"/>
+        <FeatureBox src="/assets/images/Frame.png" heading="Instant Slips" para={paras[0]} bgcolor="rgba(0, 255, 87, 0.1)"/>
+        <FeatureBox src="/assets/images/gear 1.png" heading="Customization" para={paras[1]} bgcolor="rgba(237, 199, 0, 0.1)"/>
+        <FeatureBox src="/assets/images/add-friend 1.png" heading="User Friendly" para={paras[2]} bgcolor="rgba(0, 117, 254, 0.1)"/>
       </div>
     </div>
   );

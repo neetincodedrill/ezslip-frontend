@@ -105,10 +105,10 @@ const SignInForm:FC = () => {
    }
 
    else if(data) {
-    console.log(data);
-    console.log(data.login.token);
-    document.cookie = 'token='+data.login.token+'; path=/ ';
-    console.log(document.cookie);
+    const token = data.login.token
+    // document.cookie = `ezslipToken=${token}`;
+    localStorage.setItem("ezslipToken", token);
+
     // alert(getcookie('token'));
        if(data.login.token==null)
         {

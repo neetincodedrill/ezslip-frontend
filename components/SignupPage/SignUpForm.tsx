@@ -5,7 +5,7 @@ import styles from "./SignUpForm.module.css";
 import Link from "next/link";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { SIGNUP_USER } from "../../graphqlOperations/Signupuser";
+import SIGNUP  from "@graphql/SIGNUP.graphql";
 import signup from "../../pages/signup";
 import Signuploader from "../../pages/signUpLoader/[...token]";
 import { useRouter } from "next/router";
@@ -18,7 +18,7 @@ const SignUpForm = () => {
   const [organisation, setorganisation] = useState<string>("");
   const [email, setemail] = useState<string>("");
   const [Contact, setContact] = useState<string>("");
-  const [signUp, { data, loading, error }] = useMutation(SIGNUP_USER);
+  const [signUp, { data, loading, error }] = useMutation(SIGNUP);
 
 
   async function handleSubmit (e: any) {

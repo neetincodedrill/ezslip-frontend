@@ -1,16 +1,16 @@
 import Image from 'next/image'
 import React,{FC} from 'react'
 import styles from '../styles/RightHistoryComponent.module.css'
+// import { Table } from 'app/core/components/Table';
 
-interface tableDataInterface {
-    
+interface tableData {
+
         "sno"  :  number,
         "name" : string,
         "code" : number,
         "last_edition": string,
         "slipshared": string,
-        "icon": string,
-    
+        "icon": string,    
 }
 
 // interface tableData {
@@ -18,7 +18,8 @@ interface tableDataInterface {
 // }
 
 
-const tableDataObj : tableDataInterface[] = [
+// const tableDataObj : tableDataInterface[] = [
+    const tableDataObj : tableData[] = [
     {
         "sno"  :  1,
         "name" : "Albert Einstein",
@@ -83,21 +84,19 @@ const tableDataObj : tableDataInterface[] = [
     }
 ]
 
-interface tableDataprops {
-    tableData : tableDataInterface;
-}
 
-const Tbody : FC < tableDataprops > = ( {tableData } ) => {
-    
-    
-    return (
+// interface tableDataprops {
+//     tableData : tableDataInterface;
+// }
 
-   Object.values(tableData).map ( ( value , index ) => (   
-        
+const Tbody = () => {
     
-       <>
+    return(
+        Object.values(tableDataObj).map ( ( value , index ) => (   
+
+        <>
         
-            <tr >
+            <tr key={index}>
                 <td className={styles.sametd}>{value.sno}</td>
                 <td className={styles.sametd}>{value.name}</td>
                 <td className={styles.sametd}>{value.code}</td>
@@ -110,22 +109,24 @@ const Tbody : FC < tableDataprops > = ( {tableData } ) => {
             </tr>
         
             <tr>
-                <td colSpan="6"> <hr className={styles.hrulergrey}/> </td>
+                <td colSpan={6}> <hr className={styles.hrulergrey}/> </td>
             </tr>
         
-    
-        
         </>
-       
-    )
     
     )
+        
+    ) 
+       
+    
     )
+    
 
 }
 
 const RightHistoryComponent:FC = () => {
   return (
+
     <div className={styles.historycomponent}>
         <h1>History</h1>
 
@@ -141,13 +142,13 @@ const RightHistoryComponent:FC = () => {
                     <th className={styles.hamburger}></th>
                 </tr>
                 <tr>
-                    <th colSpan="6"> <hr className={styles.hruler}/> </th>
+                    <th colSpan={6}> <hr className={styles.hruler}/> </th>
                 </tr>
             </thead>
 
             <tbody>
 
-                <Tbody tableData={tableDataObj}/>
+                < Tbody />
                
             </tbody>
 
