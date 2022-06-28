@@ -18,31 +18,34 @@ import { useRouter } from 'next/router';
 
 
 
+// function getcookie(key:string) {
 
-
-
-function getcookie(key:string) {
-
-  const value = document.cookie;
-  key= key+"=";
-  var tokencookie;
-  const parts = value.split('; ');
+//   const value : any = document.cookie ? document.cookie : null;
+//   key= key+"=";
+//   var tokencookie;
+//   const parts = value.split('; ');
   
-  console.log(parts)
-  parts.forEach((val)=>{
-  if(val.indexOf(key)===0){
-    tokencookie = val.substring(key.length);
-  }
-})
-  return tokencookie;
+//   console.log(parts)
+//   parts.forEach((val)=>{
+//   if(val.indexOf(key)===0){
+//     tokencookie = val.substring(key.length);
+//   }
+// })
+//   return tokencookie;
+// }
+
+// Cookies.get('name'); 
+
+var token : any;
+if (typeof window !== 'undefined') {
+  // Perform localStorage action
+   token = localStorage.getItem('ezslipToken')
 }
 
 
 
 
-
 const Rightheaderlogout:FC = () => {
-  console.log(getcookie("token"));
   return(
 
     <div className="buttondiv">
@@ -65,7 +68,7 @@ const Dashboard:FC = () => {
   const router = useRouter();
 
 
-if(!getcookie("token")) {
+if(!token) {
   alert("unauthorized access");
   router.push("/signin");
 }
@@ -93,9 +96,6 @@ const footershadow : any = {
   return (
 
     <>
-   
-
-   
         <div className={styles.header}>
         
           <div className="container">
