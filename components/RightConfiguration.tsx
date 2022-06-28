@@ -140,52 +140,7 @@ const RightConfiguration = () => {
   // const [formdata, setFormdata] = useState({});
   const [file, setFile] = useState();
 
-  // await fetch('http://localhost:5000/get', {
-  //     method : 'get',
-  //     headers : myheaders
 
-  //   }).then(res=>{
-  //     return res.json()
-  //   }).then(data=>{
-  //     console.log(data)
-  //     setFormdataget({
-  //     "CIN":data.organization_Details.CIN,
-  //     "EPF":data.organization_Details.EPF,
-  //     "ESI": data.organization_Details.ESI,
-  //     "HRA": data.organization_Details.HRA,
-  //     "basicSalary": data.organization_Details.basicSalary,
-
-  //     "address": data.user_Details.address,
-  //     "organizationImage" : data.user_Details.organizationImage,
-  //     "organizationLegalName": data.user_Details.organizationLegalName,
-  //     "organizationType": data.user_Details.organizationType
-  //     })
-  //   })
-  // fetch('http://localhost:5000/get', {
-  //     method: 'GET', // or 'PUT'
-  //     headers: {
-  //         'Authorization': token,
-  //     },
-  //     })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //         console.log('Success:', data);
-  //         setFormdataget({
-  //             "CIN":data.organization_Details.CIN,
-  //             "EPF":data.organization_Details.EPF,
-  //             "ESI": data.organization_Details.ESI,
-  //             "HRA": data.organization_Details.HRA,
-  //             "basicSalary": data.organization_Details.basicSalary,
-
-  //             "address": data.user_Details.address,
-  //             "organizationImage" : data.user_Details.organizationImage,
-  //             "organizationLegalName": data.user_Details.organizationLegalName,
-  //             "organizationType": data.user_Details.organizationType
-  //         })
-  //     })
-  //     .catch((error) => {
-  //     console.error('Error:', error);
-  // });
 
   useEffect(() => {
     fetch("http://localhost:5000/get", {
@@ -213,33 +168,9 @@ const RightConfiguration = () => {
         });
       });
   }, []);
-  //   const fetchData = async () => {
-
-  //   };
-
-  //   fetchData();
-  //   async function handleSubmit(e: React.FormEvent){
-  //       e.preventDefault();
-  //       console.log(e);
-  //       console.log(formdata)
-  //       console.log("file is---", file);
-
-  //       setFormdata({
-  //           ...formdata,
-  //           "file":file
-  //       });
-
-  //       console.log(formdata)
-
-  //   }
 
   const handle = (e: any) => {
     console.log(e);
-    // setFormdata({
-    //   ...FormData,
-    // //   [(e.target as HTMLInputElement).name]: (e.target as HTMLInputElement)
-    // //     .value,
-    // // });
   };
 
   return (
@@ -256,7 +187,7 @@ const RightConfiguration = () => {
           
               {formdataget.organizationImage?(
               <Image 
-               src = {"/"+formdataget.organizationImage}
+               src = {formdataget.organizationImage}
               //  width="48px"
               //  height="43.75px"
                alt={formdataget.organizationImage}

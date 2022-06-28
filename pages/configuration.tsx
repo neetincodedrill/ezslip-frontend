@@ -11,26 +11,34 @@ import SignupFooter from '../components/SignupFooter';
 import Link from "next/link"
 import { useRouter } from 'next/router';
 const cookie = require('cookie-cutter')
+import { getCookie } from 'cookies-next';
 
 
 const Rightheaderlogout:FC = () => {
   const handleLogout = () => {
     cookie.set('ezslipToken', '', { expires: new Date(0) })
-}
+  }
   return(
-
-    <div className="buttondiv">
+  <div className="buttondiv">
       <Link href="/signin">
         <button type="button" className="logoutbutton" onClick = {handleLogout}>Logout</button>
       </Link>
   </div>
-    )
+  )
 }
 
+var allCookies : any;
+if (typeof document !== "undefined") {
+    allCookies = document.cookie;
+    console.log(document.cookie)
+}
+
+console.log(allCookies)
 
 const Dashboard:FC = () => {
   const router = useRouter();
-  var token : any = cookie.get('ezslipToken');
+  var token : any = getCookie('ezslipToken');
+ 
   if(!token) {
     alert("unauthorized access");
     router.push("/signin");
