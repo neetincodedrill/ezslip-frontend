@@ -15,8 +15,9 @@ const cookie = require('cookie-cutter');
 
 
 import Userheader from '../components/Userheader';
+import RightEmployeesComponent from '@components/RightEmployeesComponent';
 
-const configuration = () => {
+const EmployeesPage = () => {
   return (
   <>
  
@@ -29,7 +30,7 @@ const configuration = () => {
   <LeftDashboardComponent />
 
 
-  <RightConfiguration />
+  <RightEmployeesComponent />
 
   </div>
 
@@ -41,5 +42,5 @@ const configuration = () => {
 }
 
 
-export default configuration
+export default EmployeesPage
 

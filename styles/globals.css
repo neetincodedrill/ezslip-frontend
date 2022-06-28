@@ -134,7 +134,16 @@ a {
   border: none;
   margin-left: 140px;
 }
+.space_around{
+  display: flex;
+  justify-content: space-around;
+  color: green;
+}
 
+.space_between {
+  display: flex;
+  justify-content: space-between;
+}
 
 * {
   -webkit-tap-highlight-color: transparent;

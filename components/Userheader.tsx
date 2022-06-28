@@ -72,7 +72,7 @@ const Rightheaderlogout:FC = () => {
     <Link href="/signin">
    <button type="button" className="logoutbutton" onClick= {()=>
    {
-     document.cookie = "token=; Expires=Thu, 01 Jan 1970 00:00:00 UTC; Path=/"
+     document.cookie = "ezslipToken=; Expires=Thu, 01 Jan 1970 00:00:00 UTC; Path=/"
      
      console.log(document.cookie);
    }

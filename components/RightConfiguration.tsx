@@ -5,88 +5,10 @@ import Image from "next/image";
 import Link from 'next/link';
 const cookie = require('cookie-cutter')
 
-function getcookie(key: string) {
-  const value = document.cookie;
-  key = key + "=";
-  var tokencookie = "";
-  const parts = value.split("; ");
 
-  console.log(parts);
-  parts.forEach((val) => {
-    if (val.indexOf(key) === 0) {
-      tokencookie = val.substring(key.length);
-      console.log(typeof tokencookie);
-    }
-  });
-  return tokencookie;
-}
-
-interface leftinputprops {
-  // [index: string] : string,
-  placeholder: string;
-  name: string;
-  type: string;
-  value: string;
-  // onchange: React.ChangeEventHandler<HTMLInputElement>
-  onchange: React.ChangeEventHandler<HTMLInputElement>;
-}
-
-interface selectProps {
-  // [index: string] : string,
-
-  name: string;
-  value: string;
-  // onchange: React.ChangeEventHandler<HTMLInputElement>
-  onchange: React.ChangeEventHandler<HTMLSelectElement>;
-}
-
-const LeftInput: FC<leftinputprops> = ({
-  type,
-  placeholder,
-  name,
-  value,
-  onchange,
-}) => {
-  return (
-    <input
-      type={type}
-      placeholder={placeholder}
-      className={styles.leftinput}
-      name={name}
-      onChange={onchange}
-      value={value}
-      readOnly
-      required
-    />
-  );
-};
-
-const RightInput: FC<leftinputprops> = ({
-  type,
-  placeholder,
-  name,
-  value,
-  onchange,
-}) => {
-  return (
-    <input
-      type={type}
-      placeholder={placeholder}
-      className={styles.rightinput}
-      name={name}
-      onChange={onchange}
-      value={value}
-      readOnly
-      required
-    />
-  );
-};
-
-// import { url } from "inspector";
-// import image from "../../ezslip-backend/server/public/images/Frame.png";
 
 const RightConfiguration = () => {
-  var token: any;
+  var token: any; 
     token = cookie.get('ezslipToken')
 
   const [formdataget, setFormdataget] = useState({
@@ -129,26 +51,92 @@ const RightConfiguration = () => {
   }, []);
 
   return (
-    <div>
-      <div className="firstRow">
-      {/* {formdataget.organizationImage} */}
-        {/* <img src={formdataget.organizationImage} alt="sadsa" /> */}
-        
-        {/* {formdataget.organizationImage} */}
+    <div className={styles.main}>
 
-        <div className={styles.profileImageDiv}>
+        <div className={styles.parent}>
+
+     
+              <div className={styles.firstRow}>
+
+                  {/* {formdataget.organizationImage} */}
+
+                  <div className={styles.profileimagediv}>
           
-          {/* <Image
 
-            src =  {formdataget.organizationImage}
-            width="131px"
-            height="131px"
-            alt="hello"
+                     
+                  <Image
+                    src = "/assets/images/banner-img.png"
+                    width="120px"
+                    height="120px"
+                    alt="hello"
+                    className={styles.image}
+                  /> 
+                  
 
-          /> */}
+                  {/* something */}
+                  </div>
 
+        
+                  <Link href="/editprofile">
+                        <div className={styles.editbutton}>
+                
+                          <button type="button"> Edit <Image 
+                          src="/assets/images/ant-design_edit-twotone.png" 
+                          height="24px"
+                          width="24px"
+                          alt="edit"
+                          />
+                          </button>
+                        </div>
+
+                  </Link>
+
+                
+
+
+              </div>
+
+
+              <div className={styles.content}>
+
+                  <div className={styles.oneline}>
+                    <div className={styles.heading}>Organization Legal Name</div>: <div  className={styles.fetchdata}>{formdataget.organizationLegalName}</div> 
+                  </div>
+
+                  <div className={styles.oneline}>
+                   <div className={styles.heading}>Organistaion Type</div> : <div className={styles.fetchdata}> {formdataget.organizationType}</div>
+                  </div>
+
+                  <div className={styles.oneline}>
+                   <div className={styles.heading}>Address</div>: <div className={styles.fetchdata}>{formdataget.address}</div> 
+                  </div>
+                  
+
+                  <div className={styles.oneline}>
+                    <div className={styles.heading}>Basic salary</div> : <div className={styles.fetchdata}>{formdataget.basicSalary}</div> 
+                  </div>
+
+                  <div className={styles.oneline}>
+                    <div className={styles.heading}>HRA</div> : <div className={styles.fetchdata}>{formdataget.HRA}</div>
+                  </div>
+
+
+                  <div className={styles.oneline}>
+                    <div className={styles.heading}>EPF </div>: <div className={styles.fetchdata}>{formdataget.EPF}</div>
+                    </div>
+
+                  <div className={styles.oneline}>
+                    <div className={styles.heading}>CIN </div>: <div className={styles.fetchdata}>{formdataget.CIN}</div>
+                  </div>
+                  
+
+                  <div className={styles.oneline}>
+                  <div className={styles.heading}>ESI</div>: <div className={styles.fetchdata}>{formdataget.ESI}</div> 
+                  </div>
+
+              </div>
         </div>
-      </div>
+     
     </div>
   );
 };

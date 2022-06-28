@@ -50,16 +50,18 @@ const Profilediv:FC<profiledivProps> = ({imgsrc, name, designation }) => {
 const LeftDashboardComponent:FC = () => {
   return (
     <div className={styles.leftdashboardcomponent}>
-        
+        <div className={styles.mainarea}>
+
         <Profilediv imgsrc="/assets/images/profile.png" name="Dora Explorer" designation="Executive (DeskmateAI)"/>
 
         <hr className={styles.hruler}/>
 
         <Menu imgsrc="/assets/images/add.png" altimg="add.png" text="New" href="/new" />
         <Menu imgsrc="/assets/images/history.png" altimg="history.png" text="History" href="/history" />
-        <Menu imgsrc="/assets/images/employees.png" altimg="employees.png" text="Employees" href="/employees" />
+        <Menu imgsrc="/assets/images/employees.png" altimg="employees.png" text="Employees" href="/employeesPage" />
         <Menu imgsrc="/assets/images/configuration.png" altimg="configuration.png" text="Configuration" href="/configuration" />
 
+        </div>
     </div>
   )
 }

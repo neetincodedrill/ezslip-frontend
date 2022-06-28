@@ -1,3 +1,4 @@
+
 import React,{FC,useState} from 'react'
 import {LeftHeader, MiddleHeader, ModalWrapper } from '../components/Header'
 import * as linkData from "../components/mockdata/links"
@@ -14,9 +15,11 @@ import stylesdash from "../styles/dash.module.css"
 const cookie = require('cookie-cutter');
 
 
-import Userheader from '../components/Userheader';
 
-const configuration = () => {
+import Userheader from '../components/Userheader';
+import RightConfigurationeditable from '@components/RightConfigurationeditable';
+
+const Editprofile = () => {
   return (
   <>
  
@@ -29,7 +32,7 @@ const configuration = () => {
   <LeftDashboardComponent />
 
 
-  <RightConfiguration />
+  <RightConfigurationeditable />
 
   </div>
 
@@ -41,5 +44,4 @@ const configuration = () => {
 }
 
 
-export default configuration
-
+export default Editprofile

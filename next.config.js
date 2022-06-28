@@ -19,5 +19,9 @@ const nextConfig = {
 module.exports = withPlugins([
   // add plugins here..
   graphql
-], nextConfig);
-
+], nextConfig),
+{
+  images: {
+    domains: ['localhost:5000'],
+  },
+}
