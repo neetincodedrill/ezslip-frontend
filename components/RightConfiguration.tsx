@@ -2,6 +2,8 @@ import Image from "next/image";
 import React, { FC, useState, useEffect } from "react";
 import styles from "../styles/rightconfiguration.module.css";
 import Link from 'next/link';
+const cookie = require('cookie-cutter')
+
 function getcookie(key: string) {
   const value = document.cookie;
   key = key + "=";
@@ -120,10 +122,7 @@ const InputfullWidth: FC<inputfullwidthProps> = ({ name, onchange, value }) => {
 
 const RightConfiguration = () => {
   var token: any;
-  if (typeof window !== "undefined") {
-    // Perform localStorage action
-    token = localStorage.getItem("ezslipToken");
-  }
+    token = cookie.get('ezslipToken')
 
   const [formdataget, setFormdataget] = useState({
     CIN: "",
@@ -199,7 +198,6 @@ const RightConfiguration = () => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         setFormdataget({
           CIN: data.organization_Details.CIN,
           EPF: data.organization_Details.EPF,
