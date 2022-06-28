@@ -1,0 +1,69 @@
+.leftdashboardcomponent {
+    width: 23.5% !important;
+background-color: #216277;
+}
+
+.profilediv {
+    padding: 28px 22px;
+    display: flex;
+}
+
+.content {
+    color: white;
+    padding: 15px 10px 15px 20px;
+}
+
+
+.content h3
+{
+
+    font-size: 22px;
+    line-height: 23px;
+    color: rgba(255, 255, 255, 0.92);
+    padding-bottom: 6px;
+    font-weight: bold;
+
+}
+
+.content h5{
+
+    font-weight: 500;
+    font-size: 15.5px;
+    line-height: 17px;
+    color: rgba(255, 255, 255, 0.63);
+
+}
+
+.hruler {
+    width: 87%;
+    margin: auto;
+    color: rgba(255, 255, 255, 0.63);
+
+}
+
+.menu {
+    display: flex;
+    color: white;
+    margin: 12px 22px;
+    padding: 10px 24px;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
+.menu:hover {
+    background-color: #216d77;
+}
+
+.menu h2{
+    padding-left: 25px;
+    font-weight: 500;
+font-size: 23px;
+line-height: 26px;
+font-weight: bold;
+}
+
+.imagespan {
+    width:73px;
+    height:73px;
+}

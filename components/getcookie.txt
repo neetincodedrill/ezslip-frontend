@@ -1,0 +1,15 @@
+function getcookie(key:string) {
+
+  const value = document.cookie;
+  key= key+"=";
+  var tokencookie;
+  const parts = value.split('; ');
+  
+  console.log(parts)
+  parts.forEach((val)=>{
+  if(val.indexOf(key)===0){
+    tokencookie = val.substring(key.length);
+  }
+})
+  return tokencookie;
+}

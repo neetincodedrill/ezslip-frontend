@@ -1,0 +1,172 @@
+import React, { FC, useEffect } from "react";
+import stylessignup from "../styles/SignUpForm.module.css";
+import { Button, Heading, Input } from "./SignInForm";
+import styles from "../styles/SignUpForm.module.css";
+import Link from "next/link";
+import { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { SIGNUP_USER } from "../graphqlOperations/Signupuser";
+import signup from "../pages/signup";
+import Signuploader from "../pages/signUpLoader/[token]";
+// import SignUp from '@user/resolver/signUpResolver';
+import { useRouter } from "next/router";
+import Loadingpage from "../pages/loadingpage";
+
+const SignUpForm = () => {
+
+  const [name, setname] = useState("");
+  const [organisation, setorganisation] = useState<string>("");
+  const [email, setemail] = useState<string>("");
+  const [Contact, setContact] = useState<string>("");
+  const [signUp, { data, loading, error }] = useMutation(SIGNUP_USER);
+
+  
+
+  const router = useRouter();
+
+  async function handleSubmit(e: any) {
+    e.preventDefault();
+    console.log("handleSubmmit is run");
+
+   
+
+  const result = function task1(fun2:any){
+    console.log("result function is run")
+      const formData = {  
+        name: name,
+        organizationName: organisation,
+        email: email,
+        contactNumber: Contact,
+      }
+     
+       signUp({
+        variables: {
+          input: formData,
+        }
+      });
+      fun2();
+
+    } 
+
+    result(task2);
+  
+    function task2() {
+      
+      console.log("task2 is running");
+      console.log("loading",loading)
+      console.log("data",data)
+      console.log("error",error)
+  
+      if(loading) {
+        console.log("loading is running")
+         return <Loadingpage/>
+      }
+
+      
+      else if(data) {
+
+        console.log(data)
+        if(data.signUp.message === "User already exits! Please redirect to set-password page")
+        {
+          console.log("this is running");
+        
+          alert("You are already signed up. Set up your password"); 
+          router.push("/setpassword");
+        }
+        else 
+        alert(data.signUp.message);
+      } 
+        
+      
+        
+        else if(error) {
+          console.log(error);
+        }
+      }
+      console.log("handleSubmmit is run");
+  
+  }
+
+ 
+  return (
+    <>
+ 
+
+      <div className={styles.signupform}>
+        <form onSubmit={handleSubmit}>
+          <Heading text="Sign Up" />
+
+          <hr />
+          <div className={styles.inputs}>
+            <Input
+              placeholder="Name"
+              imgsrc="/assets/images/coolicon.png"
+              alt={"coolicon"}
+              type="text"
+              handleChange={setname}
+              id="signupname"
+              classname={styles.signupinputs}
+            />
+          </div>
+
+          <div className={styles.inputs}>
+            <Input
+              placeholder="Organisation Name"
+              imgsrc="/assets/images/organisation.png"
+              alt={"coolicon"}
+              type="text"
+              handleChange={setorganisation}
+              id="signuporganisation"
+              classname="signupinputs"
+            />
+          </div>
+
+          <div className={styles.inputs}>
+            <Input
+              placeholder="Email"
+              imgsrc="/assets/images/email.png"
+              alt={"coolicon"}
+              type="email"
+              handleChange={setemail}
+              id="signupemail"
+              classname="signupinputs"
+            />
+          </div>
+
+          <div className={styles.inputs}>
+            <Input
+              placeholder="Contact Number"
+              imgsrc="/assets/images/contact.png"
+              alt={"coolicon"}
+              type="number"
+              handleChange={setContact}
+              id="signupContact"
+              classname="signupinputs"
+            />
+          </div>
+          <p className={styles.para}>
+            By registering you agree to our{" "}
+            <Link href="/privacypolicy">
+              <span className={styles.link}>privacy policy</span>
+            </Link>{" "}
+            and all{" "}
+            <Link href="/terms">
+              <span className={styles.link}>terms and conditions</span>
+            </Link>
+          </p>
+
+          <input type="submit" className={styles.register} />
+        </form>
+
+        <div className={stylessignup.lastpara}>
+          <span className={stylessignup.lastpara1st}>
+            Already have an Account
+          </span>
+          <span className={styles.signinlink}>Sign In</span>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default SignUpForm;

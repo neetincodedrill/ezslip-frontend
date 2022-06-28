@@ -1,0 +1,35 @@
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog_box{
+    width: 611px;
+    height: 289px;
+    left: 414px;
+    top: 308px;
+    
+    background: #47A296;
+    border-radius: 5px;
+    margin: 208px auto;
+}
+
+.content {
+    width: 514px;
+height: 246px;
+left: 462px;
+top: 330px;
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 30px;
+line-height: 37px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+margin:22px 49px 21px 48px;
+}

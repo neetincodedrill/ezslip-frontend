@@ -1,0 +1,68 @@
+.rightconfiguration {
+    padding: 5% 0 2% 7%;
+    width: 75%;
+}
+
+.cameradiv {
+    border-radius: 100%;
+    height: 140px;
+    width: 140px;
+    border: 1px solid #CBCBCB;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin: 12px 38px;
+}
+
+.leftinput {
+    width: 350px;
+    height: 55px;
+    border: 1px solid #DBDBDB;
+    border-radius: 10px;
+    margin: 31px 0;
+    padding: 0px 31px;
+    font-size: 15px;
+}
+
+.selectinput{
+    width: 350px;
+    height: 55px;
+    border: 1px solid #DBDBDB;
+    border-radius: 10px;
+    margin: 31px 88px;
+   
+    background-color: white;
+    padding: 0 31px;
+}
+
+
+.inputfullwidth {
+    width: 790px;
+    height: 55px;
+    border: 1px solid #DBDBDB;
+    border-radius: 10px;
+    margin: 31px 0;
+    padding: 0px 31px;
+    font-size: 15px;
+}
+
+.rightinput{
+    width: 350px;
+    height: 55px;
+    border: 1px solid #DBDBDB;
+    border-radius: 10px;
+    margin: 31px 88px;
+   
+    background-color: white;
+    padding: 0 31px;
+}
+
+.cameradivchild {
+    border-radius: 100%;
+    height: 140px;
+    width: 140px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
