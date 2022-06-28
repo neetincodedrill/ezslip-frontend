@@ -1,7 +1,6 @@
-import Header from "../components/Header";
-
+import Header from "@components/Header";
 import React from 'react'
-import ContactForm from "../components/ContactPage/ContactForm";
+import ContactForm from "@components/ContactPage/ContactForm";
 
 const contactForm:any = () => {
 

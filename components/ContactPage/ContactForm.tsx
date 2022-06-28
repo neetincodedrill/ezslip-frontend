@@ -1,16 +1,12 @@
-import React,{FC} from 'react'
+import React,{FC,useState} from 'react'
 import styles from "./ContactForm.module.css";
 import { Leftfooter, Middlefooter, Middlefooter2 } from '../Footer';
-
 import Link from 'next/link'
 import Copyright from '../Copyright';
-
-
-
+import { useMutation } from '@apollo/client';
+import CONTACT from '@graphql/CONTACT.graphql';
 
 function FooterRight() {
-
-
 
     return (
         <div className={styles.customStyle}>
@@ -28,26 +24,95 @@ function FooterRight() {
     )
 }
 const ContactForm:FC = () => {
-  return (
-      <>
-    
-<div className={styles.main}>
-    
-<h1 className={styles.heading1}>Get in Touch</h1>
-<hr className={styles.hruler}/>
 
-<div className={styles.formDiv}>
+  const [name, setName] = useState<string>("");
+  const [organizationName, setOrgnizationName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [contact, setContact] = useState<string>("");
+  const [details, setDetails] = useState<string>("");
+  const [contactDetails, { data, loading, error}] = useMutation(CONTACT)
+
+  const clearState = () => {
+    setName('')
+    setOrgnizationName('')
+    setEmail('')
+    setContact('')
+    setDetails('')
+  }
+
+  const handleSubmit = (e : any) => {
+       e.preventDefault();
+       contactDetails({
+        variables: {
+          input:  {
+            "name": name,
+            "organizationName": organizationName,
+            "email": email,
+            "contactNumber": contact,
+            "details": details
+          }
+        }
+       })
+       if(data){
+        clearState()
+      }    
+  } 
+
+  return (
+      <> 
+  <div className={styles.main}>
+      
+  <h1 className={styles.heading1}>Get in Touch</h1>
+  <hr className={styles.hruler}/>
+
+  <div className={styles.formDiv}>
     
-    <form >
-        <input type="text" name="" id="name" placeholder="Your name"  className={styles.inputs}/ >
+    <form onSubmit={handleSubmit}>
+        <input 
+        type="text" 
+        name="" 
+        id="name" 
+        placeholder="Your name"
+        value={name}  
+        onChange={(e) => setName(e.target.value)}
+        className={styles.inputs}/ >
         <br/>
-        <input type="text" name="" id="Organisation" placeholder="Organsation Name"  className={styles.inputs}/>
+        <input 
+        type="text" 
+        name="" 
+        id="Organisation" 
+        placeholder="Organsation Name"
+        value={organizationName}  
+        onChange={(e) => setOrgnizationName(e.target.value)}
+        className={styles.inputs}/>
         <br/>
-        <input type="email" name="" id="email" placeholder="Email"  className={styles.inputs}/>
+        <input 
+        type="email" 
+        name="" 
+        id="email" 
+        placeholder="Email"
+        value={email}  
+        onChange={(e) => setEmail(e.target.value)}
+        className={styles.inputs}/>
         <br/>
-        <input type="number" name="" id="contact" placeholder="Contact Number" className={styles.inputs}/>
+        <input 
+        type="number" 
+        name="" 
+        id="contact" 
+        placeholder="Contact Number"
+        value={contact} 
+        onChange={(e) => setContact(e.target.value)}
+        className={styles.inputs}/>
         <br/>
-        <textarea name="" id="details" cols={30} rows={10} placeholder="Some details" className={styles.inputs}></textarea>
+        <textarea 
+        name="" 
+        id="details" 
+        cols={30} 
+        rows={10} 
+        placeholder="Some details"
+        value={details} 
+        onChange={(e) => setDetails(e.target.value)}
+        className={styles.inputs}></textarea>
         <br/>
         <button type="submit"  className={styles.inputs} id={styles.submitbutton}>Get a quote</button>
     </form>

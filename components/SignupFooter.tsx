@@ -10,7 +10,7 @@ import Copyright from './Copyright';
 
 const footerstyle : any = {
     "boxShadow": "1px 1px 6px grey",
-    "height": "160px"
+    "height": "100px"
   }
   
   

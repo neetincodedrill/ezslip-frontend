@@ -2,15 +2,93 @@
 import React, { FC, useState, useEffect } from "react";
 import styles from "../styles/rightconfiguration.module.css";
 import Image from "next/image";
-import Link from "next/link";
+import Link from 'next/link';
+const cookie = require('cookie-cutter')
+
+function getcookie(key: string) {
+  const value = document.cookie;
+  key = key + "=";
+  var tokencookie = "";
+  const parts = value.split("; ");
+
+  console.log(parts);
+  parts.forEach((val) => {
+    if (val.indexOf(key) === 0) {
+      tokencookie = val.substring(key.length);
+      console.log(typeof tokencookie);
+    }
+  });
+  return tokencookie;
+}
+
+interface leftinputprops {
+  // [index: string] : string,
+  placeholder: string;
+  name: string;
+  type: string;
+  value: string;
+  // onchange: React.ChangeEventHandler<HTMLInputElement>
+  onchange: React.ChangeEventHandler<HTMLInputElement>;
+}
+
+interface selectProps {
+  // [index: string] : string,
+
+  name: string;
+  value: string;
+  // onchange: React.ChangeEventHandler<HTMLInputElement>
+  onchange: React.ChangeEventHandler<HTMLSelectElement>;
+}
+
+const LeftInput: FC<leftinputprops> = ({
+  type,
+  placeholder,
+  name,
+  value,
+  onchange,
+}) => {
+  return (
+    <input
+      type={type}
+      placeholder={placeholder}
+      className={styles.leftinput}
+      name={name}
+      onChange={onchange}
+      value={value}
+      readOnly
+      required
+    />
+  );
+};
+
+const RightInput: FC<leftinputprops> = ({
+  type,
+  placeholder,
+  name,
+  value,
+  onchange,
+}) => {
+  return (
+    <input
+      type={type}
+      placeholder={placeholder}
+      className={styles.rightinput}
+      name={name}
+      onChange={onchange}
+      value={value}
+      readOnly
+      required
+    />
+  );
+};
 
 // import { url } from "inspector";
 // import image from "../../ezslip-backend/server/public/images/Frame.png";
 
-var token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYjJhNjRhOGVlZDcwMTdjZmIwYzNjZCIsImlhdCI6MTY1NjM5MzQ0MywiZXhwIjoxNjU2NDc5ODQzfQ.kMeQPtlZJOT1_PkPzAr8Uu3t0xAvH86Rxi_I48Xy_Ks";
-
 const RightConfiguration = () => {
+  var token: any;
+    token = cookie.get('ezslipToken')
+
   const [formdataget, setFormdataget] = useState({
     CIN: "",
     EPF: "",
@@ -35,7 +113,6 @@ const RightConfiguration = () => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         setFormdataget({
           CIN: data.organization_Details.CIN,
           EPF: data.organization_Details.EPF,

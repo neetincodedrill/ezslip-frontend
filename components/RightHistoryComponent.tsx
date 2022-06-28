@@ -81,6 +81,68 @@ interface tableData {
         "last_edition":"DD/MM/YYYY",
         "slipshared": "DD/MM/YYYY",
         "icon": "something"
+    },
+     {
+        "sno"  :  1,
+        "name" : "Albert Einstein",
+        "code" : 35245345      ,
+        "last_edition":"DD/MM/YYYY",
+        "slipshared": "DD/MM/YYYY",
+        "icon": "something"
+    },
+
+    {
+        "sno"  :  2,
+        "name" : "Typescript Einstein",
+        "code" : 35245345      ,
+        "last_edition":"DD/MM/YYYY",
+        "slipshared": "DD/MM/YYYY",
+        "icon": "something"
+    },
+
+    {
+        "sno"  :  3,
+        "name" : "Robert Patinson",
+        "code" : 35245345      ,
+        "last_edition":"DD/MM/YYYY",
+        "slipshared": "DD/MM/YYYY",
+        "icon": "something"
+    },
+
+    {
+        "sno"  :  4,
+        "name" : "The pianist",
+        "code" : 35245345      ,
+        "last_edition":"DD/MM/YYYY",
+        "slipshared": "DD/MM/YYYY",
+        "icon": "something"
+    },
+
+    {
+        "sno"  :  5,
+        "name" : "Spaces khan",
+        "code" : 35245345      ,
+        "last_edition":"DD/MM/YYYY",
+        "slipshared": "DD/MM/YYYY",
+        "icon": "something"
+    },
+
+    {
+        "sno"  :  6,
+        "name" : "Go gates",
+        "code" : 35245345      ,
+        "last_edition":"DD/MM/YYYY",
+        "slipshared": "DD/MM/YYYY",
+        "icon": "something"
+    },
+
+    {
+        "sno"  :  7,
+        "name" : "gurjant panesar",
+        "code" : 35245345      ,
+        "last_edition":"DD/MM/YYYY",
+        "slipshared": "DD/MM/YYYY",
+        "icon": "something"
     }
 ]
 
@@ -92,9 +154,12 @@ interface tableData {
 const Tbody = () => {
     
     return(
-        Object.values(tableDataObj).map ( ( value , index ) => (   
+        tableDataObj.map ( ( value , index ) => (   
 
-        <>
+
+    <>
+
+       
         
             <tr key={index}>
                 <td className={styles.sametd}>{value.sno}</td>
@@ -111,25 +176,26 @@ const Tbody = () => {
             <tr>
                 <td colSpan={6}> <hr className={styles.hrulergrey}/> </td>
             </tr>
-        
-        </>
+
+
+    </>
+    
     
     )
         
     ) 
-       
-    
     )
-    
-
 }
+       
 
 const RightHistoryComponent:FC = () => {
   return (
 
     <div className={styles.historycomponent}>
         <h1>History</h1>
+        <div className={styles.tablediv}>
 
+       
         <table style={{"width":"100%", 
         "textAlign": "left"}}>
             <thead >
@@ -154,6 +220,7 @@ const RightHistoryComponent:FC = () => {
 
          
         </table>
+        </div>
     </div>
   )
 }

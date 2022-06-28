@@ -1,11 +1,6 @@
-import React,{FC} from 'react'
-
+import React,{FC,useState} from 'react'
 import {LeftHeader, MiddleHeader, ModalWrapper } from '../components/Header'
-
-import { useState } from 'react'
-
 import * as linkData from "../components/mockdata/links"
-
 import styles from "../styles/Header.module.css";
 import Copyright from '../components/Copyright';
 import { Leftfooter, Middlefooter } from '../components/Footer';
@@ -15,36 +10,49 @@ import RightConfiguration from '../components/RightConfiguration';
 import SignupFooter from '../components/SignupFooter';
 import Link from "next/link"
 import { useRouter } from 'next/router';
+import stylesdash from "../styles/dash.module.css"
+const cookie = require('cookie-cutter');
+
 
 
 import Userheader from '../components/Userheader';
 
 const configuration = () => {
-  return (<>
+  return (
+  <>
  
-          <Userheader />
+  <Userheader />
 
 
-    <div className='flex'>
-
-<LeftDashboardComponent />
-
-<RightConfiguration />
-
-</div>
+  <div className={stylesdash.dashboard}>
 
 
-<SignupFooter />
+  <LeftDashboardComponent />
+
+
+  <RightConfiguration />
+
+  </div>
+
+
+  <SignupFooter />
 
   </>
   )
 }
 
+const Rightheaderlogout:FC = () => {
+  const handleLogout = () => {
+    cookie.set('ezslipToken', '', { expires: new Date(0) })
+}
+  return(
 
-var token : any;
-if (typeof window !== 'undefined') {
-  // Perform localStorage action
-   token = localStorage.getItem('ezslipToken')
+    <div className="buttondiv">
+      <Link href="/signin">
+        <button type="button" className="logoutbutton" onClick = {handleLogout}>Logout</button>
+      </Link>
+  </div>
+    )
 }
 
 
@@ -52,9 +60,5 @@ if (typeof window !== 'undefined') {
 
 
 
-
-
-{/* here is the main dashboard middle content */}
-
-
 export default configuration
+
