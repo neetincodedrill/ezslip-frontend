@@ -11,7 +11,7 @@ import Copyright from '../components/Copyright';
 import { Leftfooter, Middlefooter } from '../components/Footer';
 import RightFooterdashboard from '../components/RightFooterdashboard';
 import LeftDashboardComponent from '../components/Dashboard/LeftDashboardComponent';
-import RightConfiguration from '../components/RightConfiguration';
+import RightConfiguration from '../components/RightConfiguration2';
 import RightHistoryComponent from '../components/RightHistoryComponent';
 
 
