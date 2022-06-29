@@ -51,13 +51,8 @@ return (
   )
 }
 
-
-
 export const Button:FC<{text:string}>= ({text}) => {
-  
- 
   return (
- 
     <div>
       <div className={styles.buttondiv}>
         <button type="submit">{text}</button>
@@ -66,11 +61,13 @@ export const Button:FC<{text:string}>= ({text}) => {
   )
 }
 
-
 const SignInForm:FC = () => {
   const router= useRouter();
+
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  const [errorMsg, setErrorMsg] = useState<string>("");
   const [ Login, {loading, error, data} ]= useMutation(LOGIN)
 
   if(loading){
@@ -83,9 +80,9 @@ const SignInForm:FC = () => {
     // Set a cookie
     cookie.set('ezslipToken', token)
     // alert(getcookie('token'));
-    if(data.login.token==null)
+    if(data.login.token==null && data.login.message)
     {
-      router.push("/")
+      setErrorMsg(data.login.message);
     }
     else{
       router.push("/configuration");
@@ -110,23 +107,24 @@ const SignInForm:FC = () => {
         <Heading text="Sign In"/>
         <hr />
         <p className={styles.p1}>Please enter your email and password</p>
-
+        <h2>{errorMsg}</h2>
         <div className={styles.emaildiv}>
           <Input placeholder="Email" imgsrc="/assets/images/mail_open.png" alt={"mail_open"} type="email" handleChange={setEmail} id="emailid" classname="signininputs" value={email} style={{}}/> 
+          
         </div>
 
         <div className={styles.passworddiv}>
           <Input placeholder="Password" imgsrc="/assets/images/lock_closed.png" alt={"lock_closed"} type="password" handleChange={setPassword} id="passid" classname="signininputs" value={password} style={{}}/> 
+      
         </div>
+
+      
 
         <div className={styles.rememberdiv}>
           
           <div className={styles.checkboxdiv}>
               <input type="checkbox" name="" id="" className={styles.checkBox}/> 
-              {/* <input type="checkbox" id="_checkbox" /> */}
-                {/* <label htmlFor="_checkbox"> */}
-                  {/* <div id="tick_mark"></div> */}
-                {/* </label> */}
+
           </div> 
           <div className={styles.rememberspan}>
             <span>Remember me on this device</span>
