@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "paths": {
-      "@style/*": [
-        "./style/*"
+      "@styles/*": [
+        "./styles/*"
       ],
       "@graphql/*": [
         "./graphql-documents/*"

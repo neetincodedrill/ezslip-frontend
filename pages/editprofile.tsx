@@ -1,25 +1,21 @@
 
-import React,{FC,useState} from 'react'
-import {LeftHeader, MiddleHeader, ModalWrapper } from '../components/Header'
-import * as linkData from "../components/mockdata/links"
-import styles from "../styles/Header.module.css";
-import Copyright from '../components/Copyright';
-import { Leftfooter, Middlefooter } from '../components/Footer';
-import RightFooterdashboard from '../components/RightFooterdashboard';
+import React,{FC} from 'react'
 import LeftDashboardComponent from '../components/Dashboard/LeftDashboardComponent';
-import RightConfiguration from '../components/RightConfiguration';
 import SignupFooter from '../components/SignupFooter';
-import Link from "next/link"
-import { useRouter } from 'next/router';
 import stylesdash from "../styles/dash.module.css"
-const cookie = require('cookie-cutter');
-
-
-
 import Userheader from '../components/Userheader';
-import RightConfigurationeditable from '@components/RightConfigurationeditable';
+import RightConfigurationeditable from '../components/OrganisationDetails/RightConfigurationeditable';
+import { getCookie } from 'cookies-next';
 
-const Editprofile = () => {
+var token: any; 
+token = getCookie('ezslipToken')
+if(!token){
+  if (typeof window !== 'undefined') {
+    window.location.href = 'http://localhost:3000';
+  }
+}
+
+const Editprofile:FC = () => {
   return (
   <>
  

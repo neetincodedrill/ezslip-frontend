@@ -1,10 +1,10 @@
-
-
 import Image from 'next/image'
 import React,{FC} from 'react'
-import styles from '../styles/RightHistoryComponent.module.css'
+import styles from './RightHistoryComponent.module.css'
 import styles2 from './RightEmployeesComponent.module.css'
-// import { Table } from 'app/core/components/Table';
+import {useState} from 'react';
+import { ModalWrapper } from './Header';
+import EmployeeModalWrapper from './AddemployeePage/EmployeeModalWrapper';
 
 interface tableData {
 
@@ -144,43 +144,12 @@ interface tableData {
 ]
 
 
-const Tbody = () => {
-    return(
-        tableDataObj.map ( ( value , index ) => (   
+const RightEmployeesComponent:FC = () => {
 
-    <>
-    
-            <tr key={index}>
-                <td className={styles.sametd}>{value.sno}</td>
-                <td className={styles.sametd}>{value.name}</td>
-                <td className={styles.sametd}>{value.code}</td>
-                <td className={styles.sametd}>{value.last_edition}</td>
-                <td className={styles.sametd}>{value.slipshared}</td>
-                <td className={styles.sametd}><Image src="/assets/images/create.png" 
-                alt="hamburger"
-                height="14"
-                width="18"/></td>
-                 <td className={styles.sametd}><Image src="/assets/images/delete.png" 
-                alt="hamburger"
-                height="14"
-                width="18"/></td>
-            </tr>
-        
-            <tr>
-                <td colSpan={6}> <hr className={styles.hrulergrey}/> </td>
-            </tr>
+  const [isAddEmployeebuttonclicked, setIsAddEmployeebuttonclicked] = useState(false);
+  const [isEditEmployeebuttonclicked, setIsEditEmployeebuttonclicked] = useState(false);
+  const [isDeleteEmployeebuttonclicked, setIsDeleteEmployeebuttonclicked] = useState(false);
 
-
-    </>
-    
-    
-    )
-        
-    ) 
-    )
-}
-
-const RightEmployeesComponent = () => {
   return (
     
 
@@ -190,7 +159,10 @@ const RightEmployeesComponent = () => {
                 <h1>Employees List</h1> 
                 <div >
                    
-                    <button className={styles2.buttonAddemployee}>
+                    <button className={styles2.buttonAddemployee}
+                    onClick={()=>{
+                      setIsAddEmployeebuttonclicked(!isAddEmployeebuttonclicked)
+                    }}>
                     Add Employee
                     <Image src="/assets/images/User add.svg"
                     height="24"
@@ -208,34 +180,74 @@ const RightEmployeesComponent = () => {
             "textAlign": "left"}}>
                 <thead >
                     <tr className={styles.tablehead}>
-                        <th className={styles.sno}>S. No.</th>
-                        <th className={styles.name}>Name</th>
-                        <th className={styles.code}>Code</th>
-                        <th className={styles.designation}>Designation</th>
-                        <th className={styles.salary}>Salary</th>
-                        <th className={styles.edit}> </th>
-                        <th className={styles.delete}> </th>
+                        <th className={styles2.sno}>S. No.</th>
+                        <th className={styles2.name}>Name</th>
+                        <th className={styles2.code}>Code</th>
+                        <th className={styles2.designation}>Designation</th>
+                        <th className={styles2.salary}>Salary</th>
+                        <th className={styles2.edit}> </th>
+                        <th className={styles2.delete}> </th>
                     </tr>
                     <tr>
-                        <th colSpan={6}> <hr className={styles.hruler}/> </th>
+                        <th colSpan={7}> <hr className={styles.hruler}/> </th>
                     </tr> 
-                    {/* <div style={{"width":"100%"}}> */}
-                    {/* <hr className={styles.hruler}/> */}
-                    {/* </div> */}
+                
                 </thead>
     
                 <tbody>
+    {
+
+  
+                tableDataObj.map ( ( value , index ) => (   
+
+<>
+
+        <tr key={index}>
+            <td className={styles2.sametd}>{value.sno}</td>
+            <td className={styles2.sametd}>{value.name}</td>
+            <td className={styles2.sametd}>{value.code}</td>
+            <td className={styles2.sametd}>{value.last_edition}</td>
+            <td className={styles2.sametd}>{value.slipshared}</td>
+            <td className={styles2.sametd}><Image src="/assets/images/create.png" 
+            alt="hamburger"
+            height="18"
+            width="18" 
+            onClick={()=>{
+              setIsEditEmployeebuttonclicked(!isEditEmployeebuttonclicked)
+
+            }}/></td>
+             <td className={styles2.sametd}><Image src="/assets/images/delete.png" 
+            alt="hamburger"
+            height="18"
+            width="18"
+            onClick={()=>{
+              setIsDeleteEmployeebuttonclicked(!isDeleteEmployeebuttonclicked)
+            }}/></td>
+        </tr>
     
-                    < Tbody />
+        <tr>
+            <td colSpan={7}> <hr className={styles.hrulergrey}/> </td>
+        </tr>
+
+
+</>
+
+
+))
+}
                    
                 </tbody>
     
              
             </table>
             </div>
+            {isAddEmployeebuttonclicked && <EmployeeModalWrapper flagDisplayFunc={setIsAddEmployeebuttonclicked}  flagemployee={isAddEmployeebuttonclicked} targetModal="add"/>}
+            {isEditEmployeebuttonclicked && <EmployeeModalWrapper flagDisplayFunc={setIsEditEmployeebuttonclicked}  flagemployee={isEditEmployeebuttonclicked} targetModal="edit"/>}
+            {isDeleteEmployeebuttonclicked && <EmployeeModalWrapper flagDisplayFunc={setIsDeleteEmployeebuttonclicked}  flagemployee={isDeleteEmployeebuttonclicked} targetModal="delete"/>}
+
         </div>
       )
     }
   
 
-export default RightEmployeesComponent
+export default RightEmployeesComponent;

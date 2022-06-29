@@ -31,6 +31,41 @@ justify-content: space-around;
     margin: 0 19px 0 0;
 }
 
-.designation {
-    
+.code {
+    width : 10%;
+}
+
+.designation{
+    width : 15%;
+}
+
+.salary {
+    width: 10%;
+}
+
+.edit {
+    width:10%;
+    text-align: center;
+}
+
+.delete {
+    width: 10%;
+    text-align: center;
+}
+
+.sametd{
+    width: 14%;
+    padding: 15px 0;
+    font-weight: 400;
+    color: #2E2E2E;
+    text-align: center;
+}
+
+.formdiv {
+    text-align: center;
+}
+
+.sno,.name, .code, .designation, .salary, .edit, .delete{
+    width: 14%;
+    text-align: center;
 }

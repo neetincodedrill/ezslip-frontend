@@ -16,7 +16,7 @@ const Left_banner:React.FC = () => {
           client relations staff will contact you directly.
         </p>
         <br />
-         <Link href="/register"><button className={styles.left_banner_btn}>Register</button></Link>
+         <Link href="/signup"><button className={styles.left_banner_btn}>Register</button></Link>
       </div>
     </div>
   );

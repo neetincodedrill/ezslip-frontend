@@ -1,15 +1,15 @@
 
 import React, { FC, useState, useEffect } from "react";
-import styles from "../styles/rightconfiguration.module.css";
+import styles from "./rightconfiguration.module.css";
 import Image from "next/image";
 import Link from 'next/link';
-const cookie = require('cookie-cutter')
+import { getCookie } from 'cookies-next';
 
 
 
 const RightConfiguration = () => {
   var token: any; 
-    token = cookie.get('ezslipToken')
+  token = getCookie('ezslipToken')
 
   const [formdataget, setFormdataget] = useState({
     CIN: "",
@@ -65,11 +65,12 @@ const RightConfiguration = () => {
 
                      
                   <Image
-                    src = "/assets/images/banner-img.png"
+                    src = "/assets/images/hshshhs.jpeg"
                     width="120px"
                     height="120px"
                     alt="hello"
                     className={styles.image}
+                    // layout="fill"
                   /> 
                   
 
@@ -85,6 +86,7 @@ const RightConfiguration = () => {
                           height="24px"
                           width="24px"
                           alt="edit"
+                          // layout="fill"
                           />
                           </button>
                         </div>

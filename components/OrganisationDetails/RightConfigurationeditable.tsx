@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React, { FC, useState, useEffect } from "react";
-import styles from "../styles/rightconfiguration.module.css";
+import styles from "./rightconfiguration.module.css";
 import Link from 'next/link';
-const cookie = require('cookie-cutter')
+import { getCookie } from 'cookies-next';
 
 // interface for leftinput which is a input type component  
 interface leftinputprops {
@@ -44,7 +44,7 @@ const LeftInput: FC<leftinputprops> = ({
  const RightConfigurationeditable = () => {
 // const [select, setSelect ] = useState();
 var token: any; 
-token = cookie.get('ezslipToken')
+token = getCookie('ezslipToken')
 
 const [formdataget, setFormdataget] = useState({
   CIN: "",

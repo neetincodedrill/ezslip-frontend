@@ -1,233 +1,76 @@
-import Image from 'next/image'
-import React,{FC} from 'react'
-import styles from '../styles/RightHistoryComponent.module.css'
-// import { Table } from 'app/core/components/Table';
+import React from "react";
+import styles from "./RightHistoryComponent.module.css";
+import { useQuery } from "@apollo/client/react/hooks";
+import EMPLOYEE_HISTORY from "@graphql/EMPLOYEE_HISTORY.graphql";
+import { NextPage } from "next";
+const RightHistoryComponent: React.FC = () => {
+  const { data, loading, error } = useQuery(EMPLOYEE_HISTORY);
 
-interface tableData {
-
-        "sno"  :  number,
-        "name" : string,
-        "code" : number,
-        "last_edition": string,
-        "slipshared": string,
-        "icon": string,    
-}
-
-// interface tableData {
-//     [index:string] : string|number;    
-// }
-
-
-// const tableDataObj : tableDataInterface[] = [
-    const tableDataObj : tableData[] = [
-    {
-        "sno"  :  1,
-        "name" : "Albert Einstein",
-        "code" : 35245345      ,
-        "last_edition":"DD/MM/YYYY",
-        "slipshared": "DD/MM/YYYY",
-        "icon": "something"
-    },
-
-    {
-        "sno"  :  2,
-        "name" : "Typescript Einstein",
-        "code" : 35245345      ,
-        "last_edition":"DD/MM/YYYY",
-        "slipshared": "DD/MM/YYYY",
-        "icon": "something"
-    },
-
-    {
-        "sno"  :  3,
-        "name" : "Robert Patinson",
-        "code" : 35245345      ,
-        "last_edition":"DD/MM/YYYY",
-        "slipshared": "DD/MM/YYYY",
-        "icon": "something"
-    },
-
-    {
-        "sno"  :  4,
-        "name" : "The pianist",
-        "code" : 35245345      ,
-        "last_edition":"DD/MM/YYYY",
-        "slipshared": "DD/MM/YYYY",
-        "icon": "something"
-    },
-
-    {
-        "sno"  :  5,
-        "name" : "Spaces khan",
-        "code" : 35245345      ,
-        "last_edition":"DD/MM/YYYY",
-        "slipshared": "DD/MM/YYYY",
-        "icon": "something"
-    },
-
-    {
-        "sno"  :  6,
-        "name" : "Go gates",
-        "code" : 35245345      ,
-        "last_edition":"DD/MM/YYYY",
-        "slipshared": "DD/MM/YYYY",
-        "icon": "something"
-    },
-
-    {
-        "sno"  :  7,
-        "name" : "gurjant panesar",
-        "code" : 35245345      ,
-        "last_edition":"DD/MM/YYYY",
-        "slipshared": "DD/MM/YYYY",
-        "icon": "something"
-    },
-     {
-        "sno"  :  1,
-        "name" : "Albert Einstein",
-        "code" : 35245345      ,
-        "last_edition":"DD/MM/YYYY",
-        "slipshared": "DD/MM/YYYY",
-        "icon": "something"
-    },
-
-    {
-        "sno"  :  2,
-        "name" : "Typescript Einstein",
-        "code" : 35245345      ,
-        "last_edition":"DD/MM/YYYY",
-        "slipshared": "DD/MM/YYYY",
-        "icon": "something"
-    },
-
-    {
-        "sno"  :  3,
-        "name" : "Robert Patinson",
-        "code" : 35245345      ,
-        "last_edition":"DD/MM/YYYY",
-        "slipshared": "DD/MM/YYYY",
-        "icon": "something"
-    },
-
-    {
-        "sno"  :  4,
-        "name" : "The pianist",
-        "code" : 35245345      ,
-        "last_edition":"DD/MM/YYYY",
-        "slipshared": "DD/MM/YYYY",
-        "icon": "something"
-    },
-
-    {
-        "sno"  :  5,
-        "name" : "Spaces khan",
-        "code" : 35245345      ,
-        "last_edition":"DD/MM/YYYY",
-        "slipshared": "DD/MM/YYYY",
-        "icon": "something"
-    },
-
-    {
-        "sno"  :  6,
-        "name" : "Go gates",
-        "code" : 35245345      ,
-        "last_edition":"DD/MM/YYYY",
-        "slipshared": "DD/MM/YYYY",
-        "icon": "something"
-    },
-
-    {
-        "sno"  :  7,
-        "name" : "gurjant panesar",
-        "code" : 35245345      ,
-        "last_edition":"DD/MM/YYYY",
-        "slipshared": "DD/MM/YYYY",
-        "icon": "something"
-    }
-]
-
-
-// interface tableDataprops {
-//     tableData : tableDataInterface;
-// }
-
-const Tbody = () => {
-    
-    return(
-        tableDataObj.map ( ( value , index ) => (   
-
-
-    <>
-
-       
-        
-            <tr key={index}>
-                <td className={styles.sametd}>{value.sno}</td>
-                <td className={styles.sametd}>{value.name}</td>
-                <td className={styles.sametd}>{value.code}</td>
-                <td className={styles.sametd}>{value.last_edition}</td>
-                <td className={styles.sametd}>{value.slipshared}</td>
-                <td className={styles.sametd}><Image src="/assets/images/hamburger.png" 
-                alt="hamburger"
-                height="14"
-                width="18"/></td>
-            </tr>
-        
-            <tr>
-                <td colSpan={6}> <hr className={styles.hrulergrey}/> </td>
-            </tr>
-
-
-    </>
-    
-    
-    )
-        
-    ) 
-    )
-}
-       
-
-const RightHistoryComponent:FC = () => {
+  var historyList: any;
+  historyList = data?.employeeHistory?.employees;
   return (
-
     <div className={styles.historycomponent}>
-        <h1>History</h1>
-        <div className={styles.tablediv}>
-
-       
-        <table style={{"width":"100%", 
-        "textAlign": "left"}}>
-            <thead >
-                <tr className={styles.tablehead}>
-                    <th className={styles.sno}>S. No.</th>
-                    <th className={styles.name}>Name</th>
-                    <th className={styles.code}>Code</th>
-                    <th className={styles.lastedition}>Last Edition</th>
-                    <th className={styles.slipshared}> SlipShared</th>
-                    <th className={styles.hamburger}></th>
-                </tr>
-                {/* <tr>
-                    <th colSpan={6}> <hr className={styles.hruler}/> </th>
-                </tr> */}
-                <div style={{"width":"100%"}}>
-                <hr className={styles.hruler}/>
-                </div>
-            </thead>
-
+      <h1>History</h1>
+      <div className={styles.tablediv}>
+        <table style={{ width: "100%", textAlign: "left" }}>
+          <thead>
+            <tr className={styles.tablehead}>
+              <th className={styles.sno}>S. No.</th>
+              <th className={styles.name}>Name</th>
+              <th className={styles.code}>Code</th>
+              <th className={styles.lastedition}>Last Edition</th>
+              <th className={styles.slipshared}> SlipShared</th>
+              {/* <th className={styles.hamburger}></th> */}
+            </tr>
+            <tr>
+              <th colSpan={6}>
+                {" "}
+                <hr className={styles.hruler} />{" "}
+              </th>
+            </tr>
+          </thead>
+          {!loading && (
             <tbody>
-
-                < Tbody />
-               
+              {historyList ? (
+                historyList.map((employee: any, index: any) => {
+                  function convertDate(dateString: any) {
+                    var p = dateString.split(/\D/g);
+                    return [p[2], p[1], p[0]].join("-");
+                  }
+                  var updateDate = convertDate(employee.updatedAt);
+                  var shareddate: any;
+                  if (employee.slipShared) {
+                    shareddate = convertDate(employee.slipShared);
+                  } else {
+                    shareddate = "-";
+                  }
+                  return (
+                    <>
+                    <tr key={employee.employeeCode}>
+                      <td className={styles.sametd}>{index + 1}</td>
+                      <td className={styles.sametd}>
+                        {employee.firstName + " " + employee.lastName}
+                      </td>
+                      <td className={styles.sametd}>{employee.employeeCode}</td>
+                      <td className={styles.sametd}>{updateDate}</td>
+                      <td className={styles.sametd}>{shareddate}</td>
+                    </tr>
+                    <tr>
+                      <td colSpan={6}> <hr className={styles.hrulergrey}/> </td>
+                    </tr>
+                    </>
+                    
+                  );
+                })
+              ) : (
+                <p>No user available.</p>
+              )}
             </tbody>
-
-         
+          )}
         </table>
-        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-
-
-export default RightHistoryComponent
+export default RightHistoryComponent;

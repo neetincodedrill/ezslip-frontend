@@ -178,10 +178,7 @@ export const ModalWrapper:FC<ModalWrapperI> = ({displayModal , contentIndex, set
 const Modal:FC<ModalWrapperI>=({displayModal, contentIndex}) =>{
 
   console.log("display model is ----->"+displayModal)
-  // var class="";
-  // if(displayModal) {
-  //   class = 
-  // }
+
 
  return(
 

@@ -1,10 +1,9 @@
 import styles from "../styles/Header.module.css";
-import Copyright from '../components/Copyright';
-import { Leftfooter, Middlefooter } from '../components/Footer';
-import RightFooterdashboard from '../components/RightFooterdashboard';
+
 import {useState} from "react";
 import {LeftHeader, MiddleHeader, ModalWrapper } from '../components/Header'
 import Link from "next/link"
+import { removeCookies } from 'cookies-next'
 
 import * as linkData from "../components/mockdata/links"
 
@@ -66,21 +65,17 @@ const footershadow : any = {
 
 
 const Rightheaderlogout:FC = () => {
+
+  const handleLogout = () => {
+    removeCookies('ezslipToken');
+  }
+
   return(
-
     <div className="buttondiv">
-    <Link href="/signin">
-   <button type="button" className="logoutbutton" onClick= {()=>
-   {
-     document.cookie = "ezslipToken=; Expires=Thu, 01 Jan 1970 00:00:00 UTC; Path=/"
-     
-     console.log(document.cookie);
-   }
-   }
-
-   >Logout</button>
-    </Link>
-</div>
-    )
+      <Link href="/signin">
+        <button type="button" className="logoutbutton" onClick= {handleLogout}>Logout</button>
+      </Link>
+    </div>
+  )
 }
 export default Userheader;

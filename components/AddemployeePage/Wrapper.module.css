@@ -1,0 +1,231 @@
+.wrapper, .modalChildWrapper {
+    height: 100vw;
+    width: 100vw;
+    overflow: hidden;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+ 
+}
+
+.modalAddEmployee {
+    width: 350px;
+    background: #FFFFFF;
+    border: 1px solid rgba(71, 162, 150, 0.44);
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 6%);
+    border-radius: 10px;
+    margin: 90px auto;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+}
+
+.heading {
+    font-weight: 400;
+font-size: 26px;
+line-height: 24px;
+/* or 92% */
+
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 30px 0;
+color: #47A296;
+}
+
+.input, .input1{
+    width: 276px;
+    height: 45px;
+    left: 54px;
+    top: 90px;
+    background: rgba(129, 129, 129, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 5px;
+    margin: 0 auto 15.5px;
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 11px;
+line-height: 24px;
+/* or 218% */
+
+display: flex;
+align-items: center;
+
+color: rgba(46, 46, 46, 0.85);
+justify-content: space-between;
+}
+
+.input1 {
+    margin: unset !important;
+}
+
+.formdiv{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: fit-content;
+}
+
+.submitbutton {
+    width: 276px;
+    height: 45px;
+    left: 54px;   
+    background: #47A296;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 5px;
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 27px;
+
+color: #FFFFFF;
+}
+
+.deleteHeading
+{
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500 !important;
+font-size: 22px !important; 
+line-height: 24px !important;
+/* identical to box height, or 109% */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #000000 !important;
+}
+
+
+
+
+
+.modalDeleteEmployee {
+    width: 400px;
+background: rgba(255, 255, 255, 0.83);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.02);
+border-radius: 5px;
+height: fit-content;
+margin: 18vw auto;
+}
+
+.deleteButton {
+    width: 132px;
+height: 40px;
+left: 67px;
+top: 149px;
+
+border: 1px solid #FF0000;
+border-radius: 5px;
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+color: #FF0000;
+}
+
+.goBackButton {
+    width: 132px !important;
+    height: 40px !important;
+    left: 257px;
+    top: 149px;
+    background: #47A296;
+    border-radius: 5px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    align-items: center;
+    display: flex;
+    color: #FFFFFF;
+    justify-content: center;
+
+color: #FFFFFF;
+border: 1px;    
+
+}
+
+.lowerdiv {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 34px;
+}
+
+.details {
+    
+    width: 400px;
+    height: 178px;
+    background: rgba(255, 255, 255, 0.83);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.02);
+    border-radius: 5px;
+    text-align: center;
+
+}
+
+.detailsHeading{
+    margin: 42px 0 !important;
+    width: auto;
+    height: 24px;
+    left: 85px;
+    top: 84px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500 !important;
+    font-size: 22px !important;
+    line-height: 24px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000 !important;
+}
+
+.submitButton {
+    margin-bottom : 30px
+}
+
+.detailsSubmitButton {
+
+    width: 314px;
+    height: 40px;
+    left: 68px;
+    top: 149px;
+    background: #47A296;
+    border-radius: 5px !important;
+    border: 1px;
+    border: 1px;
+
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+color: #FFFFFF;   
+margin : auto;
+}   
