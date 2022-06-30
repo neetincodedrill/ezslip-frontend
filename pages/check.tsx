@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 
-const check = () => {
+function Example() {
+  const [count, setCount] = useState(0);
+
+  // Similar to componentDidMount and componentDidUpdate:
+
+
   return (
     <div>
-      <form action="">
-        <input type="file" name="" id="" />
-      </form>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+        you clicked {count } times
+      </button>
+
+      <h2> you clicked {count } times</h2>
     </div>
-  )
+  );
 }
 
-export default check
+export default Example;

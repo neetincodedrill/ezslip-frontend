@@ -1,16 +1,14 @@
 .historycomponent {
-    margin: 1% 3% 0 3%;
-    width: 70%;
+    padding: 1% 3% 0 3%;
+    width: 68%;
 }
 
 .historycomponent h1{
-
-    font-weight: bold;
+font-weight: bold;
 font-size: 35px;
 line-height: 24px;
 color: #75B9B0;
 margin: 50px 0;
-
 }
 
 .tablehead{
@@ -32,6 +30,7 @@ border: none;
 .hrulergrey {
     color: #00000017
 }
+
 .hruler {
     color: #00000017;
     width: 100%;
@@ -62,8 +61,6 @@ border: none;
     width: 20%;
     text-align: center;
 }
-
-
 
 .sametd {
     padding: 15px 0;

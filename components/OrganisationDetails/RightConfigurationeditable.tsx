@@ -5,6 +5,7 @@ import { getCookie } from 'cookies-next';
 import { useQuery,useMutation } from '@apollo/client'
 import ORGANIZATION_DETAILS from "@graphql/ORGANIZATION_DETAILS.graphql";
 import UPDATE_ORGANIZATION from '@graphql/UPDATE_ORGANIZATION.graphql';
+import { blob } from "stream/consumers";
 
 // interface for leftinput which is a input type component  
   interface leftinputprops {
@@ -39,8 +40,11 @@ import UPDATE_ORGANIZATION from '@graphql/UPDATE_ORGANIZATION.graphql';
   };
 
  const RightConfigurationeditable = () => {
+
 var token: any; 
     token = getCookie('ezslipToken')
+
+  const [filesrc, setFilesrc] = useState("");
 
 const [formdataget, setFormdataget] = useState({
   CIN: "",
@@ -85,7 +89,13 @@ const handle = (e: React.ChangeEvent<HTMLInputElement>) => {
   })
 }
 
+const handlefileinput = (e:any) => {
 
+    if (e.target.files && e.target.files[0]) {
+      setFilesrc(URL.createObjectURL(e.target.files[0]));
+    }
+    
+}
 
 
 const handleSubmit = (e : any) => {
@@ -109,26 +119,40 @@ const handleSubmit = (e : any) => {
 if (loading) return 'Loading...';
 if (error) return `Error! ${error.message}`;
 
-
+{console.log(filesrc)}
   return (
     <div className={styles.rightconfiguration}>
       <form onSubmit={handleSubmit}>
         <div className={styles.top}>    
-            <div className="cameraparentdiv">
+            <div className={styles.cameraparentdiv}>
 
                 <div className={styles.cameradiv}>
-
+                
+                  { filesrc ? 
+                  ( <img
+                    src = {filesrc}
+                    alt="selected"
+                    className={styles.image}
+                 
+                    /> ) :
+                     ( 
                     <img
                     src = "/assets/images/profile-picture.png"
                     alt="hello"
                     className={styles.image}
                     /> 
+                     )
+                  }
 
                 </div>
 
-                <div className={styles.camera}>
-                    <input type="file" name="" id="" />
-                    <img src="" alt="" />
+                <div className={styles.inputfilediv}>
+                    
+                    <label htmlFor="upload-photo" className={styles.labelphoto} >
+                      <Image src="/assets/images/addphoto.png" alt="sda" className={styles.image} style={{"width":"100%"}} layout="fill"/>
+                    </label>
+
+                    <input type="file" name="photo" id="upload-photo" style={{"display":"none"}} onChange={ handlefileinput }/>
                 </div>
           </div> 
 
@@ -174,7 +198,7 @@ if (error) return `Error! ${error.message}`;
 
         </div>
 
-        <input type="text" id="" placeholder="address" name="address" className={styles.leftinput} style={{"width":"68%"}} onChange={handle} value={formdataget.address}/>
+        <input type="text" id="" placeholder="address" name="address" className={styles.leftinput} style={{"width":"772px"}} onChange={handle} value={formdataget.address}/>
 
         <div className="flex">
           <LeftInput
