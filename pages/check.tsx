@@ -1,16 +1,13 @@
-import Image from 'next/image'
 import React from 'react'
 
-const checktsxdelete = () => {
+const check = () => {
   return (
     <div>
-      <Image src="/assets/images/banner-img.png"
-height="100"
-width="100"
-alt="fetch"
-/>
+      <form action="">
+        <input type="file" name="" id="" />
+      </form>
     </div>
   )
 }
 
-export default checktsxdelete
+export default check

@@ -116,37 +116,69 @@ margin: 50px 219px 73px 101px;
 .profileimagediv {
     width: 131px;
 height: 131px;
-left: 445px;
-top: 171px;
 
 border: 1px solid #CBCBCB;
 border-radius: 500px;
+position: relative;
 }
 
 .content {
-    margin: 85px 0;
+    margin: 46px 0;
 }
 
-.oneline {
-    display: flex;
-    margin: 20px 0;
-    color: black;
-    align-items: center;
-    font-size: 20px;
+.oneline{
+    display:flex;
+    align-self: center;
 }
 
 .heading {
-    color: grey;
-    padding-right: 10px;
-    width: 350px;
-    text-align: left;
+    display: flex;
+    padding: 18.51px 22.3px;
+    align-items: center;
+    font-size: 20px;
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+display: flex;
+align-items: center;
+color: #5E5E5E;
+background: rgba(71, 162, 150, .5);
+border-radius: 10px 0px 0px 0px;
+margin-bottom: 2px;
+width: 386.51px;
+
 }
 
 .fetchdata {
     width: 500px;
     padding-left: 100px;
+    align-items: center;
+    display: flex;
+    width: 386.51px;
+    align-items: center;
+    font-size: 20px;
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+display: flex;
+align-items: center;
+color: #5E5E5E;
+border-radius: 10px 0px 0px 0px;
+margin-bottom: 2px;
+width: 386.51px;
+
 }
 
 .margin_left{
 margin-left: 72px;
+}
+
+.image {
+    border-radius: 500px;
+    width: 100%;
+    height: 100%;
 }

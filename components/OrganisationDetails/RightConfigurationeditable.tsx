@@ -1,50 +1,46 @@
 import Image from "next/image";
 import React, { FC, useState, useEffect } from "react";
 import styles from "./rightconfiguration.module.css";
-import Link from 'next/link';
 import { getCookie } from 'cookies-next';
+import { useQuery,useMutation } from '@apollo/client'
+import ORGANIZATION_DETAILS from "@graphql/ORGANIZATION_DETAILS.graphql";
+import UPDATE_ORGANIZATION from '@graphql/UPDATE_ORGANIZATION.graphql';
 
 // interface for leftinput which is a input type component  
-interface leftinputprops {
-  placeholder: string;
-  name: string;
-  type: string;
-  value: string;
-
-  onchange: React.ChangeEventHandler<HTMLInputElement>;
-}
+  interface leftinputprops {
+    placeholder: string;
+    name: string;
+    type: string;
+    value: string;
+    onchange: React.ChangeEventHandler<HTMLInputElement>;
+  }
 
 // LeftInput component definition 
 
-const LeftInput: FC<leftinputprops> = ({
-  type,
-  placeholder,
-  name,
-  value,
-  onchange,
-}) => {
-  return (
-    <input
-      type={type}
-      placeholder={placeholder}
-      className={styles.leftinput}
-      name={name}
-      onChange={onchange}
-      value={value}
-      required
+  const LeftInput: FC<leftinputprops> = ({
+    type,
+    placeholder,
+    name,
+    value,
+    onchange,
+  }) => {
+    return (
+      <input
+        type={type}
+        placeholder={placeholder}
+        className={styles.leftinput}
+        name={name}
+        onChange={onchange}
+        value={value}
+        required
 
-    />
-  );
-};
-
-  
-
-
+      />
+    );
+  };
 
  const RightConfigurationeditable = () => {
-// const [select, setSelect ] = useState();
 var token: any; 
-token = getCookie('ezslipToken')
+    token = getCookie('ezslipToken')
 
 const [formdataget, setFormdataget] = useState({
   CIN: "",
@@ -52,51 +48,34 @@ const [formdataget, setFormdataget] = useState({
   ESI: "",
   HRA: "",
   basicSalary: "",
-
   address: "",
   organizationImage: "",
   organizationLegalName: "",
   organizationType: "",
 } as any);
 
-const [formdata, setFormdata] = useState({
-    // CIN: "",
-    // EPF: "",
-    // ESI: "",
-    // HRA: "",
-    // basicSalary: "",
+const { data, loading, error } = useQuery(ORGANIZATION_DETAILS);
+const [updateOrganizationDetails] = useMutation(UPDATE_ORGANIZATION)
 
-    // address: "",
-    // organizationImage: "",
-    // organizationLegalName: "",
-    // organizationType: "",
+
+const [formdata, setFormdata] = useState({
+    CIN: "",
+    EPF: "",
+    ESI: "",
+    HRA: "",
+    basicSalary: "",
+
+    address: "",
+    organizationImage: "",
+    organizationLegalName: "",
+    organizationType: "",
   } as any);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/get", {
-      method: "get",
-      headers: {
-        Authorization: token,
-      },
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setFormdataget({
-          CIN: data.organization_Details.CIN,
-          EPF: data.organization_Details.EPF,
-          ESI: data.organization_Details.ESI,
-          HRA: data.organization_Details.HRA,
-          basicSalary: data.organization_Details.basicSalary,
 
-          address: data.user_Details.address,
-          organizationImage: data.user_Details.organizationImage,
-          organizationLegalName: data.user_Details.organizationLegalName,
-          organizationType: data.user_Details.organizationType,
-        });
-      });
-  }, []);
+
+  useEffect(() => {
+    setFormdataget(loading?loading:data.getOrganizationDetails);
+  }, [loading]);
 
 const handle = (e: React.ChangeEvent<HTMLInputElement>) => {
   // console.log("changed");
@@ -107,24 +86,58 @@ const handle = (e: React.ChangeEvent<HTMLInputElement>) => {
 }
 
 
-const handleSubmit = () => {
-  console.log(formdata);
+
+
+const handleSubmit = (e : any) => {
+  e.preventDefault();
+  updateOrganizationDetails({
+   variables: {
+     input:  {
+      "organizationLegalName":formdata.organizationLegalName,
+      "organizationType":formdata.organizationType,
+      "address": formdata.address,
+      "basicSalary":formdata.basicSalary,
+      "HRA":formdata.HRA,
+      "CIN":formdata.CIN,
+      "EPF": formdata.EPF,
+      "ESI": formdata.EPF,
+     }
+   }
+  })
 }
+
+if (loading) return 'Loading...';
+if (error) return `Error! ${error.message}`;
+
 
   return (
     <div className={styles.rightconfiguration}>
       <form onSubmit={handleSubmit}>
+        <div className={styles.top}>    
+            <div className="cameraparentdiv">
 
-        <div className={styles.top}>
+                <div className={styles.cameradiv}>
 
-        
-        <div className={styles.cameradiv}>
+                    <img
+                    src = "/assets/images/profile-picture.png"
+                    alt="hello"
+                    className={styles.image}
+                    /> 
 
+                </div>
+
+                <div className={styles.camera}>
+                    <input type="file" name="" id="" />
+                    <img src="" alt="" />
+                </div>
+          </div> 
+
+          {/* 
           <label htmlFor="profileimage">
             <div className={styles.cameradivchild}>
-      
             </div>
           </label>
+
           <input
             type="file"
             name="file"
@@ -136,15 +149,10 @@ const handleSubmit = () => {
             }}
             accept=".jpg, .jpeg"
             required
-          />
-
-       
+          /> */}
+                
+          
         </div>
-
-      
-        </div>
-       
-
         <div className="flex">
           <LeftInput
             placeholder="Organisation Legal Name"
@@ -175,7 +183,6 @@ const handleSubmit = () => {
             name="basicSalary"
             onchange={handle}
             value= {formdataget.basicSalary}
-
           />
 
           <div className={styles.margin_left}>
