@@ -82,7 +82,7 @@ const SignInForm:FC = () => {
     // alert(getcookie('token'));
     if(data.login.token==null && data.login.message)
     {
-      setErrorMsg(data.login.message);
+      // setErrorMsg(data.login.message);
     }
     else{
       router.push("/configuration");
@@ -107,7 +107,7 @@ const SignInForm:FC = () => {
         <Heading text="Sign In"/>
         <hr />
         <p className={styles.p1}>Please enter your email and password</p>
-        <h2>{errorMsg}</h2>
+        {/* <h2>{errorMsg}</h2> */}
         <div className={styles.emaildiv}>
           <Input placeholder="Email" imgsrc="/assets/images/mail_open.png" alt={"mail_open"} type="email" handleChange={setEmail} id="emailid" classname="signininputs" value={email} style={{}}/> 
           

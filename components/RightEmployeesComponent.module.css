@@ -1,28 +1,21 @@
+
 .buttonAddemployee{
     width: 296px;
     height: 53px;
-
     background: #47A296;
     border: 1px solid rgba(0, 0, 0, 0.16);
-    border-radius: 5px;
-    
-font-family: 'Montserrat';
-font-style: normal;
-font-weight: 700;
-font-size: 16px;
-line-height: 24px;
-/* identical to box height, or 150% */
-
-display: flex;
-align-items: center;
-text-align: center;
-
-color: #FFFFFF;
-
-justify-content: space-around;
+    border-radius: 5px;  
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    justify-content: space-around;
 }
-
-
 
 .firstLine {
     display: flex;
@@ -31,26 +24,12 @@ justify-content: space-around;
     margin: 0 19px 0 0;
 }
 
-.code {
-    width : 10%;
+.edit, .edittd {
+    width: 5%;
 }
 
-.designation{
-    width : 15%;
-}
-
-.salary {
-    width: 10%;
-}
-
-.edit {
-    width:10%;
-    text-align: center;
-}
-
-.delete {
-    width: 10%;
-    text-align: center;
+.delete,.deletetd {
+    width: 5%;
 }
 
 .sametd{
@@ -58,14 +37,70 @@ justify-content: space-around;
     padding: 15px 0;
     font-weight: 400;
     color: #2E2E2E;
-    text-align: center;
+    text-align: left;
 }
 
 .formdiv {
     text-align: center;
 }
 
-.sno,.name, .code, .designation, .salary, .edit, .delete{
-    width: 14%;
-    text-align: center;
+.salary,.salarytd {
+    width: 15%;
+}
+
+.snotd,.nametd,.codetd,.designationtd,.salarytd,.edittd {
+    padding: 14px 0;
+}
+
+.designation, .designationtd {
+    width: 18%;
+    text-align: left;
+}
+
+.sno,.snotd {
+    width: 9%;
+    text-align: left;
+}
+
+.name, .nametd{
+    width:17%;
+    text-align: left;
+}
+
+
+.code,.codetd {
+    width:11%;
+    text-align: left;
+}
+
+.table2parentdiv {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.table2childdiv {
+    width: 100%;
+    height: 490px;
+    overflow: auto;
+
+}
+
+.table2child2div, .table2parentdiv {
+    width: 100%;
+    height: 480px;
+}
+.table2parentdiv {
+    /* border: 2px solid black; */
+    position: relative;
+    overflow: hidden;
+}
+.table2childdiv {
+    position: absolute;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.table2childdiv::-webkit-scrollbar {
+    display: none;
 }

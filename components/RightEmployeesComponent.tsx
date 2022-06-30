@@ -173,74 +173,89 @@ const RightEmployeesComponent:FC = () => {
                    
                 </div>
             </div>
-            <div className={styles.tablediv}>
+       
     
            
             <table style={{"width":"100%", 
             "textAlign": "left"}}>
-                <thead >
+                
                     <tr className={styles.tablehead}>
                         <th className={styles2.sno}>S. No.</th>
                         <th className={styles2.name}>Name</th>
                         <th className={styles2.code}>Code</th>
                         <th className={styles2.designation}>Designation</th>
                         <th className={styles2.salary}>Salary</th>
-                        <th className={styles2.edit}> </th>
+                        <th className={styles2.edit}></th>
                         <th className={styles2.delete}> </th>
                     </tr>
                     <tr>
                         <th colSpan={7}> <hr className={styles.hruler}/> </th>
                     </tr> 
                 
-                </thead>
-    
-                <tbody>
-    {
+              </table>
+                {/* <div className={styles.tablediv}> */}
+                
+                <div className={styles2.table2parentdiv}>
+                    <div className={styles2.table2childdiv}>
+                        <div className={styles2.table2child2div}>
 
-  
+                <table style={{"width":"100%", 
+            "textAlign": "left"}}>
+                {
+
+               
                 tableDataObj.map ( ( value , index ) => (   
 
-<>
+    <>
+    
 
         <tr key={index}>
-            <td className={styles2.sametd}>{value.sno}</td>
-            <td className={styles2.sametd}>{value.name}</td>
-            <td className={styles2.sametd}>{value.code}</td>
-            <td className={styles2.sametd}>{value.last_edition}</td>
-            <td className={styles2.sametd}>{value.slipshared}</td>
-            <td className={styles2.sametd}><Image src="/assets/images/create.png" 
+            <td className={styles2.snotd}>{value.sno}</td>
+            <td className={styles2.nametd}>{value.name}</td>
+            <td className={styles2.codetd}>{value.code}</td>
+            <td className={styles2.designationtd}>{value.last_edition}</td>
+            <td className={styles2.salarytd}>{value.slipshared}</td>
+            <td className={styles2.edittd}>
+                <Image src="/assets/images/create.png" 
             alt="hamburger"
             height="18"
             width="18" 
             onClick={()=>{
-              setIsEditEmployeebuttonclicked(!isEditEmployeebuttonclicked)
-
-            }}/></td>
-             <td className={styles2.sametd}><Image src="/assets/images/delete.png" 
+              setIsEditEmployeebuttonclicked(!isEditEmployeebuttonclicked);
+            }} />
+            </td>
+           
+           <td className={styles2.deletetd}>
+            
+        
+            <div className="">  <Image src="/assets/images/delete.png" 
             alt="hamburger"
             height="18"
             width="18"
             onClick={()=>{
               setIsDeleteEmployeebuttonclicked(!isDeleteEmployeebuttonclicked)
-            }}/></td>
+            }}/></div>
+          
+        
+            </td>
         </tr>
     
         <tr>
             <td colSpan={7}> <hr className={styles.hrulergrey}/> </td>
         </tr>
 
+        </>
 
-</>
 
 
 ))
+
 }
-                   
-                </tbody>
-    
-             
             </table>
             </div>
+            </div>
+            </div>
+         
             {isAddEmployeebuttonclicked && <EmployeeModalWrapper flagDisplayFunc={setIsAddEmployeebuttonclicked}  flagemployee={isAddEmployeebuttonclicked} targetModal="add"/>}
             {isEditEmployeebuttonclicked && <EmployeeModalWrapper flagDisplayFunc={setIsEditEmployeebuttonclicked}  flagemployee={isEditEmployeebuttonclicked} targetModal="edit"/>}
             {isDeleteEmployeebuttonclicked && <EmployeeModalWrapper flagDisplayFunc={setIsDeleteEmployeebuttonclicked}  flagemployee={isDeleteEmployeebuttonclicked} targetModal="delete"/>}
