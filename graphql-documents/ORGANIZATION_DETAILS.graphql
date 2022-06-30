@@ -1,0 +1,14 @@
+query GetOrganizationDetails {
+  getOrganizationDetails {
+    organizationImage
+    organizationLegalName
+    organizationType
+    address
+    basicSalary
+    HRA
+    CIN
+    EPF
+    ESI
+    message
+  }
+}

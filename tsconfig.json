@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "paths": {
-      "@style/*": [
-        "./style/*"
+      "@styles/*": [
+        "./styles/*"
       ],
       "@graphql/*": [
         "./graphql-documents/*"
@@ -17,7 +17,7 @@
         "./public/*"
       ],
     },
-    "target": "es6",
+    "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,

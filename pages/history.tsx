@@ -11,80 +11,39 @@ import Copyright from '../components/Copyright';
 import { Leftfooter, Middlefooter } from '../components/Footer';
 import RightFooterdashboard from '../components/RightFooterdashboard';
 import LeftDashboardComponent from '../components/Dashboard/LeftDashboardComponent';
-import RightConfiguration from '../components/RightConfiguration';
+
 import RightHistoryComponent from '../components/RightHistoryComponent';
+import Userheader from '@components/Userheader';
+import SignupFooter from '../components/SignupFooter';
+
+import stylesdash from  "../styles/dash.module.css"
 
 
 
 
 const History:FC = () => {
-    const [displayModal , setDisplayModal] = useState<boolean>(false);
-  
-    const [contentIndex, setContentIndex ] = useState<number>(0);
-
-    function handlesetDisplaymodal(value:boolean):any {
-        setDisplayModal(value)
-        console.log("this has run");
-        console.log(displayModal);
-      }
-    
-      function SetContentIndex (value:number) :any  {
-        setContentIndex(value)
-      }
 
 
-const footershadow : any = {
-    "boxShadow": "1px 1px 6px grey",
-    "padding": "50px 0 40px"
-  }
-
-  return (
-
-    <>
-    <div className={styles.header}>
-        <LeftHeader />
-        <MiddleHeader   
-    displayModal={displayModal} 
-    setdisplayModal={handlesetDisplaymodal} 
-    links={linkData.links} 
-    SetContentIndex= {SetContentIndex}  />
-        
-    
-    </div>
-  
-   
-
-    <ModalWrapper   displayModal = {displayModal} 
-  contentIndex={contentIndex} 
-  setdisplayModal={handlesetDisplaymodal}  />
+return(
+  <>
+ 
+  <Userheader />
 
 
-{/* here is the main dashboard middle content */}
-<div className='flex'>
-
-<LeftDashboardComponent />
-
-<RightHistoryComponent />
-</div>
+  <div className={stylesdash.dashboard}>
 
 
+  <LeftDashboardComponent />
 
 
+  <RightHistoryComponent />
+
+  </div>
 
 
-<div className="flex align_item_center" style={footershadow}>
-    <Leftfooter />
-    <Middlefooter />
+  <SignupFooter />
 
-  <RightFooterdashboard />
-    
-    </div>
-
-<Copyright /> 
   </>
-    
-    
-
 
   )
 }

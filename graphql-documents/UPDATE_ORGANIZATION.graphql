@@ -1,0 +1,5 @@
+mutation UpdateOrganizationDetails($input: AddOrganizationInput) {
+  updateOrganizationDetails(input: $input) {
+    message
+  }
+}
