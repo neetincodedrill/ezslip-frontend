@@ -7,21 +7,19 @@ import EmployeeModalWrapper from './AddemployeePage/EmployeeModalWrapper';
 import { useQuery } from '@apollo/client'
 import EMPLOYEE_LIST from '@graphql/EMPLOYEE_LIST.graphql'
 
-
 const RightEmployeesComponent:FC = () => {
   const [isAddEmployeebuttonclicked, setIsAddEmployeebuttonclicked] = useState(false);
   const [isEditEmployeebuttonclicked, setIsEditEmployeebuttonclicked] = useState(false);
   const [isDeleteEmployeebuttonclicked, setIsDeleteEmployeebuttonclicked] = useState(false);
+  const [id,setId] = useState("");
   
   const { data, loading, error } = useQuery(EMPLOYEE_LIST);
-  console.log(data?.employeeList?.employees)
 
   return (
         <div className={styles.historycomponent}>
             <div className={styles2.firstLine}>
             <h1>Employees List</h1> 
-            <div >
-                
+            <div >          
                 <button className={styles2.buttonAddemployee}
                 onClick={()=>{
                     setIsAddEmployeebuttonclicked(!isAddEmployeebuttonclicked)
@@ -59,7 +57,7 @@ const RightEmployeesComponent:FC = () => {
         <table style={{"width":"100%", "textAlign": "left"}}>
         <tbody>
                 {   
-                data?.employeeList?.employees.map ( ( employee : any , index : any ) => (   
+                data?.employeeList?.employees.map ( ( employee : any , index : any ) => (  
             <>
                 <tr key={index}>
                     <td className={styles2.snotd}>{index + 1}</td>
@@ -74,6 +72,7 @@ const RightEmployeesComponent:FC = () => {
                         width="18" 
                         onClick={()=>{
                         setIsEditEmployeebuttonclicked(!isEditEmployeebuttonclicked);
+                        setId(employee.id)
                     }} />
                     </td>
                 
@@ -85,6 +84,7 @@ const RightEmployeesComponent:FC = () => {
                             width="18"
                             onClick={()=>{
                             setIsDeleteEmployeebuttonclicked(!isDeleteEmployeebuttonclicked)
+                            setId(employee.id)
                         }}/>
                     </div>
                 </td>
@@ -93,6 +93,9 @@ const RightEmployeesComponent:FC = () => {
             <tr>
                 <td colSpan={7}> <hr className={styles.hrulergrey}/> </td>
             </tr>
+            {isAddEmployeebuttonclicked && <EmployeeModalWrapper flagDisplayFunc={setIsAddEmployeebuttonclicked}  flagemployee={isAddEmployeebuttonclicked} targetModal="add"/>}
+            {isEditEmployeebuttonclicked && <EmployeeModalWrapper flagDisplayFunc={setIsEditEmployeebuttonclicked}  flagemployee={isEditEmployeebuttonclicked} targetModal="edit" id = {id} />}
+            {isDeleteEmployeebuttonclicked && <EmployeeModalWrapper flagDisplayFunc={setIsDeleteEmployeebuttonclicked}  flagemployee={isDeleteEmployeebuttonclicked} targetModal="delete" id = {id}/>}
         </>
         ))
     }
@@ -101,9 +104,7 @@ const RightEmployeesComponent:FC = () => {
         </div>
         </div>
         </div>     
-            {isAddEmployeebuttonclicked && <EmployeeModalWrapper flagDisplayFunc={setIsAddEmployeebuttonclicked}  flagemployee={isAddEmployeebuttonclicked} targetModal="add"/>}
-            {isEditEmployeebuttonclicked && <EmployeeModalWrapper flagDisplayFunc={setIsEditEmployeebuttonclicked}  flagemployee={isEditEmployeebuttonclicked} targetModal="edit"/>}
-            {isDeleteEmployeebuttonclicked && <EmployeeModalWrapper flagDisplayFunc={setIsDeleteEmployeebuttonclicked}  flagemployee={isDeleteEmployeebuttonclicked} targetModal="delete"/>}
+            
         </div>
     )
 }

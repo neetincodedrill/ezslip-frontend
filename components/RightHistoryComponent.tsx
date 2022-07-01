@@ -46,7 +46,7 @@ const RightHistoryComponent: React.FC = () => {
                   }
                   return (
                     <>
-                    <tr key={index}>
+                    <tr key={employee.employeeCode}>
                       <td className={styles.sametd}>{index + 1}</td>
                       <td className={styles.sametd}>
                         {employee.firstName + " " + employee.lastName}

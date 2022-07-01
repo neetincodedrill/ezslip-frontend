@@ -134,7 +134,16 @@ a {
   border: none;
   margin-left: 140px;
 }
+.space_around{
+  display: flex;
+  justify-content: space-around;
+  color: green;
+}
 
+.space_between {
+  display: flex;
+  justify-content: space-between;
+}
 
 * {
   -webkit-tap-highlight-color: transparent;
@@ -148,6 +157,18 @@ body {
 
 body {
   margin: 0;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 /* 
 #_checkbox {

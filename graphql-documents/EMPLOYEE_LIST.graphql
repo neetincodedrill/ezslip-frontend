@@ -1,6 +1,7 @@
 query EmployeeList {
   employeeList {
     employees {
+      id
       firstName
       lastName
       employeeCode

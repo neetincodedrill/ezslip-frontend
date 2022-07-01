@@ -7,22 +7,25 @@ import stylesdash from  "../styles/dash.module.css"
 import { getCookie } from 'cookies-next';
 import { useRouter } from 'next/router'
 import {useEffect} from 'react';
+import RightNewComponent from '@components/RightNewComponent';
+
+
 
 
 var token: any; 
 token = getCookie('ezslipToken')
+const New = () => {
 
-const History:FC = () => {
-  const router = useRouter();
+    const router = useRouter();
   
- useEffect(()=>{
-  if(!token){
-    router.push("/");
-   }
- })
+    useEffect(()=>{
+     if(!token){
+       router.push("/");
+      }
+    })
 
-return(
-  <>
+  return (
+    <>
   <Userheader />
 
   <div className={stylesdash.dashboard}>
@@ -31,7 +34,7 @@ return(
   <LeftDashboardComponent />
 
 
-  <RightHistoryComponent />
+  <RightNewComponent/>
 
   </div>
 
@@ -39,7 +42,7 @@ return(
   <SignupFooter />
 
   </>
-
   )
 }
-export default History
+
+export default New
