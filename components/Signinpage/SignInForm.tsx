@@ -82,6 +82,7 @@ const SignInForm:FC = () => {
     const token = data.login.token
     // Set a cookie
     cookie.set('ezslipToken', token)
+    console.log('token : ',token)
     // alert(getcookie('token'));
     if(data.login.token==null)
     {

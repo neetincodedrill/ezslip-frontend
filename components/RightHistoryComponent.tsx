@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@styles/RightHistoryComponent.module.css";
+import styles from "./RightHistoryComponent.module.css";
 import { useQuery } from "@apollo/client/react/hooks";
 import EMPLOYEE_HISTORY from "@graphql/EMPLOYEE_HISTORY.graphql";
 import { NextPage } from "next";
@@ -20,7 +20,7 @@ const RightHistoryComponent: React.FC = () => {
               <th className={styles.code}>Code</th>
               <th className={styles.lastedition}>Last Edition</th>
               <th className={styles.slipshared}> SlipShared</th>
-              <th className={styles.hamburger}></th>
+              {/* <th className={styles.hamburger}></th> */}
             </tr>
             <tr>
               <th colSpan={6}>
@@ -46,7 +46,7 @@ const RightHistoryComponent: React.FC = () => {
                   }
                   return (
                     <>
-                    <tr key={employee.employeeCode}>
+                    <tr key={index}>
                       <td className={styles.sametd}>{index + 1}</td>
                       <td className={styles.sametd}>
                         {employee.firstName + " " + employee.lastName}
@@ -56,7 +56,7 @@ const RightHistoryComponent: React.FC = () => {
                       <td className={styles.sametd}>{shareddate}</td>
                     </tr>
                     <tr>
-                        <td colSpan={6}> <hr className={styles.hrulergrey}/> </td>
+                      <td colSpan={6}> <hr className={styles.hrulergrey}/> </td>
                     </tr>
                     </>
                     
