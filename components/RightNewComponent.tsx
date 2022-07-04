@@ -1,20 +1,91 @@
 import React from 'react'
 import styles from './RightNewComponent.module.css'
+import Image from 'next/image';
+import  EMPLOYEE_NAMELIST from "@graphql/EMPLOYEE_NAMELIST.graphql"
+import { useQuery } from '@apollo/client/react/hooks';
+import { useEffect,useState } from 'react';
+import Slip from './Slip';
+
+const nameList = ["gurjant panesar","Go gates", "Spaces khan", "The pianist", "Robert Patinson", "Typescript Einstein","Albert Einstein","gurjant panesar","Go gates", "Spaces khan", "The pianist", "Robert Patinson", "Typescript Einstein","Albert Einstein"]
 
 const RightNewComponent = () => {
-  return (
-    <div className={styles.main}>
-        <div className={styles.firstline}>
-            <div className={styles.firstheading}>
-            Employee’s Name
-            </div>
+  
+  const {data, loading, error} = useQuery(EMPLOYEE_NAMELIST);
 
-            <div className={styles.secondHeading}>
-            
+  const [employeeNames, setEmployeesName] = useState();
+
+
+  useEffect(()=>{
+    setEmployeesName(data);
+  },[loading])
+
+  if(error) console.log("error",error);  
+  if(loading) console.log("loading",loading);
+  if(employeeNames) console.log("employees",employeeNames)
+  if(data) console.log("data",data)
+
+return (
+  <div className={styles.main}>
+
+      <div className={styles.firstline}>
+          <div className={styles.firstheadingdiv}>
+              <div className={styles.headingName}>
+              Employee’s Name
+              </div>
+              <div className={styles.namesdiv}>
+                {nameList.map((val,index)=>(
+                  <div className={styles.name} key={index}>
+                    {val}
+                  </div>
+                ))}
+              </div>
+          </div>
+
+          <div className={styles.secondHeading}>
+          <p>Employee Code</p>
+          <div className={styles.searchdiv}>
+            <input type="search" name="" id="" placeholder="AFX89X6" className={styles.searchinput}/>
+            <div className={styles.searchIcon}>
+              <Image src="/assets/images/Search.png" 
+              layout="fill"/>
             </div>
+          </div>
+          </div>
+      </div>
+
+      <div className={styles.secondline}>
+        <div className={styles.designationDiv}>
+          <input type="text" name="designation" id="designation" placeholder='Designation' className={styles.designationinput}/>
         </div>
-    </div>
-  )
+
+        <div className={styles.pancardDiv}>
+          <input type="text" name="pancard" id="pancard" placeholder='Pan Card number' className={styles.pancardInput}/>
+        </div>
+      </div>
+
+      <div className={styles.thirdline}>
+        <div className={styles.designationDiv}>
+          <input type="text" name="dateofjoining" id="dateofjoining" placeholder='Date of Joining' className={styles.designationinput}/>
+        </div>
+
+        <div className={styles.pancardDiv}>
+          <input type="text" name="salary" id="salary" placeholder='Salary' className={styles.pancardInput}/>
+        </div>
+     </div>
+
+     <div className={styles.fourthline}>
+        <div className={styles.calculatebuttondiv}>
+          <button type="submit" className={styles.calculatebutton}>Calculate</button>
+        </div>         
+     </div>
+
+    <div className={styles.slipdiv}>
+     <Slip />
+     </div>
+  </div>
+
+
+)
 }
 
 export default RightNewComponent

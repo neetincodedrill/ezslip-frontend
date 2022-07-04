@@ -1,13 +1,146 @@
 .main {
-    padding: 101px 0 0 100px;
+padding: 101px 0 0 100px;
+font-family: 'Montserrat';
+font-style: normal;
+color: #2E2E2E;
 }
 
-button {
+.firstline{
+    display:flex;
+}
+
+
+
+.firstheadingdiv {
+width: 397px;
+height: 404px;
+
+}
+
+.headingName{
     width: 397px;
 height: 64px;
-left: 418px;
-top: 201px;
 
 background: #47A296;
 border-radius: 5px 5px 0px 0px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-weight: 500;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height, or 120% */
+
+
+color: #FFFFFF;
+}
+
+.namesdiv{
+    margin-top: 15px;
+}
+
+
+
+.secondHeading {
+    margin-left: 95px;
+    font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+
+}
+
+.searchdiv {
+    margin-top: 21px;
+    width: 296px;
+height: 53px;
+border: 1px solid #E8E8E8;
+border-radius: 10px;
+position: relative;
+display: flex;
+align-items: center;
+padding: 0 20px;
+justify-content: end;
+}
+
+.searchinput {
+    height: inherit;
+    width: inherit;
+    border: 1px solid #E8E8E8;
+    border-radius: 10px;
+    font-size: 17px;
+line-height: 24px;
+display: flex;
+
+}
+
+.searchIcon {
+    height:24px;
+    width:24px;
+    position: absolute;
+}
+
+
+.secondline {
+    margin-top: 61px;
+    height: 55px;
+    display: flex;
+
+
+}
+
+.designationDiv,.designationinput {
+    width: 361px;
+    height: 100%;
+    border: 1px solid #E8E8E8;
+    border-radius: 10px;
+}
+
+.designationinput {
+    padding-left: 42px;
+}
+
+.pancardDiv,.pancardInput {
+    width: 361px;
+    margin-left:66px;
+    height: 100%;
+    border: 1px solid #E8E8E8;
+border-radius: 10px;
+}
+
+.pancardInput {
+    padding-left: 42px; 
+}
+
+.thirdline {
+    margin-top: 49px;
+    height: 55px;
+    display: flex;
+}
+
+.fourthline{
+    margin-top: 50px;
+}
+
+.calculatebutton {
+    width: 362px;
+    height: 50px;
+
+background: #47A296;
+border: 1px solid rgba(0, 0, 0, 0.16);
+border-radius: 5px;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+
+display: flex;
+align-items: center;
+justify-content:  center;
+
+color: #FFFFFF;
+
+}
+
+.slipdiv {
+margin-top: 50px;
+margin-bottom: 47px;
 }

@@ -1,75 +1,75 @@
 
 .features {
-    height:535px;
-    background-color: #F6F8FA;
-    text-align: center;
-  }
-  
-  .features_h1{
-    text-align: center;
-    display: inline-block;
-    margin: 60px 0;
-    border-bottom: 4px solid #F6F8FA;
-    padding-bottom: 4px;
-    width: 180px;
-  }
-  
-  .features_h1:hover {
+  height:535px;
+  background-color: #F6F8FA;
+  text-align: center;
+}
+
+.features_h1{
+  text-align: center;
+  display: inline-block;
+  margin: 60px 0;
+  border-bottom: 4px solid #F6F8FA;
+  padding-bottom: 4px;
+  width: 180px;
+}
+
+.features_h1:hover {
+border-bottom: 4px solid #47a296;
+transition: .5s;
+}
+
+.features_div{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 100px;
+}
+
+.featuresbox{
+  width: 25%;
+  padding-bottom: 50px;
+  border-bottom: 4px solid #F6F8FA;
+}
+
+.featuresbox:hover{
   border-bottom: 4px solid #47a296;
   transition: .5s;
-  }
-  
-  .features_div{
-    display: flex;
-    justify-content: space-evenly;
-    margin: 20px 100px;
-  }
-  
-  .featuresbox{
-    width: 25%;
-    padding-bottom: 50px;
-    border-bottom: 4px solid #F6F8FA;
-  }
+}
 
-  .featuresbox:hover{
-    border-bottom: 4px solid #47a296;
-    transition: .5s;
-  }
-  
-  .featuresbox_h1 {
-    padding: 10px;
-  }
-  
-  .featuresbox p {
-    font-size: 18px;
-  }
+.featuresbox_h1 {
+  padding: 10px;
+}
 
-  .feature_circle {
-    height: 100px;
+.featuresbox p {
+  font-size: 18px;
+}
+
+.feature_circle {
+  height: 100px;
 width: 100px;
 /* background: rgba(0, 255, 87, 0.1); */
 display: inline-block;
 border-radius: 100%;
-  }
- 
+}
+
 .featuresbox:hover .feature_circle{
-  animation: feature-circle-hover 1s linear 1 forwards;
+animation: feature-circle-hover 1s linear 1 forwards;
 }
 
 @keyframes feature-circle-hover {
-  0%{
-    transform: translate(0px);
-  }
-  20%{
-    transform: translate(20px, -8px);
-  }
-  50%{
-    transform: translate(40px, -16px);
+0%{
+  transform: translate(0px);
+}
+20%{
+  transform: translate(20px, -8px);
+}
+50%{
+  transform: translate(40px, -16px);
 }
 80%{
-  transform: translate(60px, -40px);
+transform: translate(60px, -40px);
 }
 100%{
-  transform: translate(80px, -100px);
+transform: translate(80px, -100px);
 }
 }

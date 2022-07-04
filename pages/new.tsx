@@ -8,6 +8,7 @@ import { getCookie } from 'cookies-next';
 import { useRouter } from 'next/router'
 import {useEffect} from 'react';
 import RightNewComponent from '@components/RightNewComponent';
+import DashboardLayout from '@components/DashboardLayout';
 
 
 
@@ -26,20 +27,16 @@ const New = () => {
 
   return (
     <>
-  <Userheader />
-
-  <div className={stylesdash.dashboard}>
+  {/* <Userheader /> */}
 
 
-  <LeftDashboardComponent />
-
-
+  <DashboardLayout>
   <RightNewComponent/>
+  </DashboardLayout>
 
-  </div>
 
 
-  <SignupFooter />
+  {/* <SignupFooter /> */}
 
   </>
   )

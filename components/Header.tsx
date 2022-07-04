@@ -161,7 +161,7 @@ export const ModalWrapper:FC<ModalWrapperI> = ({displayModal , contentIndex, set
   {
     customStyleWrapper ={
       "display": "none",  
-      "transition-delay": "0.5s"
+      "transitionDelay": "0.5s"
       // "visibility" :"hidden"
     }
   }
@@ -177,7 +177,7 @@ export const ModalWrapper:FC<ModalWrapperI> = ({displayModal , contentIndex, set
 
 const Modal:FC<ModalWrapperI>=({displayModal, contentIndex}) =>{
 
-  console.log("display model is ----->"+displayModal)
+  // console.log("display model is ----->"+displayModal)
 
 
  return(

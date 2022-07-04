@@ -10,6 +10,12 @@ import signup from "../../pages/signup";
 import Signuploader from "../../pages/signUpLoader/[...token]";
 import { useRouter } from "next/router";
 import Loadingpage from "../loadingpage";
+import { setCookies } from 'cookies-next';
+import { getCookie } from 'cookies-next';
+
+
+
+
 
 const SignUpForm = () => {
   
@@ -20,12 +26,9 @@ const SignUpForm = () => {
   const [Contact, setContact] = useState<string>("");
   const [signUp, { data, loading, error }] = useMutation(SIGNUP);
 
-
   async function handleSubmit (e: any) {
-    console.log("handlesubmit is run");
+    // console.log("handlesubmit is run");
     e.preventDefault();
-   
-
 
   const result =   await signUp({
       variables: {
@@ -38,9 +41,6 @@ const SignUpForm = () => {
       }
     });
 
-console.log(result,"rewrewr")
-
-
       if(loading) {
         console.log("loading is running")
          return <Loadingpage/>
@@ -52,12 +52,14 @@ console.log(result,"rewrewr")
 
        if(result) {
 
+        // console.log(result);
+
+        // setCookies('id', result.data.signUp.id);
+        // console.log(getCookie('id')); 
+
         if(result?.data.signUp?.message === "User already exits! Please redirect to set-password page")
         {
-          console.log("this is running");
           alert("You are already signed up. Set up your password"); 
-          localStorage.setItem('id',result.data.signUp.id);
-          console.log(localStorage.getItem('id'));
           router.push("/setpassword");
         }
         else if(result?.data.signUp?.message === "User already exits!. Please redirect to login page"){
@@ -68,21 +70,15 @@ console.log(result,"rewrewr")
           alert(result?.data.signUp?.message);
         }
       } 
-        
-      
-        
+  
         else if(error) {
           console.log(error);
         }
-      
-      console.log("handleSubmmit is run");
   
   }
 
- 
   return (
     <>
- 
 
       <div className={styles.signupform}>
         <form onSubmit={handleSubmit}>

@@ -1,70 +1,70 @@
 .banner_div {
-    height: 684px;
-    display: flex;
-    width: 100%;
-  }
-  
-  .left_banner{
-    width: 50%;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    
-  }
-  
-  .right_banner {
-    width: 50%;
-  }
-  
-  .banner_img {
-    width: 100%;
-  }
-  
-  
-  .left_banner{
-    background-color: #216277;
-    color:white
-  }
-  
-  .left_banner_h1{
-    font-family: Montserrat;
-    font-size: 50px;
-  font-weight: 700;
-  line-height: 64px;
-  }
-  
-  
-  .left_banner_p {
-    width: 457px;
-    height: 96px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 19px;
-    line-height: 32px;
-    word-spacing: 1px;
-    letter-spacing: 1px;
-  
-  }
-  
-  .left_banner_btn {
-    width: 166px;
-    height: 60px;
-    border-radius: 10px;
-    background-color: #C5D8E6;
-    border: none;
-  }
+  height: 684px;
+  display: flex;
+  width: 100%;
+}
 
-  .left_banner_btn:hover {
-    background-color: #FFFFFF;
-  }
+.left_banner{
+  width: 50%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
   
-  .content {
-    width: 457px;
-  }
-  
-  .right_banner{
-    background-color: #C5D8E6;
-    display:flex;
-    justify-content:center
-  }
+}
+
+.right_banner {
+  width: 50%;
+}
+
+.banner_img {
+  width: 100%;
+}
+
+
+.left_banner{
+  background-color: #216277;
+  color:white
+}
+
+.left_banner_h1{
+  font-family: Montserrat;
+  font-size: 50px;
+font-weight: 700;
+line-height: 64px;
+}
+
+
+.left_banner_p {
+  width: 457px;
+  height: 96px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 32px;
+  word-spacing: 1px;
+  letter-spacing: 1px;
+
+}
+
+.left_banner_btn {
+  width: 166px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #C5D8E6;
+  border: none;
+}
+
+.left_banner_btn:hover {
+  background-color: #FFFFFF;
+}
+
+.content {
+  width: 457px;
+}
+
+.right_banner{
+  background-color: #C5D8E6;
+  display:flex;
+  justify-content:center
+}

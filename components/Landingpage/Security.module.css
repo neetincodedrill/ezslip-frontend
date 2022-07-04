@@ -1,37 +1,35 @@
-
 .security {
-    display:flex;
-    width: 100%;
-    height: 440px;
-  }
-  
-  .security_left{
-    width: 50%;
-  }
-  
-  .security_right{
-    width: 50%;
-    position: relative;
-  }
-  
-  .biometric_image {
-    width : 100% !important;
-  
-  }
+  display:flex;
+  width: 100%;
+  height: 440px;
+}
 
-  .security_left_content{
-    margin: 120px 110px 0 200px;
-    
-  }
+.security_left{
+  width: 50%;
+}
 
-  .security_left_content h2
-  {
-    margin: 20px 0px;
-  }
+.security_right{
+  width: 50%;
+  position: relative;
+}
 
-  .security_left_content p
-  {
-    margin: 20px 0px;
-    color: #505050;
-  }
+.biometric_image {
+  width : 100% !important;
+
+}
+
+.security_left_content{
+  margin: 120px 110px 0 200px;
   
+}
+
+.security_left_content h2
+{
+  margin: 20px 0px;
+}
+
+.security_left_content p
+{
+  margin: 20px 0px;
+  color: #505050;
+}

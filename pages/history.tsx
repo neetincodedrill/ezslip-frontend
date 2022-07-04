@@ -7,6 +7,7 @@ import stylesdash from  "../styles/dash.module.css"
 import { getCookie } from 'cookies-next';
 import { useRouter } from 'next/router'
 import {useEffect} from 'react';
+import DashboardLayout from '@components/DashboardLayout';
 
 
 var token: any; 
@@ -23,21 +24,9 @@ const History:FC = () => {
 
 return(
   <>
-  <Userheader />
-
-  <div className={stylesdash.dashboard}>
-
-
-  <LeftDashboardComponent />
-
-
+  <DashboardLayout>
   <RightHistoryComponent />
-
-  </div>
-
-
-  <SignupFooter />
-
+  </DashboardLayout>
   </>
 
   )

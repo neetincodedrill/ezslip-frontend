@@ -1,16 +1,13 @@
 import React from 'react'
 import { Leftfooter, Middlefooter, Middlefooter2 } from './Footer';
 import Link from 'next/link';
-import styles from "./ContactPage/ContactForm";
+// import styles from "./ContactPage/ContactForm";
 import Copyright from './Copyright';
-
 
 const footerstyle : any = {
     "boxShadow": "1px 1px 6px grey",
     "height": "160px"
   }
-  
-  
   
   function FooterRight() {
   

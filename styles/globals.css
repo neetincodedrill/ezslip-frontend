@@ -275,3 +275,10 @@ label:active {
   transform: translate(0);
   opacity: 1;
 } */
+
+
+.flex_center_align {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,212 @@
+.slip {
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    width: 686px;
+}
+
+.main{
+    margin: 42px 25px 65px 25px;
+
+}
+.firstline {
+    display: flex;
+    justify-content: space-between;
+}
+
+.firstlinerightdiv {
+    /* margin-left: 250px; */
+    display: flex;
+}
+
+.upperdiv,.lowerdiv {
+    display: flex;
+    align-items: center;
+}
+
+.upperdiv {
+    border-bottom: 1px solid rgba(71, 162, 150, 0.47);
+}
+
+.para {
+    margin-left:6px;
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 7px;
+text-decoration: underline;
+color: #505050;
+
+}
+
+.secondrightdiv{
+    margin-left: 5px;
+    display: flex;
+}
+
+.addressdiv {
+    width: 80px;
+height: 38px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 7px;
+line-height: 5px;
+margin-left: 7px;
+color: #505050;
+padding-top: 4px;
+}
+
+.addressdiv p {
+    padding: 3px 0;
+}
+
+.image {
+    width: 18px;
+    height: 18px;
+}
+
+.payslipdiv p{
+    font-weight: 400;
+font-size: 24px;
+line-height: 10px;
+/* identical to box height, or 42% */
+
+display: flex;
+align-items: center;
+
+color: #47A296;
+margin-top: 25px;
+margin-left: 10px;
+}
+
+.employeeinformation p{
+margin-top:32px;
+margin-left: 5px;
+font-weight: 600;
+font-size: 19px;
+line-height: 23px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #47A296;
+}
+
+.infodiv {
+    display: flex;
+    margin-top: 20px;
+}
+
+.leftinfodiv,.rightinfodiv {
+    display: flex;
+}
+
+.label {
+    
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 10px;
+line-height: 12px;
+display: flex;
+align-items: center;
+background: #E6E6E6;
+color: #5E5E5E;
+padding: 10px 8px;
+margin-bottom: 2px;
+}
+
+.input {
+    border: none;
+    color: #5E5E5E  ;
+    font-style: normal;
+font-weight: 500;
+font-size: 10px;
+line-height: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 10px 0 10px 23px;
+margin-bottom: 2px;
+color: #2E2E2E;
+width: 92px;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+}
+
+.image{
+    display: flex;
+}
+
+.rightinfodiv {
+    margin-left: 90px;
+}
+
+.secondinfodiv{
+   margin-top: 30px;
+}
+
+.stylessecInfolineheading {
+    background: #E6E6E6;
+    padding-left: 27px;
+    /* width: 636px; */
+    height: 22px;
+    margin-bottom:2px;
+}
+
+.heading1, .heading2{
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 17px;
+color: #5E5E5E;
+}
+
+.heading2 {
+    margin-left:185px;
+}
+
+.infooneline{
+    height: 22px;
+    display: flex;
+    align-self: center;
+    margin-bottom: 2px;
+    padding-left: 27px;
+}
+
+.gross{    
+font-weight: 500;
+font-size: 11px;
+line-height: 13px;
+display: flex;
+color: #5E5E5E;
+margin-left: 278px;
+align-items: center;
+}
+ 
+.paid {
+    width: 215px;
+    height: 22px;
+    font-weight: 500;
+font-size: 11px;
+line-height: 13px;
+    background: #CECECE;
+    margin-left: 95px;
+   display: flex;
+   justify-content: center;
+   align-items:center;
+}
+
+.headings{
+    font-weight: 500;
+font-size: 10px;
+line-height: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #5A5A5A;
+}

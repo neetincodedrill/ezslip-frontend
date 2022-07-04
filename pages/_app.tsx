@@ -12,11 +12,15 @@ import client from '@client/index';
 
 
 
+
   
 function MyApp({ Component, pageProps }: AppProps) {
   return (
   <ApolloProvider client={client}>
-  <Component {...pageProps} />
+ 
+    <Component {...pageProps} />
+
+
   </ApolloProvider>
 
     )

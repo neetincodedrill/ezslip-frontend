@@ -1,10 +1,20 @@
-query GetEmployee($name: String!) {
-  getEmployee(name: $name) {
+query GetEmployee($getEmployeeId: ID!) {
+  getEmployee(id: $getEmployeeId) {
+    firstName
+    lastName
     employeeCode
     designation
     panNumber
-    dob
     salary
-    message
+    dob
+    esi {
+      isEnabled
+      number
+    }
+    doj
+    epf {
+      isEnabled
+      number
+    }
   }
 }

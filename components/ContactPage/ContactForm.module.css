@@ -1,5 +1,5 @@
 .main{
-    margin: 40px auto 60px;
+margin: 40px auto 60px;
 }
 
 .heading1{
@@ -20,14 +20,14 @@ max-width:17%;
 }
 
 .formDiv{
-    width: 635px;
-    margin: 42px auto;
-    text-align: center;
-    /* padding: 0 0 0 95px; */
+width: 635px;
+margin: 42px auto;
+text-align: center;
+/* padding: 0 0 0 95px; */
 }
 
 .inputs{
-    width: 100%;
+width: 100%;
 padding: 15px 40px;
 background-color: lightgray;
 border: 0px;
@@ -42,21 +42,21 @@ width: 100%;
 }
 
 .footershadow {
-    box-shadow : 1px 1px 6px grey;
-    padding : 50px 0 40px;
-  }
+box-shadow : 1px 1px 6px grey;
+padding : 50px 0 40px;
+}
 
 
- .customStyle {
-    list-style-type: none;
-    color: #47a296;
-    width: 15%;
-    text-align: center;
- }
+.customStyle {
+list-style-type: none;
+color: #47a296;
+width: 15%;
+text-align: center;
+}
 
 .buttonStyle {
-    height: 48px;
-    margin-top: 20px;
+height: 48px;
+margin-top: 20px;
 width: 112px;
 background: #47a296;
 border: none;
@@ -65,17 +65,13 @@ color: white;
 font-size: 18px;
 font-weight: bold;
 
-  }
-  .spanbutton{
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 24px;
-    /* identical to box height, or 150% */
-    
-    text-align: center;
-    
-    color: #FFFFFF;
-  }
-  
+}
+.spanbutton{
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+text-align: center;
+color: #FFFFFF;
+}

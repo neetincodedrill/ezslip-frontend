@@ -5,7 +5,7 @@ import styles from "../styles/password_reset_email_id.module.css"
 import { Button, Heading, Input } from "../components/Signinpage/SignInForm";
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { FORGOT_PASSWORD } from '../graphqlOperations/forgotpassword';
+import  FORGOT_PASSWORD  from '@graphql/FORGET_PASSWORD.graphql';
 import Loadingpage from '../components/loadingpage';
 
 
@@ -13,7 +13,7 @@ const password_reset_email_id:FC = () => {
   const [email , setEmail] = useState("");
   const [ ForgetPassword , {data, loading, error}] = useMutation(FORGOT_PASSWORD);
   const [errorMessage, setErrorMessage] = useState("");
-  const [inputCustomStyle, setInputCustomStyle]= useState({"color": "#595959"});
+  const [inputCustomStylecolor, setInputCustomStylecolor]= useState("");
 
   async function handleSubmit() {
     console.log("run handlesunbmt");
@@ -32,14 +32,17 @@ const password_reset_email_id:FC = () => {
         if(result.data.forgetPassword.message==="User with email address does not exits")
         {
           setErrorMessage("This email is not linked to any accounnt")
-          setInputCustomStyle ( {"color": "red"});
-          console.log(inputCustomStyle);
+          setInputCustomStylecolor ("red");
+          console.log(inputCustomStylecolor);
         }
 
         else if(result.data.forgetPassword.message)
         {
+          console.log("green color set");
           setErrorMessage(result.data.forgetPassword.message)
-          setInputCustomStyle ( {"color": "green"});
+          setInputCustomStylecolor ("green");
+          console.log(errorMessage);
+          console.log(inputCustomStylecolor);
         }
     }
     setEmail("");
@@ -64,7 +67,7 @@ const password_reset_email_id:FC = () => {
               </div>
 
               <h3 style={{
-                          "color":"rgba(255, 67, 67, 0.69)",
+                          "color":inputCustomStylecolor,
                           "fontWeight": "400",
                           "fontSize": "12px",
                           "margin": "0 auto 15px",
@@ -87,7 +90,7 @@ const password_reset_email_id:FC = () => {
                 id="signupemail"
                 classname="signupinputs"
                 value={email}
-                style={inputCustomStyle}
+                style={{"color":inputCustomStylecolor}}
                 /> 
                
                 </div>

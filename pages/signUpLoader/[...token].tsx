@@ -3,8 +3,11 @@ import { Circles, Rings } from  'react-loader-spinner'
 import { useRouter,Router } from 'next/router'
 // import { useMutation } from "@apollo/client";
 import { useQuery } from '@apollo/client';
-import {USER_VERIFY} from "../../graphqlOperations/userVerification"
+import USER_VERIFY from "@graphql/USER_VERIFICATION.graphql"
 import { NextResponse, NextRequest } from 'next/server'
+import { setCookies } from 'cookies-next';
+import { getCookie } from 'cookies-next';
+
 const customstyle = {"color":"red"};
 const Signuploader:FC = () => {
   return (
@@ -17,12 +20,7 @@ const Signuploader:FC = () => {
 const Post:FC = ():any => {
 
   const router = useRouter();
-
-  console.log(router.asPath.slice(14));
   let token = router.asPath.slice(14)
-
-  console.log(token)
-
 
   const  {data, error, loading} = useQuery(USER_VERIFY,
     {
@@ -36,17 +34,13 @@ const Post:FC = ():any => {
 
   if(data) {
     console.log(data);
-    console.log(data.userVerification.message);
-    console.log("id is "+data.userVerification.id);
-    console.log("Router is ---------->",router);
-    
-    localStorage.setItem('id',`${data.userVerification.id}`)
-
-    console.log("localstorage id is"+localStorage.getItem('id'));
+    setCookies('id',data.userVerification.id) ;
 
     if(data.userVerification.message=="User verified"){
 
     router.push("/setpassword")
+    console.log(getCookie('id'));
+
     }
     else{
       router.push("/signup")
@@ -54,21 +48,14 @@ const Post:FC = ():any => {
 
   }
 
-
   if(error) console.log(error);
-
   
   return (
     <div>
-      {/* <p>{token}</p> */}
       <Signuploader />
     </div>
-
   )
   
 }
-
-
-
 
 export default Post
