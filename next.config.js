@@ -9,6 +9,9 @@ const nextConfig = {
   images: {
     domains: ['localhost']
   },
+  api: {
+    bodyParser: false, // Disallow body parsing, consume as stream
+  },
   webpack: (config, options) => {
     config.resolve.alias['@components'] = path.resolve(__dirname,'./components');
     config.resolve.alias['@graphql'] = path.resolve(__dirname,'./graphql-documents');

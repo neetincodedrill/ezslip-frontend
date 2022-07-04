@@ -42,8 +42,6 @@ const RightConfigurationeditable = () => {
   var token: any;
   token = getCookie("ezslipToken");
 
-  const [filesrc, setFilesrc] = useState("");
-
   const [formdataget, setFormdataget] = useState({
     CIN: "",
     EPF: "",
@@ -71,6 +69,8 @@ const RightConfigurationeditable = () => {
     organizationLegalName: "",
     organizationType: "",
   } as any);
+
+  const [filesrc, setFilesrc] = useState("");
   const [file, setFile] = useState();
 
   useEffect(() => {
@@ -78,57 +78,59 @@ const RightConfigurationeditable = () => {
   }, [loading]);
 
   const handle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // console.log("changed");
     setFormdata({
       ...formdata,
       [e.target.name]: e.target.value,
     });
+    console.log(formdataget)
   };
 
-  const formData = new FormData();
+  const formData : any = new FormData();
   const handlefileinput = (e: any) => {
     if (e.target.files && e.target.files[0]) {
-      setFilesrc(URL.createObjectURL(e.target.files[0]));
+      const i = e.target.files[0];
+      setFile(i);
+      setFilesrc(URL.createObjectURL(i));
     }
     setFile(e.target.files[0]);
-    formData.append("file", e.target.files[0] as Blob);
+    formData.append("file", e.target.files[0]);
   };
+
+ 
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log(formdataget);
-    console.log(file, "filee");
+    const body:any = new FormData();
+    body.append("file", file);
     const res = await fetch(`http://localhost:5000/update`, {
-      method: "POST",
-      body: file,
+      method: "PUT",
+      body,
       headers: {
         Authorization: token
       },
     });
     const data = await res.json();
-    console.log(data);
-    // updateOrganizationDetails({
-    //  variables: {
-    //    input:  {
-    //     "organizationLegalName":formdata.organizationLegalName,
-    //     "organizationType":formdata.organizationType,
-    //     "address": formdata.address,
-    //     "basicSalary":formdata.basicSalary,
-    //     "HRA":formdata.HRA,
-    //     "CIN":formdata.CIN,
-    //     "EPF": formdata.EPF,
-    //     "ESI": formdata.EPF,
-    //    }
-    //  }
-    // })
+    if(data){
+        updateOrganizationDetails({
+          variables: {
+            input:  {
+              "organizationImage":data,
+              "organizationLegalName":formdata.organizationLegalName,
+              "organizationType":formdata.organizationType,
+              "address": formdata.address,
+              "basicSalary":formdata.basicSalary,
+              "HRA":formdata.HRA,
+              "CIN":formdata.CIN,
+              "EPF": formdata.EPF,
+              "ESI": formdata.EPF,
+            }
+          }
+        })
+    } 
   };
 
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
-
-  {
-    console.log(filesrc);
-  }
   return (
     <div className={styles.rightconfiguration}>
       <form onSubmit={handleSubmit}>
@@ -136,7 +138,7 @@ const RightConfigurationeditable = () => {
           <div className={styles.cameraparentdiv}>
             <div className={styles.cameradiv}>
               {filesrc ? (
-                <img src={filesrc} alt="selected" className={styles.image} />
+                <img src={formdata.organizationImage} alt="selected" className={styles.image} />
               ) : (
                 <img
                   src="/assets/images/profile-picture.png"
