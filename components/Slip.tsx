@@ -142,6 +142,7 @@ return (
 
           <div className={styles.infooneline}>
             <div className={styles.headings}>Basic Salary</div>
+            <div className=""></div>
             <div className={styles.headings}>Gross</div>
             <div className={styles.headings}>Paid</div>
           </div>

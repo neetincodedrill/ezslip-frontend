@@ -2,10 +2,11 @@ import React from "react";
 import styles from "./RightHistoryComponent.module.css";
 import { useQuery } from "@apollo/client/react/hooks";
 import EMPLOYEE_HISTORY from "@graphql/EMPLOYEE_HISTORY.graphql";
-import { NextPage } from "next";
+
 const RightHistoryComponent: React.FC = () => {
   const { data, loading, error } = useQuery(EMPLOYEE_HISTORY);
-
+  if(data) console.log(data);
+  if(error) console.log(error);
   var historyList: any;
   historyList = data?.employeeHistory?.employees;
   return (

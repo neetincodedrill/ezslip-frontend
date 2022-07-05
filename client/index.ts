@@ -1,10 +1,13 @@
 import { ApolloClient, InMemoryCache,HttpLink } from "@apollo/client";
 import { setContext } from "apollo-link-context";
-const cookie = require('cookie-cutter')
+// const cookie = require('cookie-cutter')
+import { getCookie } from 'cookies-next';
 
-const httpLink = new HttpLink({ uri: "http://192.168.1.3:5000/ezslip"});
+const httpLink = new HttpLink({ uri: "http://localhost:5000/ezslip"});
 const authLink = setContext(async(req, {headers}) => {
-    const token = cookie.get('ezslipToken');
+    // const token = cookie.get('ezslipToken');
+    const token = getCookie('ezslipToken');
+    console.log("tokenset",token)
     return {
         ...headers,
         headers : {

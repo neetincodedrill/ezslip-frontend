@@ -6,15 +6,17 @@ import {useState} from 'react';
 import EmployeeModalWrapper from './AddemployeePage/EmployeeModalWrapper';
 import { useQuery } from '@apollo/client'
 import EMPLOYEE_LIST from '@graphql/EMPLOYEE_LIST.graphql'
+import { getCookie } from 'cookies-next';
 
 const RightEmployeesComponent:FC = () => {
+
   const [isAddEmployeebuttonclicked, setIsAddEmployeebuttonclicked] = useState(false);
-  const [isEditEmployeebuttonclicked, setIsEditEmployeebuttonclicked] = useState(false);
+  const [isEditEmployeebuttonclicked, setIsEditEmployeebuttonclicked] = useState(false);    
   const [isDeleteEmployeebuttonclicked, setIsDeleteEmployeebuttonclicked] = useState(false);
   const [id,setId] = useState("");
   
   const { data, loading, error } = useQuery(EMPLOYEE_LIST);
-
+    
   return (
         <div className={styles.historycomponent}>
             <div className={styles2.firstLine}>
@@ -22,6 +24,7 @@ const RightEmployeesComponent:FC = () => {
             <div >          
                 <button className={styles2.buttonAddemployee}
                 onClick={()=>{
+                    console.log("clicked");
                     setIsAddEmployeebuttonclicked(!isAddEmployeebuttonclicked)
                 }}>
                 Add Employee
@@ -93,9 +96,11 @@ const RightEmployeesComponent:FC = () => {
             <tr>
                 <td colSpan={7}> <hr className={styles.hrulergrey}/> </td>
             </tr>
+
             {isAddEmployeebuttonclicked && <EmployeeModalWrapper flagDisplayFunc={setIsAddEmployeebuttonclicked}  flagemployee={isAddEmployeebuttonclicked} targetModal="add"/>}
             {isEditEmployeebuttonclicked && <EmployeeModalWrapper flagDisplayFunc={setIsEditEmployeebuttonclicked}  flagemployee={isEditEmployeebuttonclicked} targetModal="edit" id = {id} />}
             {isDeleteEmployeebuttonclicked && <EmployeeModalWrapper flagDisplayFunc={setIsDeleteEmployeebuttonclicked}  flagemployee={isDeleteEmployeebuttonclicked} targetModal="delete" id = {id}/>}
+            
         </>
         ))
     }

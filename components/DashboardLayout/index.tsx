@@ -4,7 +4,7 @@ import Header from "@components/Header";
 import SignupFooter from "@components/SignupFooter";
 import Userheader from "@components/Userheader";
 import React from "react";
-import stylesdash from  "../../styles/dash.module.css"
+import stylesdash from  "@styles/dash.module.css"
 
 interface ILayout {
   children: React.ReactNode;

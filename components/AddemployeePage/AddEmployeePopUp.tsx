@@ -75,6 +75,7 @@ const AddEmployeePopUp:FC<wrapperProps2> = ({flagDisplayFunc, flagemployee}) => 
     }
 
     const handleEmployeeeResponse = () => {
+
             setAdddetailsSavedModal(!adddetailsSavedModal)
     }
   
@@ -201,7 +202,7 @@ const AddEmployeePopUp:FC<wrapperProps2> = ({flagDisplayFunc, flagemployee}) => 
                     <button 
                         type="submit" 
                         className={styles.submitbutton} 
-                        onClick={()=> {setAdddetailsSavedModal(!adddetailsSavedModal)}}>Add to List
+                        onClick={handleEmployeeeResponse}>Add to List
                     </button>  
   
     

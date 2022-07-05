@@ -7,7 +7,7 @@ import { useMutation } from '@apollo/client';
 import Signuploader from '../../pages/signUpLoader/[...token]';
 import { useRouter } from 'next/router';
 const cookie = require('cookie-cutter');
-import { getCookie, removeCookies } from 'cookies-next';
+import { getCookie, removeCookies,deleteCookie } from 'cookies-next';
 
 
 const SetPasswordForm = () => {
@@ -61,6 +61,7 @@ const SetPasswordForm = () => {
 
         if(recievedToken){
           
+          deleteCookie('id');
           router.push("/configuration");
 
         }else{

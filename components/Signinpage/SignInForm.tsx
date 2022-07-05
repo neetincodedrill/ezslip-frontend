@@ -116,31 +116,10 @@ else{
 }
 
 
-  
-  // console.log(data);
-  // console.log(data.login.message);
-
-  // if(data.login.token === null){
-    // console.log(data.login.message,"messagee");
-    // console.log(typeof data.login.message,"type");
-  // }
-
-  // else{
-
-  // }
 
 }
 
-  // if(data? && data.login.message && data.login.token === null)
-  // {
-  //   setErrorMsg(data.login.message);  
-  //   console.log(data.login.message);
-  //   router.push("/signin");
-  // }
-  // else{
   
-  // }
-
   setEmail("");
   setPassword("");
 }

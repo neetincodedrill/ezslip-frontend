@@ -13,6 +13,7 @@ const configuration = () => {
   const router = useRouter();
   var token: any;
   token = getCookie("ezslipToken");
+  
 
   if (!token) {
     if (typeof window !== "undefined") {

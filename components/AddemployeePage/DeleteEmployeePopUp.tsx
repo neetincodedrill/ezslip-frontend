@@ -1,6 +1,3 @@
-
-
-
 import React,{FC} from 'react'
 import styles from "./Wrapper.module.css"
 import { useMutation } from '@apollo/client'
