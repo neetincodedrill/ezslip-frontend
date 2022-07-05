@@ -66,14 +66,17 @@ const footershadow : any = {
 
 const Rightheaderlogout:FC = () => {
 
-
+  function handleLogout() {
+    console.log(getCookie('ezslipToken'));
+    deleteCookie('ezslipToken');
+    console.log(getCookie('ezslipToken'))
+    
+  }
 
   return(
     <div className="buttondiv">
       <Link href="/signin">
-        <button type="button" className="logoutbutton" onClick= {()=>{    console.log(getCookie('ezslipToken'));
-    deleteCookie('ezslipToken');
-    console.log(getCookie('ezslipToken'))}}>Logout</button>
+        <button type="button" className="logoutbutton" onClick= { handleLogout  }>Logout</button>
       </Link>
     </div>
   )

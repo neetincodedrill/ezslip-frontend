@@ -7,6 +7,7 @@ import { useMutation } from '@apollo/client';
 import LOGIN from "@graphql/LOGIN.graphql";
 import { useRouter } from 'next/router';
 import SigninginLoader from '@components/SigninginLoader';
+import { deleteCookie } from 'cookies-next';
 const cookie = require('cookie-cutter')
 
 export const Heading : FC<{text:string}> = ({text}) => {
@@ -31,6 +32,7 @@ export const Input:FC<Inputprops> = ({placeholder,imgsrc,alt,type, handleChange,
 function handle(e:any){
   handleChange(e.target.value);
 }  
+
 
 return (
 <div className={styles.inputdiv}  >
@@ -99,7 +101,7 @@ if( result) {
       setPassworderrorMsg("");
     }
 
-    if(message.includes("password")) {
+    if(message.includes("Password")) {
       setPassworderrorMsg(message);
       setEmailerrorMsg("");
     }

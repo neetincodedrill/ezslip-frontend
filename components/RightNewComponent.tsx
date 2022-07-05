@@ -10,7 +10,7 @@ const nameList = ["gurjant panesar","Go gates", "Spaces khan", "The pianist", "R
 
 const RightNewComponent = () => {
   
-  const {data, loading, error} = useQuery(EMPLOYEE_NAMELIST);
+  const {data, loading, error} = useQuery(EMPLOYEE_NAMELIST,  {fetchPolicy: 'network-only'});
 
   const [employeeNames, setEmployeesName] = useState();
 
@@ -19,9 +19,7 @@ const RightNewComponent = () => {
     setEmployeesName(data);
   },[loading])
 
-  if(error) console.log("error",error);  
-  if(loading) console.log("loading",loading);
-  if(employeeNames) console.log("employees",employeeNames)
+
   if(data) console.log("data",data)
 
 return (
@@ -30,14 +28,21 @@ return (
       <div className={styles.firstline}>
           <div className={styles.firstheadingdiv}>
               <div className={styles.headingName}>
-              Employee’s Name
+                Employee’s Name
               </div>
-              <div className={styles.namesdiv}>
-                {nameList.map((val,index)=>(
-                  <div className={styles.name} key={index}>
-                    {val}
-                  </div>
-                ))}
+
+              <div className={styles.parent2}>
+                <div className={styles.parent1}>
+                      <div className={styles.namesdiv}>
+                        {/* {data?.employeeNameList?.employees?.map((val:any,index:any)=>( */}
+                        { nameList.map ((val:any,index:any)=>(
+                          <div className={styles.name} key={index}>
+                            {/* {val.name} */}
+                            {val}
+                          </div>
+                        ))}
+                      </div>
+                </div>
               </div>
           </div>
 

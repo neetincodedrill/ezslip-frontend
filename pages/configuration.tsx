@@ -7,6 +7,7 @@ import Userheader from "../components/Userheader";
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/router";
 import DashboardLayout from "@components/DashboardLayout";
+import {useEffect} from 'react';
 
 
 const configuration = () => {
@@ -14,12 +15,12 @@ const configuration = () => {
   var token: any;
   token = getCookie("ezslipToken");
   
-
+useEffect(()=>{
   if (!token) {
-    if (typeof window !== "undefined") {
-      window.location.href = "http://localhost:3000";
-    }
+    router.push("/signin");  
   }
+})
+  
 
   return (
     <>

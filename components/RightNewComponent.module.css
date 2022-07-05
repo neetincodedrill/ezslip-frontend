@@ -37,6 +37,8 @@ color: #FFFFFF;
 
 .namesdiv{
     margin-top: 15px;
+    width: 397px;
+    height: 404px;
 }
 
 
@@ -144,3 +146,33 @@ color: #FFFFFF;
 margin-top: 50px;
 margin-bottom: 47px;
 }
+
+
+.name {
+    padding:23px 0 14px 72px;
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 300;
+font-size: 17px;
+line-height: 24px;
+/* or 141% */
+
+display: flex;
+align-items: center;
+
+color: #2E2E2E;
+}
+
+.parent2 {
+ 
+    position: relative;
+    overflow:hidden;
+}
+
+.parent1 {
+    position: absolute;
+    left: 0 ;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+

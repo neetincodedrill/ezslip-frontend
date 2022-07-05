@@ -104,3 +104,8 @@
 .table2childdiv::-webkit-scrollbar {
     display: none;
 }
+
+.table1 {
+    width:100%;
+    text-align: left;
+}

@@ -136,31 +136,19 @@ return (
           </div>
 
           <div className={styles.infooneline}>
+            <div className={styles.label1}></div>
             <div className={styles.gross}>Gross</div>
             <div className={styles.paid}>Paid</div>
           </div>
 
-          <div className={styles.infooneline}>
-            <div className={styles.headings}>Basic Salary</div>
-            <div className=""></div>
-            <div className={styles.headings}>Gross</div>
-            <div className={styles.headings}>Paid</div>
-          </div>
 
           <div className={styles.infooneline}>
+            <div className={styles.label1}>Basic Salary </div>
             <div className={styles.gross}>Gross</div>
             <div className={styles.paid}>Paid</div>
+           
           </div>
 
-          <div className={styles.infooneline}>
-            <div className={styles.gross}>Gross</div>
-            <div className={styles.paid}>Paid</div>
-          </div>
-
-          <div className={styles.infooneline}>
-            <div className={styles.gross}>Gross</div>
-            <div className={styles.paid}>Paid</div>
-          </div>
         </div>
 
     </div>
