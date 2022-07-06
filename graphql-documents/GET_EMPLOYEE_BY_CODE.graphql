@@ -1,0 +1,17 @@
+
+query GetEmployeeByEmpCode($employeeCode: String!) {
+  getEmployeeByEmpCode(employeeCode: $employeeCode) {
+    firstName
+    lastName
+    employeeCode
+    designation
+    panNumber
+    salary
+    doj
+    basicSalary
+    HRA
+    CIN
+    EPF
+    ESI
+  }
+}

@@ -12,6 +12,7 @@ import EmployeeList from "../../ezslip-backend/server/gateway/employee/types/Emp
 console.log(getCookie("ezslipToken"));
 
 const RightEmployeesComponent:React.FC = () => {
+  
     const { data, loading,error } = useQuery(EMPLOYEE_LIST,
         {fetchPolicy: 'network-only'});
 

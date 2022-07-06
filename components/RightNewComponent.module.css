@@ -1,178 +1,248 @@
 .main {
-padding: 101px 0 0 100px;
-font-family: 'Montserrat';
-font-style: normal;
-color: #2E2E2E;
-}
-
-.firstline{
-    display:flex;
-}
-
-
-
-.firstheadingdiv {
-width: 397px;
-height: 404px;
-
-}
-
-.headingName{
-    width: 397px;
-height: 64px;
-
-background: #47A296;
-border-radius: 5px 5px 0px 0px;
-display: flex;
-justify-content: center;
-align-items: center;
-font-weight: 500;
-font-size: 20px;
-line-height: 24px;
-/* identical to box height, or 120% */
-
-
-color: #FFFFFF;
-}
-
-.namesdiv{
-    margin-top: 15px;
+    padding: 101px 0 0 100px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    color: #2E2E2E;
+    }
+    
+    .firstline{
+        display:flex;
+    }
+    
+    
+    
+    .firstheadingdiv {
     width: 397px;
     height: 404px;
-}
-
-
-
-.secondHeading {
-    margin-left: 95px;
-    font-weight: 400;
-font-size: 20px;
-line-height: 24px;
-
-}
-
-.searchdiv {
-    margin-top: 21px;
-    width: 296px;
-height: 53px;
-border: 1px solid #E8E8E8;
-border-radius: 10px;
-position: relative;
-display: flex;
-align-items: center;
-padding: 0 20px;
-justify-content: end;
-}
-
-.searchinput {
-    height: inherit;
-    width: inherit;
+    
+    }
+    
+    .headingName{
+        width: 397px;
+    height: 64px;
+    
+    background: #47A296;
+    border-radius: 5px 5px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    /* identical to box height, or 120% */
+    
+    
+    color: #FFFFFF;
+    }
+    
+    .namesdiv{
+        /* margin-top: 15px; */
+        width: 397px;
+        height: 340px;
+    }
+    
+    
+    
+    .secondHeading {
+        margin-left: 95px;
+        font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    
+    }
+    
+    .searchdiv {
+        margin-top: 21px;
+        width: 296px;
+    height: 53px;
     border: 1px solid #E8E8E8;
     border-radius: 10px;
-    font-size: 17px;
-line-height: 24px;
-display: flex;
-
-}
-
-.searchIcon {
-    height:24px;
-    width:24px;
-    position: absolute;
-}
-
-
-.secondline {
-    margin-top: 61px;
-    height: 55px;
+    position: relative;
     display: flex;
-
-
-}
-
-.designationDiv,.designationinput {
-    width: 361px;
-    height: 100%;
-    border: 1px solid #E8E8E8;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: end;
+    }
+    
+    .searchinput {
+        height: inherit;
+        width: inherit;
+        border: 1px solid #E8E8E8;
+        border-radius: 10px;
+        font-size: 17px;
+    line-height: 24px;
+    display: flex;
+    
+    }
+    
+    .searchIcon {
+        height:24px;
+        width:24px;
+        position: absolute;
+    }
+    
+    
+    .secondline {
+        margin-top: 61px;
+        height: 55px;
+        display: flex;
+    
+    
+    }
+    
+    .designationDiv,.designationinput {
+        width: 361px;
+        height: 100%;
+        border: 1px solid #E8E8E8;
+        border-radius: 10px;
+    }
+    
+    .designationinput {
+        padding-left: 42px;
+    }
+    
+    .pancardDiv,.pancardInput {
+        width: 361px;
+        margin-left:66px;
+        height: 100%;
+        border: 1px solid #E8E8E8;
     border-radius: 10px;
-}
-
-.designationinput {
-    padding-left: 42px;
-}
-
-.pancardDiv,.pancardInput {
-    width: 361px;
-    margin-left:66px;
-    height: 100%;
-    border: 1px solid #E8E8E8;
-border-radius: 10px;
-}
-
-.pancardInput {
-    padding-left: 42px; 
-}
-
-.thirdline {
-    margin-top: 49px;
-    height: 55px;
+    }
+    
+    .pancardInput {
+        padding-left: 42px; 
+    }
+    
+    .thirdline {
+        margin-top: 49px;
+        height: 55px;
+        display: flex;
+    }
+    
+    .fourthline{
+        margin-top: 50px;
+    }
+    
+    .calculatebutton {
+        width: 362px;
+        height: 50px;
+    
+    background: #47A296;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    
     display: flex;
-}
-
-.fourthline{
+    align-items: center;
+    justify-content:  center;
+    
+    color: #FFFFFF;
+    
+    }
+    
+    .slipdiv {
     margin-top: 50px;
+    margin-bottom: 47px;
+    }
+    
+    
+    .name {
+        padding:23px 0 14px 72px;
+        font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 24px;
+    /* or 141% */
+    
+    display: flex;
+    align-items: center;
+    
+    color: #2E2E2E;
+    }
+    
+    .parent2 {
+     
+        position: relative;
+        overflow: hidden;
+        width: 397px;
+        height: 340px;
+    }
+    
+    .parent1 {
+        position: absolute;
+        left: 0 ;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+
+.buttondiv {
+    margin: 47px 0 187px;
+    display: flex;
 }
 
-.calculatebutton {
-    width: 362px;
-    height: 50px;
-
+.savebutton {
+    width: 125px;
+height: 48px;
 background: #47A296;
 border: 1px solid rgba(0, 0, 0, 0.16);
+box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.03);
 border-radius: 5px;
 font-weight: 700;
 font-size: 16px;
 line-height: 24px;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+color: #FFFFFF;
+}
+
+.downloadbuttondiv{
+    margin-left: 47px;
+}
+
+.downloadbutton {
+    width: 172px;
+height: 48px;
+left: 589px;
+top: 1910px;
+
+background: #47A296;
+border: 1px solid rgba(0, 0, 0, 0.16);
+box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.03);
+border-radius: 5px;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
 
 display: flex;
 align-items: center;
-justify-content:  center;
+justify-content: space-evenly;
 
 color: #FFFFFF;
-
 }
 
-.slipdiv {
-margin-top: 50px;
-margin-bottom: 47px;
+.sharebuttondiv {
+    margin-left: 47px;
 }
 
-
-.name {
-    padding:23px 0 14px 72px;
-    font-family: 'Montserrat';
-font-style: normal;
-font-weight: 300;
-font-size: 17px;
+.sharebutton {
+    width: 133px;
+height: 48px;
+background: #47A296;
+border: 1px solid rgba(0, 0, 0, 0.16);
+box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.03);
+border-radius: 5px;
+font-weight: 700;
+font-size: 16px;
 line-height: 24px;
-/* or 141% */
-
 display: flex;
 align-items: center;
+justify-content: space-evenly;
 
-color: #2E2E2E;
+color: #FFFFFF;
 }
-
-.parent2 {
- 
-    position: relative;
-    overflow:hidden;
-}
-
-.parent1 {
-    position: absolute;
-    left: 0 ;
-    overflow-x: hidden;
-    overflow-y: scroll;
-}
-

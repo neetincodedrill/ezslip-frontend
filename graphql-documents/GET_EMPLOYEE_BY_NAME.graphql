@@ -1,0 +1,16 @@
+query GetEmployeeByName($name: String!) {
+  getEmployeeByName(name: $name) {
+    firstName
+    lastName
+    employeeCode
+    designation
+    panNumber
+    salary
+    doj
+    basicSalary
+    HRA
+    EPF
+    ESI
+    CIN
+  }
+}

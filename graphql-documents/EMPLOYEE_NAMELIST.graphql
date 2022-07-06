@@ -1,6 +1,7 @@
-query EmployeeNameList {
-  employeeNameList {
+query EmployeeNameList($name: String) {
+  employeeNameList(name: $name) {
     employees {
+      id
       name
     }
     message

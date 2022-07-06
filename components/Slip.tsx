@@ -1,8 +1,16 @@
-import React from 'react'
+import React,{FC} from 'react'
 import styles from "./Slip.module.css";
 import Image from 'next/image'
+import { Input } from './Signinpage/SignInForm';
 
-const Slip = () => {
+interface Islips {
+  datacode: object
+}
+
+const Slip:FC<Islips> = ({datacode}) => {
+  // const []
+  console.log(datacode);
+  const name = datacode?.getEmployeeByEmpCode?.firstName + " " + datacode?.getEmployeeByEmpCode?.lastName;
 return (
 <div className={styles.slip}>
   <div className={styles.main}>
@@ -91,10 +99,10 @@ return (
           </div>
 
           <div className={styles.inputs}>
-              <input type="text" name="" id="" placeholder='Loid Forger' className={styles.input}/>
-              <input type="text" name="" id="" placeholder='8484HJBH3' className={styles.input}/>
-              <input type="text" name="" id="" placeholder='DD/MM/YYYY' className={styles.input}/>
-              <input type="text" name="" id="" placeholder='Designation' className={styles.input}/>
+              <input type="text" name="" id="" placeholder='Loid Forger' className={styles.input}  value = {name}/>
+              <input type="text" name="" id="" placeholder='8484HJBH3' className={styles.input} value= {datacode?.getEmployeeByEmpCode?.employeeCode}/>
+              <input type="text" name="" id="" placeholder='DD/MM/YYYY' className={styles.input} value= {datacode?.getEmployeeByEmpCode?.doj} />
+              <input type="text" name="" id="" placeholder='Designation' className={styles.input} value= {datacode?.getEmployeeByEmpCode?.designation}  />
           </div>
 
         </div>
@@ -123,33 +131,172 @@ return (
 
 
       <div className={styles.secondinfodiv}>
-          <div className={styles.stylessecInfolineheading}>
 
-            <span className={styles.heading1}>
-                Particulars
-            </span>
-            
-            
-            <span className={styles.heading2}>
-                Amount
-            </span>
+          <div className={`${styles.infooneline} ${styles.custom}`}>
+            <div className={`${styles.label1} ${styles.slipheading}`}>Particulars</div>
+            <div className={` ${styles.gross} ${styles.slipheading}`}>Amount</div>
+            <div className={styles.paid}></div>
           </div>
 
+
           <div className={styles.infooneline}>
+
             <div className={styles.label1}></div>
             <div className={styles.gross}>Gross</div>
             <div className={styles.paid}>Paid</div>
+            
+          </div>
+
+         
+
+
+          <div className={styles.infooneline}>
+
+            <div className={styles.label1}>Basic Salary </div>
+            <div className={styles.gross}>     
+            <input type="text" name="" id="" placeholder='20000' className={styles.input1} value= {datacode?.getEmployeeByEmpCode?.HRA}/> 
+            </div>  
+            <div className={styles.paid}>
+            <input type="text" name="" id="" placeholder='20000' className={styles.input1} value= {datacode?.getEmployeeByEmpCode?.HRA}/> 
+            </div>
+           
           </div>
 
 
           <div className={styles.infooneline}>
-            <div className={styles.label1}>Basic Salary </div>
-            <div className={styles.gross}>Gross</div>
-            <div className={styles.paid}>Paid</div>
+
+            <div className={styles.label1}> HRA</div>
+            <div className={styles.gross}>     
+            <input type="text" name="" id="" placeholder='20000' className={styles.input1} value= {datacode?.getEmployeeByEmpCode?.HRA}/> 
+            </div>  
+
+            <div className={styles.paid}>
+
+            <input type="text" name="" id="" placeholder='20000' className={styles.input1} value= {datacode?.getEmployeeByEmpCode?.HRA}/> 
+
+            </div>
            
           </div>
 
-        </div>
+          <div className={styles.infooneline}>
+
+<div className={styles.label1}>
+<input type="text" name="" id="" placeholder='20000' /> 
+ </div>
+<div className={styles.gross}>     
+<input type="text" name="" id="" placeholder='20000' /> 
+</div>  
+
+<div className={styles.paid}>
+
+<input type="text" name="" id="" placeholder='20000' className={styles.input1} /> 
+
+</div>
+
+</div>
+
+<div className={styles.infooneline}>
+
+<div className={styles.label1}>
+<input type="text" name="" id="" placeholder='20000' className={styles.input1label} /> 
+ </div>
+<div className={styles.gross}>     
+<input type="text" name="" id="" placeholder='20000' className={styles.input1} /> 
+</div>  
+
+<div className={styles.paid}>
+
+<input type="text" name="" id="" placeholder='20000' className={styles.input1} /> 
+
+</div>
+
+</div>
+
+          {/* //rest of the data will be fetched this way */}
+
+          {/* <div className={`${styles.infooneline} ${styles.custom}`}>
+
+              <div className={styles.label1}></div>
+              <div className={` ${styles.gross} ${styles.slipheading}`}> 
+                 <input type="text" name="" id="" placeholder='20000'/> 
+              </div>
+              <div className={styles.paid}>40000</div>
+
+          </div> */}
+
+          <div className={`${styles.infooneline} ${styles.custom}`}>
+
+                <div className={styles.label1}></div>
+                <div className={` ${styles.gross} ${styles.slipheading}`}>Total</div>
+                <div className={styles.paid}>
+            <input type="text" name="" id="" placeholder='20000' className={styles.input1}/> 
+              </div>  
+
+          </div>
+
+       </div>
+
+       {/* this is the deductions div */}
+
+      <div className={styles.deductions}>
+
+            <div className={`${styles.infooneline} ${styles.custom}`}>
+                <div className={`${styles.label1} ${styles.slipheading}`}>Deductions</div>
+                <div className={styles.gross}></div>
+                <div className={`${styles.paid} ${styles.slipheading}`}>Amount</div>
+            </div>
+
+            <div className={styles.infooneline}>
+
+                <div className={styles.label1}>Short leaves </div>
+                {/* <div className={styles.gross}>-</div>
+                <div className={styles.paid}>-</div> */}
+
+<div className={styles.gross}>     
+            <input type="text" name="" id="" placeholder='-' className={styles.input1}/> 
+            </div>
+            <div className={styles.paid}>
+            <input type="text" name="" id="" placeholder='-' className={styles.input1}/> 
+              </div>
+           
+            </div>
+
+            {/* we will fetch the rest of the data like that */}
+
+            <div className={`${styles.infooneline} ${styles.custom}`}>
+                <div className={`${styles.label1} ${styles.slipheading}`}></div>
+                <div className={`${styles.gross} ${styles.slipheading} ${styles.smallslipheading}`}>Total Deductions</div>
+                <div className={`${styles.paid} ${styles.slipheading}`}>
+                <input type="text" name="" id="" placeholder='-' className={styles.input1}/> 
+                  </div>
+            </div>
+         
+      </div>
+
+      <div className={styles.netpay}>
+
+           
+              <div className={styles.netpayheading}>Net Pay</div>
+              <div className={styles.netamount}><input type="text" name="" id="" placeholder='-' className={styles.input1}/> </div>
+
+         
+
+      </div>
+
+
+      <div className={styles.logodiv}>
+          <div className={styles.logo}>
+               <Image src="/assets/images/ezSlips.png" 
+                 width="102px"
+                 height="35px"
+                / >
+          </div>
+
+          
+      </div>
+
+
+
 
     </div>
   </div>
@@ -159,4 +306,4 @@ return (
 )
 }
 
-export default Slip 
+export default Slip
