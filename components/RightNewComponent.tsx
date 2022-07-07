@@ -3,37 +3,83 @@ import styles from './RightNewComponent.module.css'
 import Image from 'next/image';
 import  EMPLOYEE_NAMELIST from "@graphql/EMPLOYEE_NAMELIST.graphql"
 import  GET_EMPLOYEE_BY_CODE from "@graphql/GET_EMPLOYEE_BY_CODE.graphql"
+import GET_EMPLOYEE_BY_NAME from "@graphql/GET_EMPLOYEE_BY_NAME.graphql"
 import { useQuery } from '@apollo/client/react/hooks';
 import { useEffect,useState } from 'react';
 import Slip from './Slip';
 import { CookieValueTypes, getCookie } from 'cookies-next';
 import { AiOutlineSearch } from 'react-icons/ai';
+import html2canvas from 'html2canvas';
+import { jsPDF } from "jspdf";
+
+
 
 interface props {
   employeeCode : string,
 }
 
 const RightNewComponent:FC<props> = ({employeeCode}) => {
+  const printRef = React.useRef();
 
   const [ isCalculateButtonClicked, setIsCalculateButtonClicked ] = useState<boolean>(false)
-  
+  const [activebutton, setActiveButton ]= useState(""); 
   const [empCode, setempCode] =useState("");
-  const [employeeNames, setEmployeesName] = useState();
+  const [name1, setName1] = useState("")
 
+  const [slipdata, setSlipdata] = useState<any>();
+  // here we will get the names of the employees of the particular company
   const {data:datanamelist, loading:loadingnamelist , error: errornamelist} = useQuery(EMPLOYEE_NAMELIST,  {fetchPolicy: 'network-only'});
 
+  // here we will get the details of a employee by code
   const {data:datacode, loading: loadingcode, error: errorcode, refetch } = useQuery(GET_EMPLOYEE_BY_CODE,{
     variables :{
       employeeCode 
     },
     fetchPolicy: 'network-only'} )
 
+    // here we will get the details of a employee by name
+    const {data:dataname, loading: loadingname, error: errorname, refetch: refetchname } = useQuery(GET_EMPLOYEE_BY_NAME,{
+        variables : {
+            name: name1
+        },
+        fetchPolicy: 'network-only'
+    })
+
   useEffect(()=>{
-    setEmployeesName(datanamelist);
-  },[loadingnamelist])
+    console.log(dataname);
+    setSlipdata({
+      "epf": dataname?.getEmployeeByName?.EPF,
+      "esi": dataname?.getEmployeeByName?.ESI,
+      "hra":  dataname?.getEmployeeByName?.HRA,
+      "basicSalary": dataname?.getEmployeeByName?.basicSalary,
+      "designation": dataname?.getEmployeeByName?.designation,
+      "doj" : dataname?.getEmployeeByName?.doj,
+      "employeeCode" : dataname?.getEmployeeByName?.employeeCode,
+      "firstName":  dataname?.getEmployeeByName?.firstName,
+      "lastName": dataname?.getEmployeeByName?.lastName,
+      "panNumber": dataname?.getEmployeeByName?.panNumber,
+      "salary": dataname?.getEmployeeByName?.salary
+    })
+  },[dataname])
 
+  useEffect(()=>{
+    setSlipdata({
+      "epf": datacode?.getEmployeeByEmpCode?.EPF,
+      "esi": datacode?.getEmployeeByEmpCode?.ESI,
+      "hra":  datacode?.getEmployeeByEmpCode?.HRA,
+      "basicSalary": datacode?.getEmployeeByEmpCode?.basicSalary,
+      "designation": datacode?.getEmployeeByEmpCode?.designation,
+      "doj" : datacode?.getEmployeeByEmpCode?.doj,
+      "employeeCode" : datacode?.getEmployeeByEmpCode?.employeeCode,
+      "firstName":  datacode?.getEmployeeByEmpCode?.firstName,
+      "lastName": datacode?.getEmployeeByEmpCode?.lastName,
+      "panNumber": datacode?.getEmployeeByEmpCode?.panNumber,
+      "salary": datacode?.getEmployeeByEmpCode?.salary
+    })
+    console.log(slipdata);
+  },[datacode])
 
-  var name1="";
+  
 
   const runqueryGetEmpByCode = () => {
     refetch({
@@ -41,16 +87,21 @@ const RightNewComponent:FC<props> = ({employeeCode}) => {
     })
   }
 
-  console.log(datacode)
-  console.log(datanamelist);
+  const runqueryGetEmpByName = () => {
+    refetchname({
+      name : name1
+    })
+  }
+
+  // console.log(datacode)
+  // console.log(datanamelist);
   
   const calculatefunction = (e:any) => {
     e.preventDefault();
-
     setIsCalculateButtonClicked(true)
-
-
   }
+
+
 
 return (
   <div className={styles.main}>
@@ -64,7 +115,7 @@ return (
                 Employee’s Name
               </div>
 
-              <input type="text" name="pancard" id="pancard" placeholder='Employee name' className={styles.name}  style={{"border":"none"}} value={datacode?.getEmployeeByEmpCode?.firstName + " " + datacode?.getEmployeeByEmpCode?.lastName}/> 
+              {slipdata && <input type="text" name="pancard" id="pancard" placeholder='Employee name' className={styles.name}  style={{"border":"none"}} value={slipdata?.firstName + " " + slipdata?.lastName}/> }
 
               <div className={styles.parent2}>
               
@@ -73,11 +124,19 @@ return (
                       <div className={styles.namesdiv}>
 
                         {datanamelist?.employeeNameList?.employees?.map((val:any,index:any)=>(
-                          // <div className={styles.name} key={index} id={"name"+index}>
-                            <option value={val.name} className={styles.name}>
-                            {/* {val.name === name1 && <div style={{"backgroundColor": "rgba(0, 0, 0, 0.07)"}}>{val.name}</div>} */}
+                            (datacode?.getEmployeeByEmpCode?.firstName + " " + datacode?.getEmployeeByEmpCode?.lastName === val.name)?
+                            (<option value={val.name} className={styles.name} style={{"backgroundColor": activebutton === index ? "lightgray" : "lightgray"}}  onClick={() => {
+                              setActiveButton(index);
+                              runqueryGetEmpByName()
+                            }}>                          
                             {val.name}
-                            </option>
+                            </option>):(<option value={val.name} className={styles.name} style={{"backgroundColor": activebutton === index ? "lightgray" : ""} } onClick={() => {
+                              setActiveButton(index)
+                              setName1(val.name);
+                              runqueryGetEmpByName()
+                            }}>                          
+                            {val.name}
+                            </option>)
                         ))}
 
                       </div>
@@ -88,7 +147,7 @@ return (
           <div className={styles.secondHeading}>
           <p>Employee Code</p>
           <div className={styles.searchdiv}>
-            <input type="search" name="" id="" placeholder="AFX89X6" className={styles.searchinput} value={empCode} onChange={(e)=> { setempCode(e.target.value)}}/>
+            <input type="search" name="" id="" placeholder="AFX89X6" className={styles.searchinput} value={slipdata?.employeeCode} onChange={(e)=> { setempCode(e.target.value)}}/>
             <div className={styles.searchIcon}>
               <AiOutlineSearch onClick={runqueryGetEmpByCode}/>
             </div>
@@ -98,21 +157,21 @@ return (
 
       <div className={styles.secondline}>
         <div className={styles.designationDiv}>
-          <input type="text" name="designation" id="designation" placeholder='Designation'  className={styles.designationinput} value={datacode?.getEmployeeByEmpCode?.designation} />
+          <input type="text" name="designation" id="designation" placeholder='Designation'  className={styles.designationinput} value={slipdata?.designation} />
         </div>
 
         <div className={styles.pancardDiv}>
-          <input type="text" name="pancard" id="pancard" placeholder='Pan Card number' className={styles.pancardInput}  value={datacode?.getEmployeeByEmpCode?.panNumber} />
+          <input type="text" name="pancard" id="pancard" placeholder='Pan Card number' className={styles.pancardInput}  value={slipdata?.panNumber} />
         </div>
       </div>
 
       <div className={styles.thirdline}>
         <div className={styles.designationDiv}>
-          <input type="text" name="dateofjoining" id="dateofjoining" placeholder='Date of Joining' className={styles.designationinput} value={datacode?.getEmployeeByEmpCode?.doj} />
+          <input type="text" name="dateofjoining" id="dateofjoining" placeholder='Date of Joining' className={styles.designationinput} value={slipdata?.doj} />
         </div>
 
         <div className={styles.pancardDiv}>
-          <input type="text" name="salary" id="salary" placeholder='Salary' className={styles.pancardInput} value={datacode?.getEmployeeByEmpCode?.panNumber} />
+          <input type="text" name="salary" id="salary" placeholder='Salary' className={styles.pancardInput} value={slipdata?.panNumber} />
         </div>
      </div>
 
@@ -128,10 +187,10 @@ return (
 
       <div className={styles.slipdiv} >
       {
-        isCalculateButtonClicked  && <Slip datacode={datacode}/>
+        isCalculateButtonClicked  && <Slip datacode={slipdata}/>
       }
       </div>
-
+  
       {
         isCalculateButtonClicked &&
       <div className={styles.buttondiv}>
@@ -164,12 +223,21 @@ return (
               width="24"/>
             </button>
           </div>
+         
       </div>
 }
+
+
   </div>
 
 
 )
 }
 
+
+
 export default RightNewComponent
+
+
+
+

@@ -9,7 +9,9 @@
         display:flex;
     }
     
-    
+    .name:hover {
+        cursor: pointer;
+    }
     
     .firstheadingdiv {
     width: 397px;

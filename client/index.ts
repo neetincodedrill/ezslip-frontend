@@ -7,7 +7,7 @@ const httpLink = new HttpLink({ uri: "http://localhost:5000/ezslip"});
 const authLink = setContext(async(req, {headers}) => {
     // const token = cookie.get('ezslipToken');
     const token = getCookie('ezslipToken');
-    // console.log("tokenset",token)
+    console.log("tokenset",token)
     return {
         ...headers,
         headers : {
