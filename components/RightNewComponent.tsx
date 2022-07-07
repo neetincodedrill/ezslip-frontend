@@ -64,7 +64,7 @@ return (
                 Employee’s Name
               </div>
 
-              <input type="text" name="pancard" id="pancard" placeholder='Employee name' className={styles.name}  style={{"border":"none"}} value={datacode?.getEmployeeByEmpCode?.firstName + " " + datacode?.getEmployeeByEmpCode?.lastName}/> ut
+              <input type="text" name="pancard" id="pancard" placeholder='Employee name' className={styles.name}  style={{"border":"none"}} value={datacode?.getEmployeeByEmpCode?.firstName + " " + datacode?.getEmployeeByEmpCode?.lastName}/> 
 
               <div className={styles.parent2}>
               

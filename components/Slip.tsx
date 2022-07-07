@@ -1,16 +1,114 @@
-import React,{FC} from 'react'
+import React,{FC, useState} from 'react'
 import styles from "./Slip.module.css";
 import Image from 'next/image'
 import { Input } from './Signinpage/SignInForm';
+import {useEffect} from 'react';
+import { off } from 'process';
 
 interface Islips {
-  datacode: object
+  datacode?: any
 }
 
-const Slip:FC<Islips> = ({datacode}) => {
-  // const []
+const Slip : FC<Islips> = ({datacode}) => {
+
+  const monthnames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const date = new Date();
+  console.log(date);
+  let month:string = monthnames[date.getMonth()];
+  let year:number  = Number(date.getFullYear());
+  var days: number =31; 
+
+  if(month === "January"||"March"||"May"||"July"||"August"||"October"||"December"){
+    days = 31}
+
+  if(month === "April"||"June"||"September"||"November"){
+    days = 30;
+  }
+
+  if(month === "February"){
+    if(year%4==0)
+    {
+      days = 29;
+    }
+    else
+    days = 28;
+  } 
+
+  interface Islipvalues  {
+    "epf" : Number,
+        "esi" : Number,
+        "hra" : Number,
+        "fullname" : string,
+        "salary" : Number,
+        "designation" : string,
+        "doj" : string
+        "employeeCode" :  string,
+        "panNumber" : string,
+        "month" : string,
+        "days" : Number,
+        "daysWorked" : Number,
+        "leavesNumber" : Number,
+        "conveyanceAllowance": Number,
+        "vehicleAllowance": Number 
+  }
+
+  const [slipvalues , setSlipvalues] = useState<Islipvalues>({
+
+        "epf" : Number(datacode?.getEmployeeByEmpCode?.EPF * datacode?.getEmployeeByEmpCode?.salary /100 ),
+        "esi" : Number(datacode?.getEmployeeByEmpCode?.ESI * datacode?.getEmployeeByEmpCode?.salary /100 ),
+        "hra" : Number(datacode?.getEmployeeByEmpCode?.HRA * datacode?.getEmployeeByEmpCode?.salary /100 ),
+        "fullname" : datacode?.getEmployeeByEmpCode?.firstName + " " + datacode?.getEmployeeByEmpCode?.lastName,
+        "salary" : Number(datacode?.getEmployeeByEmpCode?.salary),
+        "designation" : datacode?.getEmployeeByEmpCode?.designation,
+        "doj" : datacode?.getEmployeeByEmpCode?.doj,
+        "employeeCode" :  datacode?.getEmployeeByEmpCode?.employeeCode,
+        "panNumber" : datacode?.getEmployeeByEmpCode?.panNumber,
+        "month" : month,
+        "days" : days,
+        "daysWorked" : days,
+        "leavesNumber" : 0,
+        "conveyanceAllowance": 0,
+        "vehicleAllowance": 0 
+  });
+
+  const [finalvalues,  setFinalvalues ] = useState<{
+    "total" :number,
+    "totalDeductions" : number
+  }>({
+    "total" : Number(slipvalues.salary) + Number(slipvalues.hra) + Number(slipvalues.conveyanceAllowance) + Number(slipvalues.vehicleAllowance) ,
+    "totalDeductions" :  Number(slipvalues.epf) + Number (slipvalues.esi) 
+  })
+
+  console.log(finalvalues.total,"total");
+  
+
   console.log(datacode);
-  const name = datacode?.getEmployeeByEmpCode?.firstName + " " + datacode?.getEmployeeByEmpCode?.lastName;
+
+
+useEffect( ()=>{
+
+  setSlipvalues(datacode);
+
+  console.log(slipvalues);
+
+},[])
+
+
+  const handleChange = (e:any) => {
+
+    setSlipvalues({
+      ...slipvalues,
+      [e.target.name] : Number(e.target.value)
+    })
+
+    setFinalvalues({
+     "total" : Number(slipvalues.salary) + Number(slipvalues.hra) + Number(slipvalues.conveyanceAllowance) + Number(slipvalues.vehicleAllowance),
+     "totalDeductions" :  Number(slipvalues.epf) + Number (slipvalues.esi) 
+    })
+
+  }
+
+
 return (
 <div className={styles.slip}>
   <div className={styles.main}>
@@ -99,10 +197,10 @@ return (
           </div>
 
           <div className={styles.inputs}>
-              <input type="text" name="" id="" placeholder='Loid Forger' className={styles.input}  value = {name}/>
-              <input type="text" name="" id="" placeholder='8484HJBH3' className={styles.input} value= {datacode?.getEmployeeByEmpCode?.employeeCode}/>
-              <input type="text" name="" id="" placeholder='DD/MM/YYYY' className={styles.input} value= {datacode?.getEmployeeByEmpCode?.doj} />
-              <input type="text" name="" id="" placeholder='Designation' className={styles.input} value= {datacode?.getEmployeeByEmpCode?.designation}  />
+              <input type="text" placeholder='Loid Forger' className={styles.input}  value = {slipvalues.fullname} onChange={handleChange} name="fullname" />
+              <input type="text" placeholder='8484HJBH3' className={styles.input} value= {slipvalues.employeeCode} onChange={handleChange} name="employeeCode"/>
+              <input type="text" placeholder='DD/MM/YYYY' className={styles.input} value= {slipvalues.doj} onChange={handleChange} name="doj"/>
+              <input type="text" placeholder='Designation' className={styles.input} value= {slipvalues.designation} onChange={handleChange} name="designation"/>
           </div>
 
         </div>
@@ -117,10 +215,10 @@ return (
           </div>
 
           <div className={styles.inputs}>
-              <input type="text" name="" id="" placeholder='December'  className={styles.input}/>
-              <input type="text" name="" id="" placeholder='31' className={styles.input}/>
-              <input type="text" name="" id="" placeholder='31' className={styles.input}/>
-              <input type="text" name="" id="" placeholder='none' className={styles.input}/>
+              <input type="text" placeholder='December' className={styles.input} name="month" value={slipvalues.month}/>
+              <input type="text"  placeholder='31' className={styles.input} name="days" value={slipvalues.days}/>
+              <input type="text"  placeholder='31' className={styles.input} name="daysWorked" value={slipvalues.daysWorked}/>
+              <input type="text"  placeholder='none' className={styles.input} name="leaves" value ={slipvalues.leaves} />
           </div>
 
         </div>
@@ -154,10 +252,10 @@ return (
 
             <div className={styles.label1}>Basic Salary </div>
             <div className={styles.gross}>     
-            <input type="text" name="" id="" placeholder='20000' className={styles.input1} value= {datacode?.getEmployeeByEmpCode?.HRA}/> 
+            <input type="text" placeholder='20000' className={styles.input1} value= {slipvalues.salary} name="salary" onChange={handleChange} /> 
             </div>  
             <div className={styles.paid}>
-            <input type="text" name="" id="" placeholder='20000' className={styles.input1} value= {datacode?.getEmployeeByEmpCode?.HRA}/> 
+            <input type="text" placeholder='20000' className={styles.input1} value= {slipvalues.salary} name="salary" onChange={handleChange} /> 
             </div>
            
           </div>
@@ -167,12 +265,12 @@ return (
 
             <div className={styles.label1}> HRA</div>
             <div className={styles.gross}>     
-            <input type="text" name="" id="" placeholder='20000' className={styles.input1} value= {datacode?.getEmployeeByEmpCode?.HRA}/> 
+            <input type="text" id="" placeholder='20000' className={styles.input1} value = {slipvalues.hra} name="hra" onChange={handleChange}/> 
             </div>  
 
             <div className={styles.paid}>
-
-            <input type="text" name="" id="" placeholder='20000' className={styles.input1} value= {datacode?.getEmployeeByEmpCode?.HRA}/> 
+ 
+            <input type="text" id="" placeholder='20000' className={styles.input1} value= {slipvalues.hra} name="hra" onChange={handleChange}/> 
 
             </div>
            
@@ -181,16 +279,16 @@ return (
           <div className={styles.infooneline}>
 
                 <div className={styles.label1}>
-                <input type="text" name="" id="" placeholder='Conveyance allowance' className={styles.label1edit}/> 
+                <input type="text" placeholder='Conveyance allowance' className={styles.label1edit} /> 
                 </div>
 
                 <div className={styles.gross}>     
-                <input type="text" name="" id="" placeholder='-' className={styles.grossedit}/>  
+                <input type="text"  placeholder='-' className={styles.grossedit} name="conveyance" value={slipvalues.conveyanceAllowance}/>  
                 </div>  
 
                 <div className={styles.paid}>
 
-                <input type="text" name="" id="" placeholder='-' className={styles.input1} /> 
+                <input type="text"  placeholder='-' className={styles.input1} name="conveyance" value={slipvalues.vehicleAllowance}/> 
 
                 </div>
 
@@ -199,16 +297,16 @@ return (
           <div className={styles.infooneline}>
 
 <div className={styles.label1}>
-<input type="text" name="" id="" placeholder='Vehicle allowance' className={styles.label1edit}/> 
+<input type="text" placeholder='Vehicle allowance' className={styles.label1edit}/> 
 </div>
 
 <div className={styles.gross}>     
-<input type="text" name="" id="" placeholder='-' className={styles.grossedit}/>  
+<input type="text" placeholder='-' className={styles.grossedit} name="vehicleAllowance" value={slipvalues.vehicleAllowance} />  
 </div>  
 
 <div className={styles.paid}>
 
-<input type="text" name="" id="" placeholder='20000' className={styles.input1} /> 
+<input type="text" placeholder='-' className={styles.input1} name="vehicleAllowance" value={slipvalues.vehicleAllowance} /> 
 
 </div>
 
@@ -220,7 +318,7 @@ return (
                 <div className={styles.label1}></div>
                 <div className={` ${styles.gross} ${styles.slipheading}`}>Total</div>
                 <div className={styles.paid}>
-            <input type="text" name="" id="" placeholder='40000' className={styles.input1}/> 
+            <input type="text" placeholder='40000' className={styles.input1} value={finalvalues.total} name="total"/> 
               </div>  
 
           </div>
@@ -242,11 +340,11 @@ return (
                 <div className={styles.label1}>Short leaves </div>
 
                 <div className={styles.gross}>     
-                    <input type="text" name="" id="" placeholder='-' className={styles.input1}/> 
+                    <input type="text" placeholder='-' className={styles.input1} value={slipvalues.leavesNumber} name="leavesNumber" onChange={handleChange}/> 
                 </div>
             
                 <div className={styles.paid}>
-                    <input type="text" name="" id="" placeholder='-' className={styles.input1}/> 
+                    <input type="text" placeholder='-' className={styles.input1} value = {Number(slipvalues.leavesNumber) * Number(slipvalues.salary) / Number(slipvalues.days)}  /> 
                 </div>
            
             </div>
@@ -256,11 +354,11 @@ return (
 <div className={styles.label1}>EPF </div>
 
 <div className={styles.gross}>     
-    <input type="text" name="" id="" placeholder='-' className={styles.input1}/> 
+    <input type="text" name="" id="" placeholder='-' className={styles.input1} value={slipvalues.epf}/> 
 </div>
 
 <div className={styles.paid}>
-    <input type="text" name="" id="" placeholder='-' className={styles.input1}/> 
+    <input type="text" name="" id="" placeholder='-' className={styles.input1} value={slipvalues.epf}/> 
 </div>
 
 </div>
@@ -270,11 +368,11 @@ return (
 <div className={styles.label1}>ESI </div>
 
 <div className={styles.gross}>     
-    <input type="text" name="" id="" placeholder='-' className={styles.input1}/> 
+    <input type="text" name="" id="" placeholder='-' className={styles.input1} value={slipvalues.esi}/> 
 </div>
 
 <div className={styles.paid}>
-    <input type="text" name="" id="" placeholder='-' className={styles.input1}/> 
+    <input type="text" name="" id="" placeholder='-' className={styles.input1} value={slipvalues.esi}/> 
 </div>
 
 </div>
@@ -285,7 +383,7 @@ return (
                 <div className={`${styles.label1} ${styles.slipheading}`}></div>
                 <div className={`${styles.gross} ${styles.slipheading} ${styles.smallslipheading}`}>Total Deductions</div>
                 <div className={`${styles.paid} ${styles.slipheading}`}>
-                <input type="text" name="" id="" placeholder='-' className={styles.input1}/> 
+                <input type="text" name="" id="" placeholder='-' className={styles.input1} value = {finalvalues.totalDeductions}/> 
                   </div>
             </div>
          
@@ -295,7 +393,7 @@ return (
 
            
               <div className={styles.netpayheading}>Net Pay</div>
-              <div className={styles.netamount}><input type="text" name="" id="" placeholder='-' className={styles.input1}/> </div>
+              <div className={styles.netamount}><input type="text" name="" id="" placeholder='-' className={styles.input1} value={finalvalues.total - finalvalues.totalDeductions}/> </div>
 
          
 
