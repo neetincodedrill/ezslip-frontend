@@ -229,7 +229,7 @@ color: #5A5A5A;
 
 
 .label1 {
-    width: 117px;
+    width: 170px;
 font-family: 'Montserrat';
 font-style: normal;
 font-weight: 500;
@@ -243,12 +243,11 @@ color: #5A5A5A;
 
 .gross{
     width: 110px;
-    margin-left: 146px;
+    margin-left: 93px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .paid {
     width: 215px;
     margin-left: 71px;
@@ -361,4 +360,17 @@ text-align: center;
 .input2
 {    width: inherit;
     border: none;
+}
+
+.label1edit {
+    border: none;
+    font-size: 11px;
+    width: 100%;
+}
+
+.grossedit {
+    border: none;
+    font-size: 11px;
+    text-align: center;
+    width: 100%;
 }

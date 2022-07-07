@@ -60,7 +60,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    padding: 0 20px;
+   
     justify-content: end;
     }
     
@@ -72,6 +72,7 @@
         font-size: 17px;
     line-height: 24px;
     display: flex;
+    padding: 0 20px;
     
     }
     
@@ -101,9 +102,16 @@
         padding-left: 42px;
     }
     
-    .pancardDiv,.pancardInput {
+    .pancardDiv {
         width: 361px;
         margin-left:66px;
+        height: 100%;
+        border: 1px solid #E8E8E8;
+    border-radius: 10px;
+    }
+
+    .pancardInput{
+        width: 361px;
         height: 100%;
         border: 1px solid #E8E8E8;
     border-radius: 10px;

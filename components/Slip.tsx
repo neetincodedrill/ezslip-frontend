@@ -180,11 +180,30 @@ return (
 
           <div className={styles.infooneline}>
 
+                <div className={styles.label1}>
+                <input type="text" name="" id="" placeholder='Conveyance allowance' className={styles.label1edit}/> 
+                </div>
+
+                <div className={styles.gross}>     
+                <input type="text" name="" id="" placeholder='-' className={styles.grossedit}/>  
+                </div>  
+
+                <div className={styles.paid}>
+
+                <input type="text" name="" id="" placeholder='-' className={styles.input1} /> 
+
+                </div>
+
+          </div>
+
+          <div className={styles.infooneline}>
+
 <div className={styles.label1}>
-<input type="text" name="" id="" placeholder='20000' /> 
- </div>
+<input type="text" name="" id="" placeholder='Vehicle allowance' className={styles.label1edit}/> 
+</div>
+
 <div className={styles.gross}>     
-<input type="text" name="" id="" placeholder='20000' /> 
+<input type="text" name="" id="" placeholder='-' className={styles.grossedit}/>  
 </div>  
 
 <div className={styles.paid}>
@@ -195,41 +214,13 @@ return (
 
 </div>
 
-<div className={styles.infooneline}>
-
-<div className={styles.label1}>
-<input type="text" name="" id="" placeholder='20000' className={styles.input1label} /> 
- </div>
-<div className={styles.gross}>     
-<input type="text" name="" id="" placeholder='20000' className={styles.input1} /> 
-</div>  
-
-<div className={styles.paid}>
-
-<input type="text" name="" id="" placeholder='20000' className={styles.input1} /> 
-
-</div>
-
-</div>
-
-          {/* //rest of the data will be fetched this way */}
-
-          {/* <div className={`${styles.infooneline} ${styles.custom}`}>
-
-              <div className={styles.label1}></div>
-              <div className={` ${styles.gross} ${styles.slipheading}`}> 
-                 <input type="text" name="" id="" placeholder='20000'/> 
-              </div>
-              <div className={styles.paid}>40000</div>
-
-          </div> */}
 
           <div className={`${styles.infooneline} ${styles.custom}`}>
 
                 <div className={styles.label1}></div>
                 <div className={` ${styles.gross} ${styles.slipheading}`}>Total</div>
                 <div className={styles.paid}>
-            <input type="text" name="" id="" placeholder='20000' className={styles.input1}/> 
+            <input type="text" name="" id="" placeholder='40000' className={styles.input1}/> 
               </div>  
 
           </div>
@@ -249,19 +240,46 @@ return (
             <div className={styles.infooneline}>
 
                 <div className={styles.label1}>Short leaves </div>
-                {/* <div className={styles.gross}>-</div>
-                <div className={styles.paid}>-</div> */}
 
-<div className={styles.gross}>     
-            <input type="text" name="" id="" placeholder='-' className={styles.input1}/> 
-            </div>
-            <div className={styles.paid}>
-            <input type="text" name="" id="" placeholder='-' className={styles.input1}/> 
-              </div>
+                <div className={styles.gross}>     
+                    <input type="text" name="" id="" placeholder='-' className={styles.input1}/> 
+                </div>
+            
+                <div className={styles.paid}>
+                    <input type="text" name="" id="" placeholder='-' className={styles.input1}/> 
+                </div>
            
             </div>
 
-            {/* we will fetch the rest of the data like that */}
+            <div className={styles.infooneline}>
+
+<div className={styles.label1}>EPF </div>
+
+<div className={styles.gross}>     
+    <input type="text" name="" id="" placeholder='-' className={styles.input1}/> 
+</div>
+
+<div className={styles.paid}>
+    <input type="text" name="" id="" placeholder='-' className={styles.input1}/> 
+</div>
+
+</div>
+
+<div className={styles.infooneline}>
+
+<div className={styles.label1}>ESI </div>
+
+<div className={styles.gross}>     
+    <input type="text" name="" id="" placeholder='-' className={styles.input1}/> 
+</div>
+
+<div className={styles.paid}>
+    <input type="text" name="" id="" placeholder='-' className={styles.input1}/> 
+</div>
+
+</div>
+
+            
 
             <div className={`${styles.infooneline} ${styles.custom}`}>
                 <div className={`${styles.label1} ${styles.slipheading}`}></div>
