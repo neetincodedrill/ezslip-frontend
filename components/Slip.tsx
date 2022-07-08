@@ -16,7 +16,7 @@ const Slip: FC<Islips> = ({ datacode }) => {
     "March",
     "April",
     "May",
-    "June",
+    "June", 
     "July",
     "August",
     "September",
@@ -239,6 +239,7 @@ const Slip: FC<Islips> = ({ datacode }) => {
               </div>
 
               <div className={styles.inputs}>
+                
                 <input
                   type="text"
                   placeholder="Loid Forger"
@@ -247,6 +248,7 @@ const Slip: FC<Islips> = ({ datacode }) => {
                   onChange={handleChange}
                   name="fullname"
                 />
+
                 <input
                   type="text"
                   placeholder="8484HJBH3"
@@ -255,6 +257,7 @@ const Slip: FC<Islips> = ({ datacode }) => {
                   onChange={handleChange}
                   name="employeeCode"
                 />
+                
                 <input
                   type="text"
                   placeholder="DD/MM/YYYY"
@@ -271,6 +274,7 @@ const Slip: FC<Islips> = ({ datacode }) => {
                   onChange={handleChange}
                   name="designation"
                 />
+
               </div>
             </div>
 

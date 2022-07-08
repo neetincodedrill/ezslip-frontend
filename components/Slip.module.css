@@ -107,7 +107,7 @@ font-family: 'Montserrat';
 font-style: normal;
 font-weight: 600;
 font-size: 10px;
-line-height: 12px;
+line-height: 20px;
 display: flex;
 align-items: center;
 background: #E6E6E6;
@@ -122,12 +122,14 @@ margin-bottom: 2px;
     font-style: normal;
 font-weight: 500;
 font-size: 10px;
-line-height: 12px;
+line-height: 20px;
 display: flex;
 align-items: center;
 justify-content: center;
-padding: 10px 0 10px 23px;
-margin-bottom: 2px;
+/* padding: 10px 0 10px 23px;
+margin-bottom: 2px; */
+padding: 10px 0 0px 23px;
+margin-bottom: 12px;
 color: #2E2E2E;
 width: 150px;
 }
@@ -176,8 +178,8 @@ align-items: left;
     height: 22px;
     display: flex;
     align-self: center;
-    margin-bottom: 2px;
     padding-left: 27px;
+    margin-bottom: 2px;
 }
 
 .gross{    

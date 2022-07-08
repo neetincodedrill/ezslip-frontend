@@ -20,6 +20,7 @@ const nextConfig = {
  
     return config;
   },
+  
 };
  
 module.exports = withPlugins([
@@ -30,4 +31,7 @@ module.exports = withPlugins([
   images: {
     domains: ['localhost:5000'],
   },
+  
+  
 }
+
