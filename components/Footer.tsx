@@ -12,7 +12,7 @@ export const Middlefooter:React.FC = () => {
 return(
 <div className={styles.middlefooter}>
 <div className={styles.footerlink}>Product</div>
-    <div className={styles.footerlink}><Link href="/contactForm">Contact</Link> </div>
+    <div className={styles.footerlink}>Contact</div>
     <div className={styles.footerlink}>About</div>
     <div className={styles.footerlink}>Pricing</div>
     <div className={styles.footerlink}>Policy</div>
@@ -65,9 +65,12 @@ const Footer:React.FC = () => {
       </div>
     </div>
     <div className={styles.footer2nd}>
+      <div className="container">
+
       <Middlefooter2 />
       <Rightfooter2 />
       
+      </div>
     </div>
     </div>
 

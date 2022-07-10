@@ -109,36 +109,14 @@ const RightNewComponent: FC<props> = ({ employeeCode }) => {
     setIsCalculateButtonClicked(true);
   };
 
-  // const downloadfunction = () => {
-  //   const input = document.getElementById('pdf');
 
-  //   html2canvas(input)
-  // .then((canvas) => {
-  //   const imgData = canvas.toDataURL('image/png');
-  //   const pdf = new jsPDF();
-
-  //   pdf.addImage(imgData, 'PNG', 0, 0, 200, 200);
-
-  //   pdf.save("download.pdf");
-  // });
-
-  // }
-
-  // const save = () => {
-  //   const doc = new jsPDF("p","pt")
-  //   doc.html(ReactDOMServer.renderToStaticMarkup(<Slip />), {
-  //     callback: () => {
-  //       doc.save("myDocument.pdf");
-  //     }
-  //   });
-  // }
   const savePdf = () => {
     const input:any = document.getElementById("pdf");
     html2canvas(input).then((canvas)=>{
       const imgData = canvas.toDataURL('image/png');
-      const pdf:any = new jsPDF('p', 'mm', [300, 300]);
+      const pdf:any = new jsPDF('p', 'mm', [374, 227]);
       pdf.addImage(imgData, 'JPEG', 0, 0);
-      // pdf.output('dataurlnewwindow');
+      // pdf.output('dataurlnewwindow');  
       pdf.save("download.pdf");
     })
 

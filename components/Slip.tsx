@@ -331,8 +331,11 @@ const Slip: FC<Islips> = ({ datacode }) => {
               <div className={` ${styles.gross} ${styles.slipheading}`}>
                 Amount
               </div>
-              <div className={styles.paid}></div>
+              <div className={styles.paid}>
+
+              </div>
             </div>
+           
 
             <div className={styles.infooneline}>
               <div className={styles.label1}></div>
@@ -342,123 +345,107 @@ const Slip: FC<Islips> = ({ datacode }) => {
 
             <div className={styles.infooneline}>
               <div className={styles.label1}>Basic Salary </div>
-              <div className={styles.gross}>
                 <input
                   type="text"
-                  className={styles.input1}
+                  className={styles.gross}
                   value={slipvalues.salary}
                   name="salary"
                   onKeyUp={handleChange}
                   autoComplete="off"
                 />
-              </div>
-              <div className={styles.paid}>
                 <input
                   type="text"
-                  className={styles.input1}
+                  className={styles.paid}
                   value={slipvalues.salary}
                   name="salary"
                   onChange={handleChange}
                   autoComplete="off"
                 />
-              </div>
+
             </div>
 
             <div className={styles.infooneline}>
               <div className={styles.label1}> HRA</div>
-              <div className={styles.gross}>
                 <input
                   type="text"
                   id=""
-                  className={styles.input1}
+                  className={styles.gross}
                   value={slipvalues.hra}
                   name="hra"
                   onChange={handleChange}
                   autoComplete="off"
                 />
-              </div>
 
-              <div className={styles.paid}>
                 <input
                   type="text"
                   id=""
-                  className={styles.input1}
+                  className={styles.paid}
                   value={slipvalues.hra}
                   name="hra"
                   onChange={handleChange}
                   autoComplete="off"
                 />
-              </div>
+              
             </div>
 
             <div className={styles.infooneline}>
-              <div className={styles.label1}>
+         
                 <input
                   type="text"
                   placeholder="Conveyance allowance"
-                  className={styles.label1edit}
+                  className={styles.label1}
                   autoComplete="off"
                 />
-              </div>
-
-              <div className={styles.gross}>
+        
                 <input
                   type="text"
                   placeholder="-"
-                  className={styles.grossedit}
+                  className={styles.gross}
                   name="conveyanceAllowance"
                   value={slipvalues.conveyanceAllowance}
                   onChange={handleChange}
                   autoComplete="off"
                 />
-              </div>
 
-              <div className={styles.paid}>
                 <input
                   type="text"
                   placeholder="-"
-                  className={styles.input1}
+                  className={styles.paid}
                   name="conveyanceAllowance"
                   value={slipvalues.conveyanceAllowance}
                   onChange={handleChange}
                   autoComplete="off"
                 />
-              </div>
+         
             </div>
 
             <div className={styles.infooneline}>
-              <div className={styles.label1}>
+ 
                 <input
                   type="text"
                   placeholder="Vehicle allowance"
-                  className={styles.label1edit}
+                  className={styles.label1}
                   autoComplete="off"
                 />
-              </div>
 
-              <div className={styles.gross}>
                 <input
                   type="text"
                   placeholder="-"
-                  className={styles.grossedit}
+                  className={styles.gross}
                   name="vehicleAllowance"
                   value={slipvalues.vehicleAllowance}
                   onChange={handleChange}
                    autoComplete="off"
                 />
-              </div>
-
-              <div className={styles.paid}>
                 <input
                   type="text"
                   placeholder="-"
-                  className={styles.input1}
+                  className={styles.paid}
                   name="vehicleAllowance"
                   value={slipvalues.vehicleAllowance}
                   onChange={handleChange}
                   autoComplete="off"
                 />
-              </div>
             </div>
 
             <div className={`${styles.infooneline} ${styles.custom}`}>
@@ -466,16 +453,16 @@ const Slip: FC<Islips> = ({ datacode }) => {
               <div className={` ${styles.gross} ${styles.slipheading}`}>
                 Total
               </div>
-              <div className={styles.paid}>
+           
                 <input
                   type="text"
                   placeholder="40000"
-                  className={styles.input1}
+                  className={styles.paid}
                   value={finalvalues.total}
                   name="total"
                   autoComplete="off"
                 />
-              </div>
+         
             </div>
           </div>
 
@@ -495,125 +482,128 @@ const Slip: FC<Islips> = ({ datacode }) => {
             <div className={styles.infooneline}>
               <div className={styles.label1}>Short leaves </div>
 
-              <div className={styles.gross}>
                 <input
                   type="text"
                   placeholder="-"
-                  className={styles.input1}
+                  className={styles.gross}
                   value={slipvalues.leavesNumber}
                   name="leavesNumber"
                   onChange={handleChange}
                   autoComplete="off"
                 />
-              </div>
 
-              <div className={styles.paid}>
-              
                 <input
                   type="text"
                   placeholder="-"
-                  className={styles.input1}
+                  className={styles.paid}
                   name="leaveAmount"
                   value={slipvalues.leaveAmount}
                   onChange={handleChange}
                   autoComplete="off"
                 />
-              </div>
+
             </div>
 
             <div className={styles.infooneline}>
               <div className={styles.label1}>EPF </div>
 
-              <div className={styles.gross}>
-                <input
-                  type="text"
-                  id=""
-                  placeholder="-"
-                  className={styles.input1}
-                  value={slipvalues.epf}
-                  name="epf"
-                  onChange={handleChange}
-                  autoComplete="off"
-                />
-              </div>
 
-              <div className={styles.paid}>
                 <input
                   type="text"
                   id=""
                   placeholder="-"
-                  className={styles.input1}
+                  className={styles.gross}
                   value={slipvalues.epf}
                   name="epf"
                   onChange={handleChange}
                   autoComplete="off"
                 />
-              </div>
+
+                <input
+                  type="text"
+                  id=""
+                  placeholder="-"
+                  className={styles.paid}
+                  value={slipvalues.epf}
+                  name="epf"
+                  onChange={handleChange}
+                  autoComplete="off"
+                />
+
             </div>
 
             <div className={styles.infooneline}>
               <div className={styles.label1}>ESI </div>
 
-              <div className={styles.gross}>
                 <input
                   type="text"
                   id=""
                   placeholder="-"
-                  className={styles.input1}
+                  className={styles.gross}
                   value={slipvalues.esi}
                   name="esi"
                   onChange={handleChange}
                   autoComplete="off"
                 />
-              </div>
+      
+                <input
+                  type="text"
+                  id=""
+                  placeholder="-"
+                  className={styles.paid}
+                  value={slipvalues.esi}
+                  name="esi"
+                  onChange={handleChange}
+                  autoComplete="off"
+                />
 
-              <div className={styles.paid}>
-                <input
-                  type="text"
-                  id=""
-                  placeholder="-"
-                  className={styles.input1}
-                  value={slipvalues.esi}
-                  name="esi"
-                  onChange={handleChange}
-                  autoComplete="off"
-                />
-              </div>
             </div>
 
             <div className={`${styles.infooneline} ${styles.custom}`}>
-              <div className={`${styles.label1} ${styles.slipheading}`}></div>
-              <div
-                className={`${styles.gross} ${styles.slipheading} ${styles.smallslipheading}`}
-              >
-                Total Deductions
-              </div>
-              <div className={`${styles.paid} ${styles.slipheading}`}>
+              <div className={`${styles.label1}`}></div>
+
+              <input type="text" 
+              className={`${styles.gross} ${styles.custom} ${styles.totaldeductions}`}
+              readOnly
+              value="Total Deductions"
+              />
+        
                 <input
                   type="text"
                   name=""
                   id=""
                   placeholder="-"
-                  className={styles.input1}
+                  className={styles.paid}
                   value={finalvalues.totalDeductions}
                   autoComplete="off"
                 />
-              </div>
+             
             </div>
           </div>
 
-          <div className={styles.netpay}>
-            <div className={styles.netpayheading}>Net Pay</div>
-            <div className={styles.netamount}>
+          <div className={styles.netpaydiv}>
+            <div className={`${styles.infooneline}`}>
+
+      
+            <div className={`${styles.label1}`}></div>
+
+            <input type="text" 
+              className={`${styles.gross} ${styles.netpay} `}
+              readOnly
+              value="Net Pay"
+              />
+        
               <input
                 type="text"
                 name=""
                 id=""
                 placeholder="-"
-                className={styles.input1}
+                className={`${styles.paid} ${styles.finalslipvalue}`}
                 value={finalvalues.total - finalvalues.totalDeductions}
                 autoComplete="off"
-              />{" "}
+              />
+            
+
             </div>
           </div>
 

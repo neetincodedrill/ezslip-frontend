@@ -16,7 +16,8 @@
     .firstheadingdiv {
     width: 397px;
     height: 404px;
-    
+    border: 1px solid #E8E8E8;
+    border-radius: 10px;
     }
     
     .headingName{
