@@ -10,13 +10,7 @@ import Thanks from "@components/Landingpage/Thanks"
 import Footer from "@components/Footer";
 import Copyright from "@components/Copyright";
 
-
-
-
 export default function document() {
-
-  
-  
   return (
     <>
         <Header />

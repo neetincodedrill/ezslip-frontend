@@ -17,6 +17,15 @@ const nextConfig = {
     config.resolve.alias['@graphql'] = path.resolve(__dirname,'./graphql-documents');
     config.resolve.alias['@client'] = path.resolve(__dirname,'./client');
     config.resolve.alias['@styles'] = path.resolve(__dirname,'./styles');
+    
+    config.resolve = {
+      ...config.resolve,
+      fallback: {
+        "fs": false,
+        "path": false,
+        "os": false,
+      }
+    }
  
     return config;
   },

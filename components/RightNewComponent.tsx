@@ -7,17 +7,15 @@ import GET_EMPLOYEE_BY_NAME from "@graphql/GET_EMPLOYEE_BY_NAME.graphql";
 import { useQuery } from "@apollo/client/react/hooks";
 import { useEffect, useState } from "react";
 import Slip from "./Slip";
-import { CookieValueTypes, getCookie } from "cookies-next";
 import { AiOutlineSearch } from "react-icons/ai";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
+import EmployeeSlipEmail from "./email"
 interface props {
   employeeCode: string;
 }
 
 const RightNewComponent: FC<props> = ({ employeeCode }) => {
-  var fs = require("fs");
-  const blobStream = require("blob-stream");
   const [isCalculateButtonClicked, setIsCalculateButtonClicked] =
     useState<boolean>(false);
   const [activebutton, setActiveButton] = useState("");
@@ -117,11 +115,26 @@ const RightNewComponent: FC<props> = ({ employeeCode }) => {
       const pdf:any = new jsPDF('p', 'mm', [374, 227]);
       pdf.addImage(imgData, 'JPEG', 0, 0);
       // pdf.output('dataurlnewwindow');  
-      pdf.save("download.pdf");
+      pdf.save("employeeSlip.pdf");
     })
 
     console.log(input, "input>>>.");
   };
+
+  const sharePdf = async() => {
+    // const email : string = "danielnaveen52@gmail.com";
+    // const response = await EmployeeSlipEmail(email)
+    // console.log(response)
+    const input:any = document.getElementById("pdf");
+    html2canvas(input).then((canvas)=>{
+      const imgData = canvas.toDataURL('image/png');
+      const pdf:any = new jsPDF('p', 'mm', [374, 227]);
+      pdf.addImage(imgData, 'JPEG', 0, 0);
+      // pdf.output('dataurlnewwindow');  
+      const fileName ='/home/codedrill/ezslip-frontend/public/uploads/' + 'employeeSlip.pdf'
+      pdf.save(fileName);
+    })
+  }
 
   return (
     <div className={styles.main}>
@@ -289,7 +302,7 @@ const RightNewComponent: FC<props> = ({ employeeCode }) => {
           </div>
 
           <div className={styles.downloadbuttondiv}>
-            <button className={styles.downloadbutton}>
+            <button className={styles.downloadbutton} onClick={savePdf}>
               Download
               {/* <Image src="/ezslip-frontend/public/assets/images/Download.svg" /> */}
               <Image src="/assets/images/Download.svg" height="24" width="24" />
@@ -297,7 +310,7 @@ const RightNewComponent: FC<props> = ({ employeeCode }) => {
           </div>
 
           <div className={styles.sharebuttondiv}>
-            <button className={styles.sharebutton}>
+            <button className={styles.sharebutton} onClick = {sharePdf}>
               Share
               {/* <Image src="/ezslip-frontend/public/assets/images/Arrow down.svg" /> */}
               <Image

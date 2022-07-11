@@ -36,35 +36,36 @@ const EditEmployeePopUp: FC<wrapperProps2> = ({
   const [epfChecked, setEpfChecked] = useState<boolean>(false);
   const { data, loading, error } = useQuery(GET_EMPLOYEE, {
     variables: {
-      getEmployeeId: id,
+      getEmployeeByIdId: id,
     },
   });
   const [updateEmployee] = useMutation(UPDATE_EMPLOYEE, {
     refetchQueries: [{ query: EMPLOYEE_LIST }, 
         { query: GET_EMPLOYEE, 
             variables: {
-                getEmployeeId: id,
+              getEmployeeByIdId: id,
             }, 
         }],
         awaitRefetchQueries: true,
   });
 
   useEffect(() => {
+    console.log(data? data : "")
     setFormdataget({
       id: id,
-      firstName: data?.getEmployee?.firstName,
-      lastName: data?.getEmployee?.lastName,
-      employeeCode: data?.getEmployee?.employeeCode,
-      designation: data?.getEmployee?.designation,
-      panNumber: data?.getEmployee?.panNumber,
-      salary: data?.getEmployee?.salary,
-      dob: data?.getEmployee?.dob,
-      doj: data?.getEmployee?.doj,
-      epf: data?.getEmployee?.epf?.number,
-      esi: data?.getEmployee?.esi?.number,
+      firstName: data?.getEmployeeById?.firstName,
+      lastName: data?.getEmployeeById?.lastName,
+      employeeCode: data?.getEmployeeById?.employeeCode,
+      designation: data?.getEmployeeById?.designation,
+      panNumber: data?.getEmployeeById?.panNumber,
+      salary: data?.getEmployeeById?.salary,
+      dob: data?.getEmployeeById?.dob,
+      doj: data?.getEmployeeById?.doj,
+      epf: data?.getEmployeeById?.epf?.number,
+      esi: data?.getEmployeeById?.esi?.number,
     });
-    setEsiChecked(data?.getEmployee?.esi?.isEnabled);
-    setEpfChecked(data?.getEmployee?.epf?.isEnabled);
+    setEsiChecked(data?.getEmployeeById?.esi?.isEnabled);
+    setEpfChecked(data?.getEmployeeById?.epf?.isEnabled);
   }, [loading]);
 
   const handle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -108,6 +109,7 @@ const EditEmployeePopUp: FC<wrapperProps2> = ({
       },
     });
   };
+
 
   return (
     <div className={styles.modalAddEmployee}>

@@ -1,5 +1,5 @@
-query GetEmployee($getEmployeeId: ID!) {
-  getEmployee(id: $getEmployeeId) {
+query GetEmployeeById($getEmployeeByIdId: ID!) {
+  getEmployeeById(id: $getEmployeeByIdId) {
     firstName
     lastName
     employeeCode
@@ -7,12 +7,12 @@ query GetEmployee($getEmployeeId: ID!) {
     panNumber
     salary
     dob
-    esi {
+    doj
+    epf {
       isEnabled
       number
     }
-    doj
-    epf {
+    esi {
       isEnabled
       number
     }

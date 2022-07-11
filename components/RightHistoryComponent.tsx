@@ -4,7 +4,8 @@ import { useQuery } from "@apollo/client/react/hooks";
 import EMPLOYEE_HISTORY from "@graphql/EMPLOYEE_HISTORY.graphql";
 
 const RightHistoryComponent: React.FC = () => {
-  const { data, loading, error } = useQuery(EMPLOYEE_HISTORY);
+  const { data, loading, error } = useQuery(EMPLOYEE_HISTORY,
+    {fetchPolicy: 'network-only'});
   if(data) console.log(data);
   if(error) console.log(error);
   var historyList: any;

@@ -10,9 +10,6 @@ import {useEffect} from 'react';
 import RightNewComponent from '@components/RightNewComponent';
 import DashboardLayout from '@components/DashboardLayout';
 
-
-
-
 var token: any; 
 token = getCookie('ezslipToken')
 const New = () => {

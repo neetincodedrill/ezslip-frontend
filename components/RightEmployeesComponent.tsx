@@ -7,14 +7,13 @@ import EmployeeModalWrapper from "./AddemployeePage/EmployeeModalWrapper";
 import { useQuery } from "@apollo/client";
 import EMPLOYEE_LIST from "@graphql/EMPLOYEE_LIST.graphql";
 import { getCookie } from "cookies-next";
-import { stringify } from "querystring";
-import EmployeeList from "../../ezslip-backend/server/gateway/employee/types/EmployeeListDetails";
+
 console.log(getCookie("ezslipToken"));
 
 const RightEmployeesComponent:React.FC = () => {
   
-    const { data, loading,error } = useQuery(EMPLOYEE_LIST,
-        {fetchPolicy: 'network-only'});
+  const { data, loading,error } = useQuery(EMPLOYEE_LIST,
+      {fetchPolicy: 'network-only'});
 
   const [isAddEmployeebuttonclicked, setIsAddEmployeebuttonclicked] =
     useState(false);
@@ -23,10 +22,6 @@ const RightEmployeesComponent:React.FC = () => {
   const [isDeleteEmployeebuttonclicked, setIsDeleteEmployeebuttonclicked] =
     useState(false);
   const [id, setId] = useState("");
-
-  console.log(data, "datya");
-
-  //   client.resetStore();
 
   const [empdata, setEmpData] = useState<any>("");
 
@@ -87,7 +82,7 @@ const RightEmployeesComponent:React.FC = () => {
         <div className={styles2.table2childdiv}>
           <div className={styles2.table2child2div}>
             <table className={styles2.table1}>
-              {empdata?.employeeList?.employees.map(
+              {data?.employeeList?.employees.map(
                 (employee: any, index: any) => (
                   <tbody key={index}>
                     <tr key={index}>
