@@ -11,6 +11,9 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import EmployeeSlipEmail from "./email"
+import pdfkit from "pdfkit"
+import fs from "fs"
+
 interface props {
   employeeCode: string;
 }
@@ -112,29 +115,62 @@ const RightNewComponent: FC<props> = ({ employeeCode }) => {
     const input:any = document.getElementById("pdf");
     html2canvas(input).then((canvas)=>{
       const imgData = canvas.toDataURL('image/png');
-      const pdf:any = new jsPDF('p', 'mm', [374, 227]);
+      const pdf:any = new jsPDF('p', 'mm', [300, 182]);
       pdf.addImage(imgData, 'JPEG', 0, 0);
       // pdf.output('dataurlnewwindow');  
       pdf.save("employeeSlip.pdf");
+      
     })
 
     console.log(input, "input>>>.");
   };
 
-  const sharePdf = async() => {
+  const sharePdf = async(e:MouseEvent) => {
+    console.log(e);
     // const email : string = "danielnaveen52@gmail.com";
     // const response = await EmployeeSlipEmail(email)
     // console.log(response)
+    // const input:any = document.getElementById("pdf");
+    // html2canvas(input).then((canvas)=>{
+    //   const imgData = canvas.toDataURL('image/png');
+    //   const pdf:any = new jsPDF('p', 'mm', [300, 182]);
+    //   pdf.addImage(imgData, 'JPEG', 0, 0);
+    //   // pdf.output('dataurlnewwindow');  
+    //   const fileName ='/ezslip-frontend/public/uploads' + 'employeeSlip.pdf'
+    //   pdf.save("/uploads/"+fileName);
+    //   const fs = require('fs');
+      // pdf.save( <a href={"/uploads/"+fileName} />)
+    // })
+    
+    
+    
+    // const blobStream = require('blob-stream');
+
+    
+    // let pdfDocument = new pdfkit;
+    // var fs = require('fs');
+
+    // const stream = pdfDocument.pipe(blobStream());
+
+    // var pdfname = 'EmployeeSlip.pdf';
+
+    // <Slip datacode={slipdata} />
+
+    // pdfDocument.pipe(fs.createWriteStream('/uploads/'+pdfname))
+    
+    // pdfDocument.end()
+
     const input:any = document.getElementById("pdf");
     html2canvas(input).then((canvas)=>{
-      const imgData = canvas.toDataURL('image/png');
-      const pdf:any = new jsPDF('p', 'mm', [374, 227]);
-      pdf.addImage(imgData, 'JPEG', 0, 0);
-      // pdf.output('dataurlnewwindow');  
-      const fileName ='/home/codedrill/ezslip-frontend/public/uploads/' + 'employeeSlip.pdf'
-      pdf.save(fileName);
-    })
-  }
+    
+    const imgData = canvas.toDataURL('image/png');
+    const pdf:any = new jsPDF('p', 'mm', [300, 182]);
+    pdf.addImage(imgData, 'JPEG', 0, 0);
+
+ 
+    
+  })
+}
 
   return (
     <div className={styles.main}>
@@ -153,6 +189,7 @@ const RightNewComponent: FC<props> = ({ employeeCode }) => {
                   className={styles.name}
                   style={{ border: "none" }}
                   value={slipdata?.firstName + " " + slipdata?.lastName}
+                  required
                 />
               )}
 
@@ -217,6 +254,7 @@ const RightNewComponent: FC<props> = ({ employeeCode }) => {
                   onChange={(e) => {
                     setempCode(e.target.value);
                   }}
+                  required
                 />
                 <div className={styles.searchIcon}>
                   <AiOutlineSearch onClick={runqueryGetEmpByCode} />
@@ -234,6 +272,7 @@ const RightNewComponent: FC<props> = ({ employeeCode }) => {
                 placeholder="Designation"
                 className={styles.designationinput}
                 value={slipdata?.designation}
+                required
               />
             </div>
 
@@ -245,6 +284,7 @@ const RightNewComponent: FC<props> = ({ employeeCode }) => {
                 placeholder="Pan Card number"
                 className={styles.pancardInput}
                 value={slipdata?.panNumber}
+                required
               />
             </div>
           </div>
@@ -258,6 +298,7 @@ const RightNewComponent: FC<props> = ({ employeeCode }) => {
                 placeholder="Date of Joining"
                 className={styles.designationinput}
                 value={slipdata?.doj}
+                required
               />
             </div>
 
@@ -269,6 +310,7 @@ const RightNewComponent: FC<props> = ({ employeeCode }) => {
                 placeholder="Salary"
                 className={styles.pancardInput}
                 value={slipdata?.panNumber}
+                required
               />
             </div>
           </div>
@@ -310,7 +352,7 @@ const RightNewComponent: FC<props> = ({ employeeCode }) => {
           </div>
 
           <div className={styles.sharebuttondiv}>
-            <button className={styles.sharebutton} onClick = {sharePdf}>
+            <button className={styles.sharebutton} onClick= {sharePdf}>
               Share
               {/* <Image src="/ezslip-frontend/public/assets/images/Arrow down.svg" /> */}
               <Image

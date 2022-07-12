@@ -5,6 +5,7 @@ import ModalChildWrapper from "./ModalChildWrapper";
 import { useMutation } from "@apollo/client"
 import ADD_EMPLOYEE from '@graphql/ADD_EMPLOYEE.graphql'
 import EMPLOYEE_LIST from '@graphql/EMPLOYEE_LIST.graphql'
+import AddEmployee from '../../../ezslip-backend/server/gateway/employee/resolver/addResolver';
 
 interface wrapperProps2 {
     flagDisplayFunc : React.Dispatch<React.SetStateAction<boolean>>;
@@ -48,9 +49,10 @@ const AddEmployeePopUp:FC<wrapperProps2> = ({flagDisplayFunc, flagemployee}) => 
         setEsiChecked(current => !current);     
     };
 
-    const handleSubmit = (e : any) => {
+    const handleSubmit = async (e : any) => {
         e.preventDefault();
-        addEmployee({
+        
+        const result = await addEmployee({
             variables: {
               input:  {
                 "firstName": formdataget.firstName,
@@ -72,12 +74,15 @@ const AddEmployeePopUp:FC<wrapperProps2> = ({flagDisplayFunc, flagemployee}) => 
               }
             }
         })
+        if(result.data.addEmployee.message === "Employee with employeeCode already exits") {
+            alert("An employee with this Employee Code already exists")
+        }
+        else
+        setAdddetailsSavedModal(!adddetailsSavedModal);
     }
 
-    const handleEmployeeeResponse = () => {
 
-            setAdddetailsSavedModal(!adddetailsSavedModal)
-    }
+
   
     return(
     
@@ -97,6 +102,7 @@ const AddEmployeePopUp:FC<wrapperProps2> = ({flagDisplayFunc, flagemployee}) => 
                         value= {formdataget.firstName}
                         onChange={handle}
                         className={styles.input}
+                        required
                     />
                     <input 
                         type="text"
@@ -105,6 +111,7 @@ const AddEmployeePopUp:FC<wrapperProps2> = ({flagDisplayFunc, flagemployee}) => 
                         value= {formdataget.lastName}
                         onChange={handle}
                         className={styles.input}
+                        required
                     />
                     <input 
                         type="text" 
@@ -113,6 +120,7 @@ const AddEmployeePopUp:FC<wrapperProps2> = ({flagDisplayFunc, flagemployee}) => 
                         value= {formdataget.employeeCode}
                         onChange={handle}
                         className={styles.input}
+                        required
                     />
                     <input 
                         type="text" 
@@ -121,6 +129,7 @@ const AddEmployeePopUp:FC<wrapperProps2> = ({flagDisplayFunc, flagemployee}) => 
                         value= {formdataget.designation}
                         onChange={handle}
                         className={styles.input}
+                        required
                     />
                     <input 
                         type="text"
@@ -129,6 +138,7 @@ const AddEmployeePopUp:FC<wrapperProps2> = ({flagDisplayFunc, flagemployee}) => 
                         value= {formdataget.panNumber}
                         onChange={handle} 
                         className={styles.input}
+                        required
                     />
                     <input 
                         type="number" 
@@ -137,6 +147,7 @@ const AddEmployeePopUp:FC<wrapperProps2> = ({flagDisplayFunc, flagemployee}) => 
                         value= {formdataget.salary}
                         onChange={handle}
                         className={styles.input}
+                        required
                     />
                     
                     <div className={styles.input}>
@@ -148,6 +159,7 @@ const AddEmployeePopUp:FC<wrapperProps2> = ({flagDisplayFunc, flagemployee}) => 
                         value= {formdataget.dob}
                         onChange={handle}
                         className={styles.dateinput}
+                        required
                     />
                     </div>
     
@@ -160,6 +172,7 @@ const AddEmployeePopUp:FC<wrapperProps2> = ({flagDisplayFunc, flagemployee}) => 
                         value= {formdataget.doj}
                         onChange={handle}
                         className={styles.dateinput}
+                        required
                     />
                     </div>
     
@@ -171,6 +184,7 @@ const AddEmployeePopUp:FC<wrapperProps2> = ({flagDisplayFunc, flagemployee}) => 
                         value= {formdataget.epf}
                         onChange={handle}
                         className={styles.input1}
+                        required
                     />
                     <input 
                         type="checkbox"
@@ -179,6 +193,7 @@ const AddEmployeePopUp:FC<wrapperProps2> = ({flagDisplayFunc, flagemployee}) => 
                         id="epfChecked"
                         name="epfChecked"
                     />
+                       
                     </div>
     
                     <div className={styles.input}>
@@ -189,6 +204,7 @@ const AddEmployeePopUp:FC<wrapperProps2> = ({flagDisplayFunc, flagemployee}) => 
                         value= {formdataget.esi}
                         onChange={handle}
                         className={styles.input1}
+                        required
                     />
                     <input 
                         type="checkbox"
@@ -202,7 +218,7 @@ const AddEmployeePopUp:FC<wrapperProps2> = ({flagDisplayFunc, flagemployee}) => 
                     <button 
                         type="submit" 
                         className={styles.submitbutton} 
-                        onClick={handleEmployeeeResponse}>Add to List
+                        >Add to List
                     </button>  
   
     

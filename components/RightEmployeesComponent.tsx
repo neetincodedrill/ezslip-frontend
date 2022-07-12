@@ -135,13 +135,7 @@ const RightEmployeesComponent:React.FC = () => {
                       </td>
                     </tr>
 
-                    {isAddEmployeebuttonclicked && (
-                      <EmployeeModalWrapper
-                        flagDisplayFunc={setIsAddEmployeebuttonclicked}
-                        flagemployee={isAddEmployeebuttonclicked}
-                        targetModal="add"
-                      />
-                    )}
+                  
                     {isEditEmployeebuttonclicked && (
                       <EmployeeModalWrapper
                         flagDisplayFunc={setIsEditEmployeebuttonclicked}
@@ -162,6 +156,13 @@ const RightEmployeesComponent:React.FC = () => {
                 )
               )}
             </table>
+            {isAddEmployeebuttonclicked && (
+                      <EmployeeModalWrapper
+                        flagDisplayFunc={setIsAddEmployeebuttonclicked}
+                        flagemployee={isAddEmployeebuttonclicked}
+                        targetModal="add"
+                      />
+                    )}
           </div>
         </div>
       </div>

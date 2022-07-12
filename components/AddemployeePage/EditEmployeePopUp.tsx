@@ -83,9 +83,10 @@ const EditEmployeePopUp: FC<wrapperProps2> = ({
     setEsiChecked((current) => !current);
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async(e: any) => {
     e.preventDefault();
-    updateEmployee({
+    setEditDetailsSavedModal(!editDetailsSavedModal);
+    let result = await updateEmployee({
       variables: {
         input: {
           id: formdataget.id,
@@ -108,6 +109,10 @@ const EditEmployeePopUp: FC<wrapperProps2> = ({
         },
       },
     });
+  //     if(result.data.addEmployee.message === "Employee with employeeCode already exits") {
+  //     alert("An employee with this Employee Code already exists")
+  // }
+
   };
 
 
@@ -125,6 +130,7 @@ const EditEmployeePopUp: FC<wrapperProps2> = ({
             value={formdataget.firstName}
             onChange={handle}
             className={styles.input}
+            required
           />
           <input
             type="text"
@@ -133,6 +139,7 @@ const EditEmployeePopUp: FC<wrapperProps2> = ({
             value={formdataget.lastName}
             onChange={handle}
             className={styles.input}
+            required
           />
           <input
             type="text"
@@ -141,6 +148,7 @@ const EditEmployeePopUp: FC<wrapperProps2> = ({
             value={formdataget.employeeCode}
             onChange={handle}
             className={styles.input}
+            required
           />
           <input
             type="text"
@@ -149,6 +157,7 @@ const EditEmployeePopUp: FC<wrapperProps2> = ({
             value={formdataget.designation}
             onChange={handle}
             className={styles.input}
+            required
           />
           <input
             type="text"
@@ -157,6 +166,7 @@ const EditEmployeePopUp: FC<wrapperProps2> = ({
             value={formdataget.panNumber}
             onChange={handle}
             className={styles.input}
+            required
           />
           <input
             type="number"
@@ -165,6 +175,7 @@ const EditEmployeePopUp: FC<wrapperProps2> = ({
             value={formdataget.salary}
             onChange={handle}
             className={styles.input}
+            required
           />
 
           <div className={styles.input}>
@@ -176,6 +187,7 @@ const EditEmployeePopUp: FC<wrapperProps2> = ({
               value={formdataget.dob}
               onChange={handle}
               className={styles.dateinput}
+              required
             />
           </div>
 
@@ -188,6 +200,7 @@ const EditEmployeePopUp: FC<wrapperProps2> = ({
               value={formdataget.doj}
               onChange={handle}
               className={styles.dateinput}
+              required
             />
           </div>
 
@@ -199,6 +212,7 @@ const EditEmployeePopUp: FC<wrapperProps2> = ({
               value={formdataget.epf}
               onChange={handle}
               className={styles.input1}
+              required
             />
             <input
               type="checkbox"
@@ -217,6 +231,7 @@ const EditEmployeePopUp: FC<wrapperProps2> = ({
               value={formdataget.esi}
               onChange={handle}
               className={styles.input1}
+              required
             />
             <input
               type="checkbox"
@@ -230,7 +245,7 @@ const EditEmployeePopUp: FC<wrapperProps2> = ({
             type="submit"
             className={styles.submitbutton}
             onClick={() => {
-              setEditDetailsSavedModal(!editDetailsSavedModal);
+              
             }}
           >
             Save

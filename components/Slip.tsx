@@ -78,8 +78,8 @@ const Slip: FC<Islips> = ({ datacode }) => {
     ),
     esi: Number(
       (datacode?.esi *
-        datacode?.salary + datacode?.hra) /
-        100
+        (datacode?.salary + datacode?.hra) /
+        100)
     ),
     hra: Number(
       (datacode?.hra *
@@ -175,8 +175,9 @@ const Slip: FC<Islips> = ({ datacode }) => {
       [e.target.name]: e.target.value,
     });
   };
-
-
+console.log()
+console.log(slipvalues);
+console.log(datacode);
   return (
     <div className={styles.slip}>
       <div className={styles.main}>
