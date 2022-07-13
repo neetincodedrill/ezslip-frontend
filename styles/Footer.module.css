@@ -57,6 +57,10 @@ margin: 0 92px;
   color: #4D4D4D;
 }
 
+.footerlink:hover {
+  cursor: pointer;
+}
+
 .right_header {
     width: 30%;
     display: flex;
@@ -78,6 +82,10 @@ margin: 0 92px;
     color: white;
     font-size: 18px;
     font-weight: bold;
+  }
+
+  .spanbutton button:hover {
+    cursor: pointer;
   }
 
   .footer2nd{
@@ -105,4 +113,8 @@ margin: 0 92px;
 
   .signinlink{
     color:#47a296;
+  }
+
+  .signinlink:hover {
+    cursor: pointer
   }

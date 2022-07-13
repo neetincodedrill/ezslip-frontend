@@ -332,7 +332,7 @@ const RightNewComponent: FC<props> = ({ employeeCode }) => {
           </div>
         )}
       </div>
-
+          
       {isCalculateButtonClicked && (
         <div className={styles.buttondiv}>
           <div className={styles.savebuttondiv}>
@@ -364,6 +364,9 @@ const RightNewComponent: FC<props> = ({ employeeCode }) => {
           </div>
         </div>
       )}
+        {/* <button className={styles.savebutton} onClick={savePdf}>
+              Save
+        </button> */}
     </div>
   );
 };

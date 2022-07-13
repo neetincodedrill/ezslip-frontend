@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      .slip {
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    width: 686px;
+}
+
+.main{
+    margin: 42px 25px 65px 25px;
+
+}
+.firstline {
+    display: flex;
+    justify-content: space-between;
+}
+
+.firstlinerightdiv {
+    /* margin-left: 250px; */
+    display: flex;
+}
+
+.upperdiv,.lowerdiv {
+    display: flex;
+    align-items: center;
+}
+
+.upperdiv {
+    border-bottom: 1px solid rgba(71, 162, 150, 0.47);
+}
+
+.para {
+    margin-left:6px;
+    font-family: Inter;
+font-style: normal;
+font-weight: 300;
+font-size: 7px;
+text-decoration: underline;
+color: #505050;
+
+}
+
+.secondrightdiv{
+    margin-left: 5px;
+    display: flex;
+}
+
+.addressdiv {
+    width: 80px;
+height: 38px;
+font-family: Inter;
+font-style: normal;
+font-weight: 300;
+font-size: 7px;
+line-height: 5px;
+margin-left: 7px;
+color: #505050;
+padding-top: 4px;
+}
+
+.addressdiv p {
+  padding: 0px 0;
+}
+
+.image {
+    width: 18px;
+    height: 18px;
+}
+
+.payslipdiv p{
+    font-weight: 400;
+font-size: 24px;
+line-height: 10px;
+/* identical to box height, or 42% */
+
+display: flex;
+align-items: center;
+
+color: #47A296;
+margin-top: 25px;
+margin-left: 10px;
+}
+
+.employeeinformationpara{
+margin-top:32px;
+margin-left: 5px;
+font-weight: 600;
+font-size: 19px;
+line-height: 23px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #47A296;
+}
+
+.infodiv {
+    display: flex;
+    margin-top: 20px;
+}
+
+.leftinfodiv,.rightinfodiv {
+    display: flex;
+}
+
+.label {
+font-family: Montserrat, sans-serif;
+font-style: normal;
+
+font-weight: 600;
+font-size: 10px;
+line-height: 18px;
+display: flex;
+align-items: center;
+background: #E6E6E6;
+color: #5E5E5E;
+padding: 10px 8px;
+margin-bottom: 2px;
+}
+
+.input {
+  border: none;
+    color: #5E5E5E;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 10px 0 10px 23px;
+    margin-bottom: 2px;
+    width: 150px;
+    margin-top: unset;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+}
+
+.image{
+    display: flex;
+}
+
+.rightinfodiv {
+    margin-left: 50px;
+}
+
+.secondinfodiv{
+    margin: 30px 0 10px;
+}
+
+.stylessecInfolineheading {
+    background: #E6E6E6;
+    padding-left: 27px;
+    display: flex;
+    height: 22px;
+    margin-bottom:2px;
+}
+
+.heading1, .heading2{
+    font-family: Montserrat;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 17px;
+color: #5E5E5E;
+width: 33%;
+align-items: left;
+}
+
+.heading2 {
+    margin-left:185px;
+}
+
+.infooneline{
+    display: flex;
+    align-self: center;
+    padding-left: 27px;
+    margin-bottom: 2px;
+
+}
+
+.gross{    
+font-weight: 500;
+font-size: 11px;
+color: #5E5E5E;
+margin-left: 80px;
+/* added */
+border: none;
+text-align: center;
+width: 110px;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 10px 0;
+margin-bottom: 2px;
+line-height: 18px;
+margin-top: unset;
+    margin-bottom: unset;
+}
+ 
+.paid {
+    /* height: 22px; */
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 18px;
+    background: #CECECE;
+   display: flex;
+   /* added */
+   border: none;
+   text-align: center;
+   margin-left: 50px !important;   
+   justify-content: center;
+   align-items: center;
+   width: 200px;    
+   padding: 10px 0;
+   margin-top: unset;
+    margin-bottom: unset;
+}
+
+.headings{
+    font-weight: 500;
+font-size: 10px;
+line-height: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #5A5A5A;
+}
+
+.grossinputs {
+
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 12px;
+       
+        text-align: center;
+        margin-left: 210px;
+        color: #5A5A5A;
+    
+}
+
+
+.label1 {
+    width: 170px;
+font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 10px;
+display: flex;
+align-items: center;
+justify-content: left;
+color: #5A5A5A;
+border: none;
+line-height: 18px;
+padding: 10px 0;
+margin-top:unset;
+margin-bottom: 2px;
+
+}
+
+
+.custom {
+background-color: #E6E6E6;
+}
+
+.slipheading {
+    font-weight: 600;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+padding: 10px 0;
+}
+
+.smallslipheading{
+    font-size: 11px;
+line-height: 13px;
+}
+
+.netpayheading {
+    width: 192px;
+    height: 22px;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 229px;
+    color: #5E5E5E;
+    font-weight: 600;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #5E5E5E;
+}
+
+
+.netamount {
+
+width: 190px;
+height: 22px;
+display: flex;
+align-items: center;
+justify-content: center;
+background: #CECECE;
+font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 10px;
+line-height: 12px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #5A5A5A;
+
+}
+
+
+.logo{
+    margin-left: 44px;
+    height: 35px;
+    width: 102px;
+}
+
+.logodiv{
+    margin-bottom: 65px ;
+}
+
+
+.input1 {
+    
+        border: none;
+        font-style: normal;
+    color: #2E2E2E;
+    width: 92px;
+    background-color: unset;
+    font-weight: 500;
+font-size: 11px;
+line-height: 13px;
+color: #5E5E5E;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+
+.input2
+{    width: inherit;
+    border: none;
+}
+
+.label1edit {
+    border: none;
+    font-size: 11px;
+    width: 100%;
+}
+
+.grossedit {
+    border: none;
+    font-size: 11px;
+    text-align: center;
+    width: 100%;
+}
+
+
+.back_white {
+    background-color: white;
+}
+
+
+.netpay {
+    width: 200px;
+    margin-left: 40px !important;
+    font-weight: 600;
+font-size: 14px;
+line-height: 20px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #5E5E5E;
+padding: 10px 0
+}
+
+.finalslipvalue {
+    margin-left: 0 !important;
+}
+
+.totaldeductions {
+    font-weight: 600;
+font-size: 11px;
+line-height: 18px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #5E5E5E;
+}
+
+
+.netpaydiv {
+    margin: 37px 0 55px;
+}
+    </style>
+
+</head>
+<body>
+    <div class="slip">
+        <div class="main">
+          <div class="firstline">
+            <div class="logoDiv">
+              <img
+                src="codedrill_logo.png"
+                width="164px"
+                height="43px"
+              />
+            </div>
+  
+            <div class="firstlinerightdiv">
+              <div class="firstrightdiv">
+                <div class="upperdiv">
+                  <div class="">
+                    <img src="User.png" width="18" height="18" />
+                  </div>
+  
+                  <p class="para">+91 8326897122, 101 92198</p>
+                </div>
+  
+                <div class="lowerdiv">
+                  <div class="">
+                    <img src="Mail.png" width="18" height="18" />
+                  </div>
+  
+                  <p class="para">mail@codedrillinfotech.com</p>
+                </div>
+              </div>
+  
+              <div class="secondrightdiv">
+                <div class="img">
+                  <img src="mappin.png" width="18" height="18" />
+                </div>
+  
+                <div class="addressdiv">
+                  <p>E-202,Ind Area,</p>
+                  <p> Phase-8B </p>
+                  <p>Mohali, Punjab, INDIA</p>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="payslipdiv">
+            <p>Payslip</p>
+          </div>
+  
+          <div class="employeeinformation">
+            <p class="employeeinformationpara">Employee Information</p>
+  
+            <div class="infodiv">
+              <div class="leftinfodiv">
+                <div class="labelsdiv">
+                  <div class="label">Name of the Employee</div>
+                  <div class="label">Employee Code</div>
+                  <div class="label">Date of Joining</div>
+                  <div class="label">Designation</div>
+                </div>
+  
+                <div class="inputs">
+                  
+                  <p class="input">hello</p>
+                  <p class="input">code</p>
+                  <p class="input">date</p>
+                  <p class="input">designation</p>
+  
+               
+  
+                </div>
+              </div>
+
+              <div class="rightinfodiv">
+                <div class="labelsdiv">
+                  <div class="label">Month</div>
+                  <div class="label">Days In Month</div>
+                  <div class="label">Days Worked</div>
+                  <div class="label">Leaves Taken</div>
+                </div>
+  
+                <div class="inputs">
+                <p class="input">December</p>
+                <p class="input">31</p>
+                <p class="input">31</p>
+                <p class="input">none</p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="secondinfodiv">
+              <div class="infooneline custom">
+                <div class="label1 slipheading">
+                  Particulars
+                </div>
+                <div class="gross slipheading">
+                  Amount
+                </div>
+                <div class="paid">
+  
+                </div>
+              </div>
+             
+  
+              <div class="infooneline">
+                <div class="label1"></div>
+                <div class="gross">Gross</div>
+                <div class="paid">Paid</div>
+              </div>
+  
+              <div class="infooneline">
+                <div class="label1">Basic Salary </div>
+                 <p class="gross">some</p>
+                 <p class="paid">Pay</p>
+  
+              </div>
+  
+              <div class="infooneline">
+                <div class="label1"> HRA</div>
+                 <p class="gross">value</p>
+  
+               <p class="paid">hello</p>
+                
+              </div>
+  
+              <div class=infooneline>
+           
+                <p class="label1">Conveyance allowance</p>
+          
+                 <p class="gross">helloy</p>
+  
+                  <p class="paid">goaway</p>
+           
+              </div>
+  
+              <div class=infooneline>
+   
+                <p class="label1">Vehicle allowance</p>
+  
+                <p class="gross">firt</p>
+            
+                <p class="paid">where</p>
+
+              </div>
+  
+              <div class="infooneline custom">
+                <div class="label1"></div>
+                <div class="gross slipheading">
+                  Total
+                </div>
+             
+               <p class="paid">total</p>
+           
+              </div>
+            </div>
+
+  
+            <div class="deductions">
+              <div class="infooneline custom">
+                <div class="label1 slipheading">
+                  Deductions
+                </div>
+                <div class="gross"></div>
+                <div class="paid slipheading">
+                  Amount
+                </div>
+              </div>
+  
+              <div class="infooneline">
+                <div class="label1">Short leaves </div>
+  
+               <p class="gross">some</p>
+  
+               <p class="paid">okay</p>
+  
+              </div>
+  
+              <div class="infooneline">
+                <div class="label1">EPF </div>
+  
+                  <p class="gross">gross</p>
+  
+                  <p class="paid">hello</p>
+  
+              </div>
+  
+              <div class="infooneline">
+                <div class="label1">ESI </div>
+
+                <p class="gross">hello</p>
+        
+                <p class="paid">good</p>
+  
+              </div>
+  
+              <div class="infooneline custom">
+                <div class="label1"></div>
+  
+                <p  
+                class="gross custom totaldeductions"
+                ></p>
+          
+             <p class="paid">paid</p>
+               
+              </div>
+            </div>
+  
+            <div class="netpaydiv">
+              <div class="infooneline">
+  
+        
+              <div class="label1"></div>
+  
+              <p
+                class="gross netpay"
+              >Netpay</p>
+          
+                <p class="paid finalslipvalue"/>
+              
+  
+              </div>
+            </div>
+  
+            <div class="logodiv">
+              <div class="logo">
+                <img
+                  src="ezSlips.png"
+                  width="102px"
+                  height="35px"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

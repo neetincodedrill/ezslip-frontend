@@ -1,6 +1,9 @@
 import React from 'react'
 import styles from "../styles/Footer.module.css";
 import Link from 'next/link';
+import Wrapper from './FooterModalWrapper/Wrapper';
+// import Product from '@components/FooterModalWrapper/FooterModals/Product';
+import {useState} from 'react';
 
 export const Leftfooter:React.FC = () => {
   return(
@@ -9,13 +12,35 @@ export const Leftfooter:React.FC = () => {
 }
 
 export const Middlefooter:React.FC = () => {
+
+  const [displayWrapper, setDisplayWrapper] = useState({
+    "isbuttonClicked" : false,
+    "target" : ""
+  });
+
+ 
+  const displayModal=(value:string)=>{
+    setDisplayWrapper({
+      "isbuttonClicked":true,
+      target: value
+    });
+
+  }
+
 return(
 <div className={styles.middlefooter}>
-<div className={styles.footerlink}>Product</div>
-    <div className={styles.footerlink}>Contact</div>
-    <div className={styles.footerlink}>About</div>
-    <div className={styles.footerlink}>Pricing</div>
-    <div className={styles.footerlink}>Policy</div>
+
+  <div className={styles.footerlink} onClick={ ()=>{ displayModal("Product")}}>Product</div>
+
+  <div className={styles.footerlink} onClick={ ()=>{ displayModal("Contact")} }>Contact</div>
+
+  <div className={styles.footerlink} onClick={ ()=>{ displayModal("About") } }>About</div>
+
+  <div className={styles.footerlink} onClick={ ()=>{ displayModal("Pricing") }}>Pricing</div>
+    
+  <div className={styles.footerlink} onClick={ ()=>{ displayModal("Policy") }}>Policy</div>
+
+  { displayWrapper.isbuttonClicked && (<Wrapper setDisplayWrapper={setDisplayWrapper} displayWrapper={displayWrapper}/>)}
 </div>
 )
 }
@@ -40,11 +65,17 @@ export const Middlefooter2:React.FC = () => {
   return (
     <div className={styles.footerbuttondiv}>
      <li>
-        <Link href="/pages/signin"><span className={styles.signinlink}>Sign In</span></Link>
+        <Link href="/signin"><span className={styles.signinlink}>Sign In</span></Link>
       </li>
       <span className={styles.spanbutton}>
-        <Link href="/pages/signup">
+        <Link href="/signup">
           <button>Sign Up</button>
+        </Link>
+      </span>
+
+      <span className={styles.spanbutton}>
+        <Link href="/contactForm">
+          <button>Contact</button>
         </Link>
       </span>
     </div>

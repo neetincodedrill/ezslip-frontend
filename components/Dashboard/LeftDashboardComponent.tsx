@@ -54,7 +54,7 @@ return (
 
     <Menu imgsrc="/assets/images/add.png" altimg="add.png" text="New" href="/new" />
     <Menu imgsrc="/assets/images/history.png" altimg="history.png" text="History" href="/history" />
-    <Menu imgsrc="/assets/images/employees.png" altimg="employees.png" text="Employees" href="/employeesPage" />
+    <Menu imgsrc="/assets/images/employees.png" altimg="employees.png" text="Employees" href="/employeesPage"/>
     <Menu imgsrc="/assets/images/configuration.png" altimg="configuration.png" text="Configuration" href="/configuration" />
 
     </div>

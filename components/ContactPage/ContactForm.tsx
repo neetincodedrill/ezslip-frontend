@@ -10,10 +10,10 @@ function FooterRight() {
 return (
     <div className={styles.customStyle}>
   <li>
-    <Link href="/pages/signin"><span >Sign In</span></Link>
+    <Link href="/signin" ><span className={styles.link} >Sign In</span></Link>
   </li>
   <span className={styles.spanbutton}>
-    <Link href="/pages/signup">
+    <Link href="/signup" className={styles.link}>
       <button className={styles.buttonStyle}>Sign Up</button>
     </Link>
   </span>

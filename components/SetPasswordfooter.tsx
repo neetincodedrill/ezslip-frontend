@@ -1,7 +1,7 @@
 import React from 'react'
 import { Leftfooter, Middlefooter, Middlefooter2 } from './Footer';
 import Link from 'next/link';
-// import styles from "./ContactPage/ContactForm";
+import styles from "./SetPasswordfooter.module.css";
 import Copyright from './Copyright';
 
 const footerstyle : any = {
@@ -34,11 +34,11 @@ const footerstyle : any = {
           <div style={customStyle}>
           
        <li>
-          <Link href="/pages/signin"><span >Sign In</span></Link>
+          <Link href="/signin" className={styles.hover}><span >Sign In</span></Link>
         </li>
         <span >
-          <Link href="/pages/signup">
-            <button style={buttonStyle}>Sign Up</button>
+          <Link href="/signup">
+            <button style={buttonStyle} className={styles.hover}>Sign Up</button>
           </Link>
         </span>
       </div>

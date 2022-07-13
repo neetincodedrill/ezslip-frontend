@@ -1,0 +1,113 @@
+
+.parent{
+  display: flex;
+  background-color: white;
+  top: 370px;
+  padding: 50px 93px 30px;
+  justify-content: space-between;
+  z-index: 10;
+  position: absolute;
+  overflow: hidden;
+  width: 1440px;
+  margin: auto;
+  animation-name: slideIn;
+  animation-duration: .3s;
+}
+
+  .firstmodalchild {
+    padding: 20px 0;
+  }
+
+  .Header_modal p{
+    color: #505050;
+  }
+  
+  .firstmodalchild .name{
+    color: #47A296;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 66px;
+    line-height: 24px;
+  }
+
+  .firstmodalchild p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+    margin: 50px 0 0 10px;
+    color: #505050;
+  }
+
+
+  .samepara{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+    margin: 14px 0 0 0;
+    color: #505050;
+  }
+  .modalchilds {
+    width: 24%;
+  }
+
+
+  .modalwrapperOpening{
+    height: 100vw;
+    width: 100vw;
+    overflow: hidden;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.4);  
+}
+
+.modalwrapperClosing{
+  height: 100vw;
+  width: 100vw;
+  overflow: hidden;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation-name: fade;
+  animation-duration: 0.5s;
+  background-color: rgba(0,0,0,0.4);  
+}
+
+@-webkit-keyframes slideIn {
+  from {top: 600px; opacity: 0} 
+  to {top: 370px; opacity: 1}
+}
+
+@keyframes slideIn {
+  from {top: 600px; opacity: 0;} 
+  to {top: 370px; opacity: 1}
+}
+
+  .hruler {
+    color: #47A296;
+    background-color: #47A296;
+    margin: 4px 0;
+    opacity: 0.5;
+  }
+
+  .modalchilds h2{
+    font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+
+  }
+
+  .modalchilds h3{
+    font-weight: 600;
+font-size: 14px;
+line-height: 24px;
+color: #47A296;
+padding: 20px 0 10px;
+  }
